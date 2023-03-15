@@ -1,0 +1,72 @@
+.your-topics {
+color: #8c7e7e; 
+cursor: pointer;
+font-family: var(--font-family-koho);
+font-weight: 600;
+font-size: var(--font-size-m); 
+position: relative;
+margin-top: 2%;
+/* top: 30px; */
+opacity: 1;
+margin-left: 30%;
+margin-right: 35%;
+}
+
+.searchbar{
+height: 30px;
+border: 0.7mm solid;
+border-radius: 3mm;
+border-color: #0F1930;
+width: 40vw;
+background-color: #D9D9D9;
+opacity: 1;
+}
+
+@media (min-width: 500px) {
+    .searchbar {
+        height: 35px;
+    }
+}
+
+/* Change height of search bar on screens larger than 900px */
+@media (min-width: 900px) {
+    .searchbar {
+        height: 40px;
+    }
+}
+
+.rectnotes {
+height: 700px;
+background-color: #0F1E31;
+margin-left: 7%;
+align-items: center;
+opacity: 1; position: absolute; 
+width: 85%;
+padding:40px;
+overflow-x: hidden;
+overflow-y: auto;
+text-align:justify;
+margin-top: 4.5%;
+border: 0.5mm solid;
+border-color: #485573;
+border-radius: 10px;
+}
+
+.savebutt {
+border-radius: 20px;
+height: 40px;
+width: 120px;
+background-color: #D9D9D9;
+border: 0.7mm solid;
+border-color: #485573;
+margin-right: 9%;
+top: 660px;
+position: fixed;
+z-index: 1;
+}
+
+.saveNotesDiv {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
