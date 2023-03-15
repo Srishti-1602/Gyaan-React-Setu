@@ -1,0 +1,41 @@
+.Gyaanlogo {
+border-radius:50%;
+width: 14%;
+margin-top: -1.8%;
+}
+
+.headgyaaaan{
+text-decoration: none;
+}
+
+.headsetu {
+font-size: 3vw;
+margin-top: -1%;
+/* font-size: 300%; */
+color: #fff;
+font-family: var(--font-family-koho);
+font-style: normal;
+text-decoration: none;
+}
+
+.gyansetu{
+width: 55%;
+margin-top: 20px;
+text-decoration: none;
+}
+
+.profilephoto {
+width: 38px;
+height: 38px;
+border-radius:50%;
+}
+
+.navbar {
+padding-bottom: 0 !important;
+min-height: 100px;
+}
+
+.login-sign {
+font-size: 20px;
+cursor: pointer;
+}
