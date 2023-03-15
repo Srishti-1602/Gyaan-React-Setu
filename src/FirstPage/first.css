@@ -1,5 +1,4 @@
 .ml-auto{
-color: #D9D9D9;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -12,12 +11,18 @@ margin-top: 10px;
 margin-bottom: -10px;
 }
 
+.navbar-toggler {
+  background-color: #2f4460; /* set your desired light color */
+  border: none;
+  margin-left: 10px;
+}
+
+
 .Head{
 text-align: center;
 font-size: 5vw;
 color: #fff;
 margin-top: 20px;
-/* border-bottom: 1px solid #fff; */
 }
 
 .pinkback1{
@@ -32,18 +37,6 @@ margin-left: 20%;
 margin-top: -20px;
 }
 
-.line {
-  position: absolute;
-  /* top: 20%; */
-  /* top: 43%; */
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 100%;
-  border: none;
-  border-top: 2px solid white; /* adjust border style as needed */
-}
-
 .Logo {
   border-radius: 50%;
   width: 15%;
@@ -51,25 +44,24 @@ margin-top: -20px;
   margin-top: 9%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1; /* set z-index to overlap the line */
+  z-index: 1; 
 }
 
 .JoinCom{
 background-color: #0F1E31;
-/* height: ; */
 width: 100%;
-/* margin-top: 1%; */
 padding-bottom: 30px;
 border-bottom: 1px solid #fff;
-/* margin-top: 380px; */
 }
 
 .Join{
 color: #D9D9D9;
 text-align: center;
-/* font-size: 3vw; */
 padding-top: 20px;
+animation: slide-in 1s ease-out forwards;
 }
+
+
 
 .TakeNotes{
 color: #90A6C1;
@@ -121,44 +113,20 @@ margin-left: 10px;
 margin-bottom: 5px;
 }
 
-/* .JoinInfo{
-background-color: #0F1E31;
-margin-top: 5%;
-padding-top: 10px;
-padding-left: 5%;
-padding-right: 5%;
-padding-bottom: 10px;
-border-bottom: 1px solid #fff;
-}
-
-.JoinHead{
-margin-top: 15px;
-color: #D9D9D9;
-margin-left: 10px;
-font-size: 130%;
-}
-
-.JoinPara{
-margin-top: 15px;
-color: #90A6C0;
-margin-left: 10px;
-font-size: 100%;
-} */
-
 .JoinContainer {
-  display: flex;
+background-color: #0F1E31;
+ display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
   margin: 20px;
-background-color: #0F1E31;
+color: #D9D9D9;
 }
 
 .JoinImg {
   max-width: 35%;
   margin-right: 20px;
-  padding-top: 15px;
-  padding-bottom: 20px; 
+height: 100%;
+object-fit: cover;
 }
 
 .JoinInfo {
@@ -166,13 +134,24 @@ background-color: #0F1E31;
 }
 
 .JoinHead {
-  margin-top: 0;
 color: #D9D9D9;
+padding: 20px;
+padding-bottom: 0%;
 }
 
 .JoinPara {
-  margin-bottom: 0;
 color: #90A6C0;
+padding: 20px;
+padding-top: 0%;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -181,45 +160,19 @@ color: #90A6C0;
   }
 }
 
-/* .TakeNotesInfo{
-margin-top: 5%;
-padding-top: 10px;
-padding-left: 5%;
-padding-right: 5%;
-padding-bottom: 10px;
-}
-
-.TakeNotesHead{
-margin-top: 15px;
-color: #D9D9D9;
-margin-left: 10px;
-font-size: 130%;
-}
-
-.TakeNotesPara{
-margin-top: 15px;
-color: #90A6C0;
-margin-left: 10px;
-font-size: 100%;
-} */
-
 .TakeNotesContainer {
 background-color: #0F1E31;
-/* background-color: #90A6C0; */
  display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
   margin: 20px;
 color: #D9D9D9;
 }
 
 .BackNotes {
   max-width: 38%;
-  height: auto;
-  /* margin-right: 40px; */
-  /* margin-bottom: 20px; */
-padding-top: 20px;
+height: 100%;
+object-fit: cover;
 }
 
 @media screen and (max-width: 768px) {
@@ -230,18 +183,22 @@ padding-top: 20px;
 
 .TakeNotesInfo {
   flex: 1;
-padding-right: 20px;
   /* padding-bottom: 30px; */
 }
+
 
 .TakeNotesHead {
   margin-top: 0;
  color: #D9D9D9;
+padding: 20px;
+padding-bottom: 0 ;
 }
 
 .TakeNotesPara {
   margin-bottom: 0;
 color: #90A6C0;
+padding: 20px;
+padding-top: 0%;
 }
 
 
@@ -336,16 +293,16 @@ color: #6F707B;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #162238; 
+  background: black; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #5a5959; 
+  background: #0F1E31; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #213b5e; 
 }
