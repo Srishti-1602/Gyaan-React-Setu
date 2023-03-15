@@ -9,9 +9,6 @@ import backJoin from '../Images/robot-handshake-human-background-futuristic-digi
 import image from '../Images/1000_F_281653938_vmA6yDD7FSEREktJSgSawfUPI8d3Mgn8-PhotoRoom.png-PhotoRoom.png';
 import { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { Carousel } from 'react-bootstrap';
-import prevIcon from '../Images/icons8-back-50.png';
-import nextIcon from '../Images/icons8-next-64.png';
 
 
 export default function Start() {
@@ -40,37 +37,7 @@ export default function Start() {
          <img src={image} alt="images" className='pinkback1'/>
          <img className='Logo' src={logo}/>
           <img src={image} alt="images" className='pinkback2'/>
-           {/* <Carousel activeIndex={index} onSelect={handleSelect} interval={3000} pauseOnHover={true}>
-            <Carousel.Item>
-              <img src={logo} className="d-block w-100" alt="..." />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src={backJoin} className="d-block w-100" alt="..." />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src={backimg} className="d-block w-100" alt="..." />
-            </Carousel.Item>
-            <Carousel.Control
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleAutoplaying"
-              data-bs-slide="prev"
-              onClick={() => setIndex(index === 0 ? 2 : index - 1)}
-            >
-              <img src={prevIcon} className="carousel-control-prev-icon" aria-hidden="true" alt="Prev" />
-              <span className="visually-hidden">Previous</span>
-            </Carousel.Control>
-            <Carousel.Control
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleAutoplaying"
-              data-bs-slide="next"
-              onClick={() => setIndex(index === 2 ? 0 : index + 1)}
-            >
-              <img src={nextIcon} className="carousel-control-next-icon" aria-hidden="true" alt="Next" />
-              <span className="visually-hidden">Next</span>
-            </Carousel.Control>
-          </Carousel> */}
+           
           
     </div>
     <div className='JoinCom'>
