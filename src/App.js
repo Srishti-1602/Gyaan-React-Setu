@@ -10,8 +10,9 @@ import React from 'react';
 import Navbar from './Nav/Nav';
 // import { YourTopics, SaveNotesDiv } from './Main/Main';
 // import Main from './Main/Main';
-import Start from './FirstPage/First';
-import Pricing from './Community/Community';
+// import Start from './FirstPage/First';
+// import Pricing from './Community/Community';
+import Dash from './Dashboard/Dashboard';
 
 // import logo from './Images/Gyaan setu.png';
 
@@ -19,7 +20,8 @@ function App() {
 return (
     <div>
       <Navbar />
-      <Pricing />
+      <Dash />
+      {/* <Pricing /> */}
       {/* <Start /> */}
       {/* <Navbar />
       <YourTopics />
