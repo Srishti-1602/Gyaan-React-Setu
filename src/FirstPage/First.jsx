@@ -7,17 +7,17 @@ import ArrowIcon from '../Images/9040034_box_arrow_up_right_icon.png';
 import backimg from '../Images/futuristic-5g-wireless-network-ai-robot-hand-tap-wifi-icon.jpg';
 import backJoin from '../Images/robot-handshake-human-background-futuristic-digital-age.jpg';
 import image from '../Images/1000_F_281653938_vmA6yDD7FSEREktJSgSawfUPI8d3Mgn8-PhotoRoom.png-PhotoRoom.png';
-import { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
 
-export default function Start() {
 
-   const [index, setIndex] = useState(0);
 
-   const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
- };
+
+export default function Start(props) {
+    const handleButtonClick = () => {
+    props.history.push('../Main/Main.jsx');
+  }
+
   return (
     <>
     <div>
@@ -32,13 +32,18 @@ export default function Start() {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+         <div className="video-background">
+      <video autoPlay loop muted>
+        <source src="../Images/mixkit-flying-through-a-virtual-world-of-artificial-intelligence-12254-medium.mp4" type="video/mp4" />
+      </video>
+    </div>
         <div className='Head'>GYAAN SETU</div>
          {/* <hr className='line' /> */}
          <img src={image} alt="images" className='pinkback1'/>
          <img className='Logo' src={logo}/>
           <img src={image} alt="images" className='pinkback2'/>
            
-          
+     
     </div>
     <div className='JoinCom'>
         <h2 className='Join'>Join Our Community</h2>
@@ -47,14 +52,10 @@ export default function Start() {
         <span className='Them'>Them!</span>
     </div>
     <div className='TryIt'>
-        <button className='TryGyaanSetu'>Try Gyaan Setu 
+        <button className='TryGyaanSetu' onClick={handleButtonClick}>Try Gyaan Setu 
           <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/>
         </button>
     </div>
-    {/* <div className='JoinInfo'>
-        <h3 className='JoinHead'>Joining the Community helps in</h3>
-        <p className='JoinPara'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-    </div> */}
 
    <div className='JoinContainer'>
    <img className='JoinImg' src={backJoin} alt='Logo'/>
@@ -73,6 +74,13 @@ export default function Start() {
       </div>
     <img className='BackNotes' src={backimg} alt='Logo'/>
     </div>
+
+  <div className='ContributionSector'>
+  <h2 className='ContributeHead'>Contribute to Gyaan Setu</h2>
+  <p className='ContributePara'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. 
+In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+  </div>
+
     <div className='About'>
         <h3 className='AboutUs'>About Us</h3>
     </div>
@@ -93,6 +101,9 @@ export default function Start() {
         </div>
       </div>
     </div>
+
+
+
     <footer className="footer">
       <div className="foot">
         <div className="row">
