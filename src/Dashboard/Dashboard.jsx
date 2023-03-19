@@ -26,9 +26,9 @@ function Dash() {
   return (
     <><div className="row row-cols-1 row-cols-md-4 mb-3 text-center">
           <div className="col">
-              <div className="card mb-4 rounded-3 shadow-sm" style={{ backgroundColor: "#162238" }}>
-                  <div className="card-body">
-                      <h1 className="card-title pricing-card-title">
+              <div className="card mb-4 rounded-3 shadow-sm">
+                  <div className="card-body personal-info">
+                      <h1 className="card-title pricing-card-title personal-info-title">
                           <img alt="information" className="infophoto" src={logo} />
                       </h1>
                       <ul className="list-unstyled mt-3 mb-4">
@@ -45,10 +45,10 @@ function Dash() {
               <div className="col">
                   <div className="card mb-4 rounded-3 shadow-sm" style={{ backgroundColor: '#162238' }}>
                       <div className="card-body">
-                          <h1 className="card-title-task pricing-card-title">Upcoming Tasks</h1>
+                          <h1 className="card-title-task pricing-card-title upcomming-title">Upcoming Tasks</h1>
                           <button type="button" className="taskOperate" onClick={handleAddTask}>Add Task</button>
                           <button type="button" className="taskOperate" onClick={handleRemoveTask}>Remove Task</button>
-                          <ul className="list-unstyled-task mt-3 mb-4">
+                          
                               <li><input type="text" name="" id="input" className="task-input" placeholder="Create a task" value={newTask} onChange={handleInputChange} /></li>
                               {tasks.map((task, index) => (
                                   <li className="mycheck" key={index}>
@@ -56,7 +56,6 @@ function Dash() {
                                       <label htmlFor={`check${index}`}>{task}</label>
                                   </li>
                               ))}
-                          </ul>
                       </div>
                   </div>
               </div>
