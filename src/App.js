@@ -7,21 +7,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 import React from 'react';
-// import Navbar from './Nav/Nav';
-// import { YourTopics, SaveNotesDiv } from './Main/Main';
-// import Main from './Main/Main';
-import Start from './FirstPage/First';
+import Navbar from './Nav/Nav';
+import { YourTopics, SaveNotesDiv } from './Main/Main';
+import Main from './Main/Main';
+//import Start from './FirstPage/First';
 
 // import logo from './Images/Gyaan setu.png';
 
 function App() {
 return (
     <div>
-      <Start />
-      {/* <Navbar />
+      {/* <Start /> */}
+      <Navbar />
       <YourTopics />
       <Main />
-      <SaveNotesDiv/> */}
+      <SaveNotesDiv/>
     </div>
    
   );
