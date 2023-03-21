@@ -23,46 +23,17 @@ function Navbar() {
     display: 'none',
   };
 
-//   const loginSignStyle = {
-//     color: '#000',
-//     fontSize: '17px',
-//     cursor: 'pointer',
-//     textAlign: 'center',
-//   };
 
-  function clickAlert() {
-    alert("The how-it-works button was clicked!");
-  }
-
-  function handleCommunitiesClick() {
-    // Handle communities click event
-    window.location.href = 'Community/community.html';
-  }
-
-  function handleContributeClick() {
-    // Handle contribute click event
-    clickAlert();
-  }
-
-  function handleHowItWorksClick() {
-    // Handle how it works click event
-    clickAlert();
-  }
-
-  // function handleLoginClick() {
-  //   // Handle login click event
-  //   clickAlert();
-  // }
 
   return (
   <div className="background">
     <nav className="navbar navbar-expand-xl navbar-dark" style={navbarStyle}>
       <div className="container-fluid">
         <div className="gyansetu">
-          <a className="navbar-brand" href="index.html">
+          <a className="navbar-brand" href="/">
             <img className='Gyaanlogo' src={logo}/>
           </a>
-          <a className="headgyaaaan" href="index.html">
+          <a className="headgyaaaan" href="/">
             {/* <span className="headgyaan">GYAAN&nbsp;</span> */}
             <span className="headsetu">GYAAN SETU</span>
           </a>
@@ -88,7 +59,7 @@ function Navbar() {
               <a
                 className="nav-link"
                 style={navLinkStyle}
-                onClick={handleCommunitiesClick}>
+                href="/community">
                 Communities
               </a>
             </li>
@@ -96,7 +67,7 @@ function Navbar() {
               <a
                 className="nav-link"
                 style={navLinkStyle}
-                onClick={handleContributeClick}>
+                href="/">
                 Contribute
               </a>
             </li>
@@ -104,7 +75,7 @@ function Navbar() {
               <a
                 className="nav-link"
                 style={navLinkStyle}
-                onClick={handleHowItWorksClick}>
+                href="/">
                 How it works?
               </a>
             </li>

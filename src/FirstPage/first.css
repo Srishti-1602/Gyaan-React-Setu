@@ -16,6 +16,7 @@ background-color: black;
 display: flex;
 justify-content: center;
 align-items: center;
+margin-top: -20px;
 }
 
 .navabout{
@@ -36,7 +37,7 @@ margin-bottom: -10px;
 text-align: center;
 font-size: 5vw;
 color: #fff;
-margin-top: 20px;
+margin-top: -10px;
 }
 
 .pinkback1{
@@ -75,8 +76,6 @@ padding-top: 20px;
 animation: slide-in 1s ease-out forwards;
 }
 
-
-
 .TakeNotes{
 color: #90A6C1;
 text-align: center;
@@ -105,10 +104,10 @@ margin-top: 20px;
 font-size: 85%;
 text-align: center;
 border-radius: 10px;
-border: 2px solid #2b7b8a;
-margin-top: 3%;
+border: 2px solid #3e484a;
+margin-top: 14%;
 width: 20%;
-min-width: 100px;
+min-width: 180px;
 height: 40px;
 background-color: #D9D9D9;
 font-weight: 500;

@@ -43,7 +43,7 @@ function Dash() {
           </div>
       </div><div className="row row-cols-1 row-cols-md-4 mb-3 text-center">
               <div className="col">
-                  <div className="card mb-4 rounded-3 shadow-sm" style={{ backgroundColor: '#162238' }}>
+                  <div className="card mb-4 rounded-3 shadow-sm">
                       <div className="card-body">
                           <h1 className="card-title-task pricing-card-title upcomming-title">Upcoming Tasks</h1>
                           <button type="button" className="taskOperate" onClick={handleAddTask}>Add Task</button>
@@ -60,10 +60,10 @@ function Dash() {
                   </div>
               </div>
               <div className="col">
-                  <div className="card-overview mb-4 rounded-3 shadow-sm" style={{ backgroundColor: '#162238' }}>
-                      <div className="card-body-overview">
-                          <h1 className="card-title-task pricing-card-title">Overview</h1>
-                          <ul className="list-unstyled-task mt-3 mb-4">
+                  <div className="card-overview mb-4 rounded-3 shadow-sm">
+                      <div className="card-body">
+                          <h1 className="card-title-task pricing-card-title overview-title">Overview</h1>
+                          <ul className="list-unstyled-overview mt-3 mb-4">
                               {tasks.map((task, index) => (
                                   <li className="over" key={index}>{task}</li>
                               ))}

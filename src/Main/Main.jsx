@@ -2,9 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React from 'react';
 import './main.css';
+import Navbar from '../Nav/Nav.jsx';
 
-export function YourTopics() {
+export default function Main() {
   return (
+<div>
+  <Navbar />
     <div className='your-topics'>
       <form id='search-form'>
         <input
@@ -16,24 +19,17 @@ export function YourTopics() {
         />
       </form>
     </div>
-  );
-}
-
-export function SaveNotesDiv() {
-  return (
-    <div className='saveNotesDiv'>
+  <div className='saveNotesDiv'>
       <button type='button' className='savebutt' id='save-prompt-button'>
-        Save
-      </button>
-    </div>
+       Save
+    </button>
+ </div>
+    <div className='rectnotes'> 
+ 			<div id='Summary-Preview'></div>
+		<div id="tree-view"></div>
+		</div>
+</div>
   );
 }
 
-export default function Main() {
-    return (
-        <div className='rectnotes'> 
-			<div id='Summary-Preview'></div>
-			<div id="tree-view"></div>
-		</div>
-);
-}
+
