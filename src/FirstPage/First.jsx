@@ -8,15 +8,15 @@ import backimg from '../Images/futuristic-5g-wireless-network-ai-robot-hand-tap-
 import backJoin from '../Images/robot-handshake-human-background-futuristic-digital-age.jpg';
 import image from '../Images/1000_F_281653938_vmA6yDD7FSEREktJSgSawfUPI8d3Mgn8-PhotoRoom.png-PhotoRoom.png';
 import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 
 
-
-export default function Start(props) {
-    const handleButtonClick = () => {
-    props.history.push('../Main/Main.jsx');
-  }
+function Start() {
+  //   const handleButtonClick = () => {
+  //   props.history.push('../Main/Main.jsx');
+  // }
 
   return (
     <>
@@ -52,9 +52,11 @@ export default function Start(props) {
         <span className='Them'>Them!</span>
     </div>
     <div className='TryIt'>
-        <button className='TryGyaanSetu' onClick={handleButtonClick}>Try Gyaan Setu 
+       <Link to="/index">
+        <button className='TryGyaanSetu'>Try Gyaan Setu 
           <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/>
         </button>
+      </Link>
     </div>
 
    <div className='JoinContainer'>
@@ -136,3 +138,5 @@ In publishing and graphic design, Lorem ipsum is a placeholder text commonly use
 </>
   );
 }
+
+export default Start;
