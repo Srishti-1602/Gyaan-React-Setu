@@ -21,7 +21,7 @@ function Start() {
   return (
     <>
     <div>
-      <Navbar bg="transparent" expand="lg" className='navbar-whole'>
+      <Navbar expand="lg" className='navbar-whole'>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
