@@ -12,12 +12,15 @@ import Comm from './Community/Community';
 import Dash from './Dashboard/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ErrorBoundary from './error/errorBound';
+// import LogIn from './Login/Login';
+
 
 function App() {
   // const user= false;
 return (
     <div>
-      
+      {/* <LogIn /> */}
+      {/* <Main /> */}
 
       <ErrorBoundary>
       <Router>
