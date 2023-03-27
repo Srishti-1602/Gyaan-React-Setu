@@ -21,7 +21,7 @@ function Start() {
   return (
     <>
     <div>
-      <Navbar bg="transparent" expand="lg">
+      <Navbar expand="lg" className='navbar-whole'>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
@@ -38,9 +38,8 @@ function Start() {
       </video>
     </div>
         <div className='Head'>GYAAN SETU</div>
-         {/* <hr className='line' /> */}
          <img src={image} alt="images" className='pinkback1'/>
-         <img className='Logo' src={logo}/>
+         <img className='Logo' src={logo} alt="logo"/>
           <img src={image} alt="images" className='pinkback2'/>
            
      
@@ -77,11 +76,11 @@ function Start() {
     <img className='BackNotes' src={backimg} alt='Logo'/>
     </div>
 
-  <div className='ContributionSector'>
+  {/* <div className='ContributionSector'>
   <h2 className='ContributeHead'>Contribute to Gyaan Setu</h2>
   <p className='ContributePara'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. 
 In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-  </div>
+  </div> */}
 
     <div className='About'>
         <h3 className='AboutUs'>About Us</h3>
