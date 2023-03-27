@@ -1,105 +1,90 @@
-/* import React, { useState } from 'react';
 
-function JsonNode({ data }) {
-  const [expanded, setExpanded] = useState(false);
-
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  };
-
-  const renderChildNodes = () => {
-    if (Array.isArray(data)) {
-      return data.map((child) => (
-        <li key={child.id}>
-          <JsonNode data={child} />
-        </li>
-      ));
-    } else if (typeof data === 'object') {
-      return Object.keys(data).map((key) => (
-        <li key={key}>
-          <strong>{key}: </strong>
-          <JsonNode data={data[key]} />
-        </li>
-      ));
-    } else {
-      return data.toString();
-    }
-  };
-
-  return (
-    <>
-      <button onClick={toggleExpanded}>
-        {expanded ? 'v' : '>'}
-      </button>
-      {expanded && (
-        <ul>
-          {renderChildNodes()}
-        </ul>
-      )}
-    </>
-  );
-}
-
-export default JsonNode; */
-
+//WITHOUT DELETE BUTTON
 
 import React, { useState } from 'react';
 
-function JsonNode({ data, parentId, id }) {
-  const [expanded, setExpanded] = useState(false);
+function JsonNode({ data, setData }) {
+  const [expanded, setExpanded] = useState([]);
 
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  };
-
-  const hasChildNodes = () => {
-    if (Array.isArray(data)) {
-      return data.length > 0;
-    } else if (typeof data === 'object') {
-      return Object.keys(data).length > 0;
+  const handleNodeClick = (key) => {
+    if (expanded.includes(key)) {
+      setExpanded(expanded.filter((k) => k !== key));
     } else {
-      return false;
+      setExpanded([...expanded, key]);
     }
   };
 
-  const renderChildNodes = () => {
-    if (Array.isArray(data)) {
-      return data.map((child, index) => (
-        <li key={index}>
-          <JsonNode data={child} parentId={id} id={`${id}-${index}`} />
-        </li>
-      ));
-    } else if (typeof data === 'object') {
-      return Object.keys(data).map((key) => (
+  const handleDeleteNode = (key) => {
+    const newData = deleteNode(data, key);
+    if (typeof setData === "function") {
+      setData(newData);
+    }
+  };
+  
+  const deleteNode = (node, key) => {
+    if (typeof node !== "object" || node === null) {
+      return node;
+    }
+  
+    const newNode = Array.isArray(node) ? [...node] : { ...node };
+  
+    if (newNode.hasOwnProperty(key)) {
+      delete newNode[key];
+      return newNode;
+    }
+  
+    for (let k in newNode) {
+      newNode[k] = deleteNode(newNode[k], key);
+      if (newNode[k] === null) {
+        delete newNode[k];
+      }
+    }
+  
+    return newNode;
+  };
+  
+  
+
+  const renderNode = (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      return (
         <li key={key}>
-          <JsonNode data={data[key]} parentId={id} id={`${id}-${key}`} />
+          <span onClick={() => handleNodeClick(key)}>
+            {expanded.includes(key) ? (
+              <i className="fa fa-caret-down" style={{ marginRight: "10px" }}></i>
+            ) : (
+              <i className="fa fa-caret-right" style={{ marginRight: "10px" }}></i>
+            )}
+            {key}{' '}
+            <i className="fa fa-trash" style={{ cursor: "pointer" }} onClick={() => handleDeleteNode(key)}></i>
+          </span>
+          <ul style={{ display: expanded.includes(key) ? "block" : "none", paddingLeft: "1em", listStyleType: "none" }}>
+            {Object.entries(value).map(([k, v]) => renderNode(k, v))}
+          </ul>
         </li>
-      ));
+      );
     } else {
-      return data.toString();
+      return (
+        <li key={key}>
+          <span onClick={() => handleNodeClick(key)} style={{ cursor: "pointer" }}>
+            {expanded.includes(key) ? (
+              <i className="fa fa-caret-down" style={{ marginRight: "10px" }}></i>
+            ) : (
+              <i className="fa fa-caret-right" style={{ marginRight: "10px" }}></i>
+            )}
+            {key}:{' '}
+            <i className="fa fa-trash" style={{ cursor: "pointer" }} onClick={() => handleDeleteNode(key)}></i>
+          </span>
+          <br />
+          <span style={{ paddingLeft: "3em", display: expanded.includes(key) ? "inline" : "none" }}>
+            {value}
+          </span>
+        </li>
+      );
     }
   };
-
-  const isExpanded = parentId && expanded;
-
-  return (
-    <>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        {hasChildNodes() && (
-          <button onClick={toggleExpanded}>
-            {isExpanded ? 'v' : '>'}
-          </button>
-        )}
-        {typeof data !== 'object' && <span>{data.toString()}</span>}
-        {typeof data === 'object' && <strong>{'{ }'}</strong>}
-      </div>
-      {isExpanded && (
-        <ul>
-          {renderChildNodes()}
-        </ul>
-      )}
-    </>
-  );
+  
+  return <ul style={{ listStyleType: "none", paddingLeft: 0 }}>{Object.entries(data).map(([key, value]) => renderNode(key, value))}</ul>;
 }
 
 export default JsonNode;
