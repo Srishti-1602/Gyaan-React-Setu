@@ -1,15 +1,20 @@
+body {
+background-color: #222D47;
+}
+
 .your-topics {
 color: #8c7e7e; 
 cursor: pointer;
 font-family: var(--font-family-koho);
 font-weight: 600;
 font-size: var(--font-size-m); 
-position: relative;
+/* position: relative; */
 margin-top: 2%;
 /* top: 30px; */
 opacity: 1;
-margin-left: 30%;
-margin-right: 35%;
+display: flex;
+justify-content: center;
+align-content: center;
 }
 
 .searchbar{
@@ -38,7 +43,7 @@ opacity: 1;
 .rectnotes {
 height: 700px;
 background-color: #0F1E31;
-margin-left: 7%;
+/* margin-left: 7%; */
 align-items: center;
 opacity: 1; position: absolute; 
 width: 85%;
@@ -69,4 +74,30 @@ z-index: 1;
 display: flex;
 align-items: center;
 justify-content: flex-end;
+}
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0F1E31; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #213b5e; 
 }
