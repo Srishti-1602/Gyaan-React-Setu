@@ -1,7 +1,7 @@
 import React from 'react';
-import './login.css';
+import './signup.css';
 // import logo from '../Images/Gyaan setu.png';
-import logimg from '../Images/4884273.jpg';
+import signimg from '../Images/4884273.jpg';
 // import React, { useState } from "react";
 
 function LogIn() {
@@ -11,7 +11,7 @@ function LogIn() {
     <>
     <div className="App">
       <div className="image-container">
-        <img src={logimg} alt="Mylogin" className='imglog'/>
+        <img src={signimg} alt="MySign" className='imglog'/>
       
       </div>
       <div className="login-container">
@@ -29,6 +29,16 @@ function LogIn() {
           <br />
           <label>
             Password:
+            <input type="password" name="password" />
+          </label>
+          <br />
+             <label>
+            School:
+            <input type="password" name="password" />
+          </label>
+          <br />
+             <label>
+            Course:
             <input type="password" name="password" />
           </label>
           <br />
