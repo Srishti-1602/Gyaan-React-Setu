@@ -1,7 +1,7 @@
 import React from 'react';
 import './signup.css';
 // import logo from '../Images/Gyaan setu.png';
-import signimg from '../Images/4884273.jpg';
+import signimg from '../Images/5066999.jpg';
 // import React, { useState } from "react";
 
 function LogIn() {
@@ -14,7 +14,7 @@ function LogIn() {
         <img src={signimg} alt="MySign" className='imglog'/>
       
       </div>
-      <div className="login-container">
+      <div className="signup-container">
         {/* <div>
           <h2>Welcome</h2>
       </div> */}
@@ -32,14 +32,14 @@ function LogIn() {
             <input type="password" name="password" />
           </label>
           <br />
-             <label>
+             <label className='school'>
             School:
-            <input type="password" name="password" />
+            <input type="text" name="school" />
           </label>
           <br />
-             <label>
+             <label className='school'>
             Course:
-            <input type="password" name="password" />
+            <input type="text" name="course" />
           </label>
           <br />
           <button type="submit">Log In</button>

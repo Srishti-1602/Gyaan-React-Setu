@@ -9,19 +9,20 @@ import React from 'react';
 // import Main from './Main/Main';
 // import Start from './FirstPage/First';
 // import Comm from './Community/Community';
-// import Dash from './Dashboard/Dashboard';
+import Dash from './Dashboard/Dashboard';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import ErrorBoundary from './error/errorBound';
-import LogIn from './Login/Login';
-
+// import LogIn from './Login/Login';
+// import SignUp from './SignUp/Signup';
 
 function App() {
   // const user= false;
 return (
     <div>
-      <LogIn />
+      {/* <LogIn /> */}
       {/* <Main /> */}
-
+      {/* <SignUp /> */}
+        <Dash />
       {/* <ErrorBoundary>
       <Router>
         

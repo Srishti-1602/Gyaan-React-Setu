@@ -1,6 +1,6 @@
 body {
 /* background-color: black; */
-background: linear-gradient(to bottom,#063465,black);
+background: linear-gradient(to bottom,#391789,rgb(7, 98, 125));
 display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@ margin: 40px -70px;
     margin: 40px;
 }
 
-.login-container {
+.signup-container {
 margin-top: 40px;
 margin-bottom: 40px;
 max-width: 70%;
@@ -41,7 +41,7 @@ max-width: 70%;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: #0F1E31;
+  background-color: #091018;
 /* border: 15px solid #063465; */
 }
 
@@ -51,7 +51,7 @@ form {
 }
 
 form label {
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   color: bisque;
   /* margin-right: 10px; */
 }
@@ -60,7 +60,7 @@ form input {
   padding: 0.5rem;
   border-radius: 0.25rem;
   border: 1px solid #ccc;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 margin-left: 15px;
 }
 
@@ -95,4 +95,8 @@ margin-top: 15px;
 color: #ccc;
 margin-top: -40px;
 font-weight: lighter;
+}
+
+.school{
+margin-left: 1rem;
 }

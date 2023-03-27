@@ -1,6 +1,6 @@
 body {
 /* background-color: black; */
-background: linear-gradient(to bottom,#063465,black);
+background: linear-gradient(to bottom,rgb(34, 34, 115),#390985);
 display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@ max-width: 70%;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: #0F1E31;
+  background-color: #000000;
 /* border: 15px solid #063465; */
 }
 
