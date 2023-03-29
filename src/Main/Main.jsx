@@ -8,13 +8,15 @@ import JsonNode from './JSONnode/JsonNode';
 const data = {
   id: 1,
   name: 'John Doe',
+  paragraphs: 'dsadas',
   age: 30,
-  hobbies: ['reading', 'coding', 'hiking'],
+  hobbies: {paragraphs:['dsadas'], basketball: 'football', music: 'movies'},
   address: {
-    street: {'123 Main St': 'Apt 1',},
+    street: {paragraphs: ['afasfsa', 'dsafafa'], '123 Main St': 'Apt 1',},
     city: 'Anytown',
     state: 'CA',
-    zip: '12345',
+    url: ['https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL'],
+    paragraphs: ['afasfsa', 'dsafafa'],
   },
 };
 
