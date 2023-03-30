@@ -12,11 +12,11 @@ const data = {
   age: 30,
   hobbies: {paragraphs:['dsadas'], basketball: 'football', music: 'movies'},
   address: {
-    street: {paragraphs: ['afasfsa', 'dsafafa'], '123 Main St': 'Apt 1',},
+    street: {paragraphs: ['afasfsa', 'IMAGE_URL: https://www.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg', 'dsafafa'], '123 Main St': 'Apt 1',},
     city: 'Anytown',
     state: 'CA',
     url: ['https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL'],
-    paragraphs: ['afasfsa', 'dsafafa'],
+    paragraphs: ['afasfsa', 'dsafafa', 'IMAGE_URL: https://www.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg', "new element", 'dasfsafsa', 'ds', 'dsafsa', 'fsafsa'],
   },
 };
 
