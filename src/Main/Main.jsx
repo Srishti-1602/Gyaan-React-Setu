@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './main.css';
 import Navbar from '../Nav/Nav.jsx';
 import JsonNode from './JSONnode/JsonNode';
+import Search  from './Search/Search';
 
 const data = {
   id: 1,
@@ -12,11 +13,11 @@ const data = {
   age: 30,
   hobbies: {paragraphs:['dsadas'], basketball: 'football', music: 'movies'},
   address: {
-    street: {paragraphs: ['afasfsa', 'dsafafa'], '123 Main St': 'Apt 1',},
+    street: {paragraphs: ['afasfsa', 'IMAGE_URL: https://www.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg', 'dsafafa'], '123 Main St': 'Apt 1',},
     city: 'Anytown',
     state: 'CA',
     url: ['https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL'],
-    paragraphs: ['afasfsa', 'dsafafa'],
+    paragraphs: ['afasfsa', 'dsafafa', 'IMAGE_URL: https://www.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg', "new element", 'dasfsafsa', 'ds', 'dsafsa', 'fsafsa'],
   },
 };
 
@@ -27,19 +28,17 @@ export default function Main() {
     setJsonData(newData);
   };
 
+  const handleSearch = (searchQuery) => {
+    console.log(`Search query: ${searchQuery}`);
+    setJsonData(searchQuery);
+  };
+
+
   return (
     <div>
       <Navbar />
       <div className='your-topics'>
-        <form id='search-form'>
-          <input
-            type='search'
-            className='searchbar'
-            placeholder=' Your Topics...'
-            name='search'
-            id='search-input'
-          />
-        </form>
+      <Search onSearch={handleSearch} />
       </div>
       <div className='saveNotesDiv'>
         <button type='button' className='savebutt' id='save-prompt-button'>

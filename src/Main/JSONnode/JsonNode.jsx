@@ -47,47 +47,120 @@ function JsonNode({ data, setData }) {
 
   const renderNode = (key, value) => {
     if (typeof value === "object" && value !== null) {
-      const isParagraph = key === "paragraphs" || key === "url";
+      const isParagraph = key === "paragraphs";
+      const isUrl = key === "url";
       const isExpanded = expanded.includes(key);
   
-      return (
-        <li key={key}>
-          {isParagraph ? (
-            <span style={{ color: "white" }}>
-              {Array.isArray(value) ? value.join(" ") : value}
+      if (isParagraph) {
+        const paragraphs = Array.isArray(value)
+          ? value.map((paragraph) => {
+            if (paragraph.startsWith("IMAGE_URL: ")) {
+              const imageUrl = paragraph.substring("IMAGE_URL: ".length);
+              return <img src={imageUrl} alt="embedded" />;
+            } else {
+              return paragraph;
+            }
+            
+            })
+          : value;
+  
+        return <span style={{ color: "white" }}>
+        {paragraphs.map((paragraph) => (
+          <>
+            {paragraph}
+            <br />
+          </>
+        ))}
+        </span>
+          ;
+      } else if (isUrl) {
+        return (
+          <span style={{ color: "white" }}>
+            <span
+              style={{
+                color: "gray",
+                cursor: "pointer",
+                textDecoration: "underline",
+              }}
+              onClick={() => window.open(value, "_blank")}
+            >
+              {value}
             </span>
-          ) : (
-            <span onClick={() => handleNodeClick(key)} style={{ color: 'white' }}>
+            <br />
+          </span>
+        );
+      } else {
+        return (
+          <li key={key}>
+            <span
+              onClick={() => handleNodeClick(key)}
+              style={{ cursor: "pointer", color: "white" }}
+            >
               {isExpanded ? (
-                <i className="fa fa-caret-down" style={{ marginRight: "10px", color: 'white' }}></i>
+                <i
+                  className="fa fa-caret-down"
+                  style={{ marginRight: "10px", color: "white" }}
+                ></i>
               ) : (
-                <i className="fa fa-caret-right" style={{ marginRight: "10px", color: 'white' }}></i>
+                <i
+                  className="fa fa-caret-right"
+                  style={{ marginRight: "10px", color: "white" }}
+                ></i>
               )}
-              {key}{' '}
-              <i className="fa fa-trash" style={{ cursor: "pointer", color: 'white' }} onClick={() => handleDeleteNode(key)}></i>
+              {key}{" "}
+              <i
+                className="fa fa-trash"
+                style={{ cursor: "pointer", color: "white" }}
+                onClick={() => handleDeleteNode(key)}
+              ></i>
             </span>
-          )}
-          {isParagraph ? null : (
-            <ul style={{ display: isExpanded ? "block" : "none", paddingLeft: "1em", listStyleType: "none" }}>
-              {Object.entries(value).map(([k, v]) => renderNode(k, v))}
-            </ul>
-          )}
-        </li>
-      );
+            {Object.entries(value).length > 0 && (
+              <ul
+                style={{
+                  display: isExpanded ? "block" : "none",
+                  paddingLeft: "1em",
+                  listStyleType: "none",
+                }}
+              >
+                {Object.entries(value).map(([k, v]) => renderNode(k, v))}
+              </ul>
+            )}
+          </li>
+        );
+      }
     } else {
       return (
         <li key={key}>
-          <span onClick={() => handleNodeClick(key)} style={{ cursor: "pointer", color: 'white' }}>
+          <span
+            onClick={() => handleNodeClick(key)}
+            style={{ cursor: "pointer", color: "white" }}
+          >
             {expanded.includes(key) ? (
-              <i className="fa fa-caret-down" style={{ marginRight: "10px", color: 'white' }}></i>
+              <i
+                className="fa fa-caret-down"
+                style={{ marginRight: "10px", color: "white" }}
+              ></i>
             ) : (
-              <i className="fa fa-caret-right" style={{ marginRight: "10px", color: 'white' }}></i>
+              <i
+                className="fa fa-caret-right"
+                style={{ marginRight: "10px", color: "white" }}
+              ></i>
             )}
-            {key}:{' '}
-            <i className="fa fa-trash" style={{ cursor: "pointer", color: 'white' }} onClick={() => handleDeleteNode(key)}></i>
+            {key}:{" "}
+            <i
+              className="fa fa-trash"
+              style={{ cursor: "pointer", color: "white" }}
+              onClick={() => handleDeleteNode(key)}
+            ></i>
           </span>
           <br />
-          <span style={{ paddingLeft: "3em", display: expanded.includes(key) ? "inline" : "none", color: 'white' }}>
+          <span
+            style={{
+              paddingLeft: "3em",
+              display: expanded.includes(key) ? "inline" : "none",
+              color: "white",
+            }}
+          >
             {value}
           </span>
         </li>
