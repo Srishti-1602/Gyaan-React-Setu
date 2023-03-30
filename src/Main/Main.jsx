@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './main.css';
 import Navbar from '../Nav/Nav.jsx';
 import JsonNode from './JSONnode/JsonNode';
+import Search  from './Search/Search';
 
 const data = {
   id: 1,
@@ -27,19 +28,17 @@ export default function Main() {
     setJsonData(newData);
   };
 
+  const handleSearch = (searchQuery) => {
+    console.log(`Search query: ${searchQuery}`);
+    setJsonData(searchQuery);
+  };
+
+
   return (
     <div>
       <Navbar />
       <div className='your-topics'>
-        <form id='search-form'>
-          <input
-            type='search'
-            className='searchbar'
-            placeholder=' Your Topics...'
-            name='search'
-            id='search-input'
-          />
-        </form>
+      <Search onSearch={handleSearch} />
       </div>
       <div className='saveNotesDiv'>
         <button type='button' className='savebutt' id='save-prompt-button'>
