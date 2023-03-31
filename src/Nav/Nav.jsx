@@ -6,6 +6,7 @@ import React from 'react';
 import logo from '../Images/Gyaan setu.png';
 import './nav.css';
 
+
 function Navbar() {
   const navbarStyle = {
     backgroundColor: '#0F1E31',
@@ -55,13 +56,14 @@ function Navbar() {
           data-bs-toggle="collapse"
           data-bs-target=".navbar-collapse">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
+            <li className="nav-item">    
               <a
                 className="nav-link"
                 style={navLinkStyle}
                 href="/community">
                 Communities
               </a>
+            
             </li>
             <li className="nav-item">
               <a
@@ -79,30 +81,22 @@ function Navbar() {
                 How it works?
               </a>
             </li>
-            <li className="nav-item" id="profile-pic" style={profilePicStyle}>
-              <a
-                className="nav-link"
-                href="Dashboard/dashboard.html"
-                style={navLinkStyle}
-              >
-                <img className="profilephoto" />
-              </a>
-            </li>
+          
             <li className="nav-item" id="li-login" style={profilePicStyle}>
               <a
-								class="nav-link"
-								href="Dashboard/dashboard.html"
+								className="nav-link"
+								href="/dashboard"
 								// style='color: #fff; font-size: 20px; text-align: center'
                                 >
-                                <img class="profilephoto" /></a></li>
+                                <img className="profilephoto" /></a></li>
 						<li
-							class="nav-item"
+							className="nav-item"
 							id="li-login"
-							// style="display: none; text-align: center"
+
 							><a
-								class="nav-link login-sign"
+								className="nav-link login-sign"
 								id="signup-button"
-								// style="color: #000; font-size: 17px; cursor: pointer; text-align: center;"
+						
 								>Log out
 							</a></li>
 					</ul>

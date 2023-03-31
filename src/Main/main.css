@@ -57,6 +57,48 @@ border-color: #485573;
 border-radius: 10px;
 }
 
+@media (min-width: 400px) {
+    .rectnotes {
+       margin-left: 7.5%; 
+    }
+}
+
+@media (min-width: 750px) {
+    .rectnotes {
+       margin-left: 5%;
+    }
+}
+
+@media (min-width: 800px) {
+    .rectnotes {
+       margin-left: 0;
+    }
+}
+
+@media (min-width: 900px) {
+    .rectnotes {
+       margin-right: 24%;
+    }
+}
+
+/* @media (min-width: 960px) {
+    .rectnotes {
+       margin-right: 20%;
+    }
+} */
+
+@media (min-width: 1195px) {
+    .rectnotes {
+       margin-left: 7%;
+    }
+}
+
+@media (min-width: 1332px) {
+    .rectnotes {
+       margin-left: 0;
+    }
+}
+
 .savebutt {
 border-radius: 20px;
 height: 40px;
