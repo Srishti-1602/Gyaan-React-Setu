@@ -11,8 +11,6 @@ background-color: #0F1E31;
 border-radius: 8px;
 }
 
-
-
 .shadow-sm{
 margin-left: 5%;
 }
@@ -63,6 +61,7 @@ margin-right: 7%;
 .overview-title{
 color: #D9D9D9;
 font-size: 110%;
+margin-top: 20px;
 }
 
 .list-unstyled-overview {
@@ -71,7 +70,11 @@ list-style: none;
 margin-right: 25px;
 }
 
-
+.card-body-overview {
+border: 1px solid #D9D9D9;
+background-color: #0F1E31;
+border-radius: 8px;
+}
 
 
 

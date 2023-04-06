@@ -64,7 +64,7 @@ function Dash() {
               </div>
               <div className="col">
                   <div className="card-overview mb-4 rounded-3 shadow-sm">
-                      <div className="card-body">
+                      <div className="card-body-overview">
                           <h1 className="card-title-task pricing-card-title overview-title">Overview</h1>
                           <ul className="list-unstyled-overview mt-3 mb-4">
                               {tasks.map((task, index) => (

@@ -9,9 +9,10 @@ import backJoin from '../Images/robot-handshake-human-background-futuristic-digi
 import image from '../Images/1000_F_281653938_vmA6yDD7FSEREktJSgSawfUPI8d3Mgn8-PhotoRoom.png-PhotoRoom.png';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
-
-
+import Github from '../icons/github-fill.png';
+import Insta from '../icons/instagram-line.png';
+import Twitter from '../icons/twitter-fill.png';
+import Discord from '../icons/discord-fill.png';
 
 function Start() {
   //   const handleButtonClick = () => {
@@ -45,7 +46,7 @@ function Start() {
      
     </div>
     <div className='JoinCom'>
-        <h2 className='Join'>Join Our Community</h2>
+        <h2 className='Join'>Open Source Education</h2>
         <span className='TakeNotes'>Take Notes By </span> 
         <span className='deleting'>Deleting </span>
         <span className='Them'>Them!</span>
@@ -62,7 +63,13 @@ function Start() {
    <img className='JoinImg' src={backJoin} alt='Logo'/>
       <div className='JoinInfo'>
         <h3 className='JoinHead'>Joining the Community helps in</h3>
-        <p className='JoinPara'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+        <p className='JoinPara'>By joining this community, you can benefit from the collective knowledge and experience of other members. You can collaborate with other students and professionals, share notes and resources, and learn from one another.
+By accessing notes and resources created by other users, you can save time and effort in researching and compiling information. This can help you be more efficient and productive in your studies or work.</p>
+
+<p className='JoinPara1'>By joining this community, you can connect with other like-minded individuals who share your interests and goals. This can help you expand your professional network and build relationships with others in your field.
+
+By collaborating with others and sharing knowledge and resources, you can improve your skills and knowledge in your area of study or work. You can also receive feedback and guidance from other members to help you improve.
+</p>
       </div>
      
     </div>
@@ -125,10 +132,10 @@ In publishing and graphic design, Lorem ipsum is a placeholder text commonly use
           <div className="col-sm-12 col-md-4">
             <h7>Follow Us</h7>
             <ul className="social-icons">
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Github} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Insta} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Twitter} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Discord} alt="My Icon" className='ArrowUp'/></a></li>
             </ul>
           </div>
         </div>

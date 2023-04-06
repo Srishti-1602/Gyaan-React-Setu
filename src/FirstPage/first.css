@@ -185,7 +185,17 @@ padding-bottom: 0%;
 color: #90A6C0;
 padding: 20px;
 padding-top: 0%;
+margin-top: 20px;
 }
+
+.JoinPara1 {
+color: #90A6C0;
+padding: 20px;
+padding-top: 0;
+margin-top: -30px;
+}
+
+
 
 @keyframes slide-in {
   from {
