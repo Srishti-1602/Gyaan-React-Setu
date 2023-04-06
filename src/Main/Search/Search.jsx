@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import apiComm from './backendIntegration';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
 
 export default function Search({ onSearch }) {
   const [searchText, setSearchText] = useState('');
-  // const [redirectToLogin, setRedirectToLogin] = useState(false);
-  
+  const [redirectToLogin, setRedirectToLogin] = useState(false);
 
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -19,27 +19,28 @@ export default function Search({ onSearch }) {
     setSearchText('');
   };
 
-  const handleInputChange = (event) => {
+
+const handleInputChange = (event) => {
     setSearchText(event.target.value);
   };
 
-  // const isLoggedIn = onSearch.isLoggedIn;
+const isLoggedIn = onSearch.isLoggedIn;
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     if (isLoggedIn) {
-//       handleSearch(event);
-//     } else {
-//        setRedirectToLogin(true); 
-//     }
-//   };
+const handleSubmit = (event) => {
+    event.preventDefault();
+    if (isLoggedIn) {
+      handleSearch(event);
+    } else {
+      setRedirectToLogin(true);
+    }
+  };
 
-//  if (redirectToLogin) {
-//     return <Navigate to="/login" />;
-//   }
+  if (redirectToLogin) {
+    return <Navigate to="/login" />;
+  }
 
   return (
-    <form onSubmit={handleSearch} id='search-form'>
+    <form onSubmit={handleSubmit} id='search-form'>
       <input
         type='search'
         className='searchbar'
