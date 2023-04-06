@@ -7,11 +7,11 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 import React from 'react';
 import Main from './Main/Main';
-// import Start from './FirstPage/First';
-// import Comm from './Community/Community';
-//import Dash from './Dashboard/Dashboard';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import ErrorBoundary from './error/errorBound';
+import Start from './FirstPage/First';
+import Comm from './Community/Community';
+import Dash from './Dashboard/Dashboard';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ErrorBoundary from './error/errorBound';
 // import LogIn from './Login/Login';
 // import SignUp from './SignUp/Signup';
 
@@ -20,10 +20,10 @@ function App() {
 return (
     <div>
       {/* <LogIn /> */}
-      <Main />
+      {/* <Main /> */}
       {/* <SignUp /> */}
         {/* <Dash /> */}
-      {/* <ErrorBoundary>
+      {<ErrorBoundary>
       <Router>
         
 
@@ -35,7 +35,7 @@ return (
           </Routes>
        
       </Router>
-      </ErrorBoundary> */}
+      </ErrorBoundary>}
     </div>
    
   );
