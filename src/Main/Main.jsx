@@ -8,6 +8,8 @@ import Search  from './Search/Search';
 import CommentIcon from '../icons/discuss-line.png';
 import RemixIcon from '../icons/share-forward-box-line.png';
 import Upward from '../icons/icons8-send-letter-50.png';
+
+
 const data = {
   id: 1,
   name: 'John Doe',
@@ -34,7 +36,7 @@ export default function Main(props) {
     console.log(`Search query: ${searchQuery}`);
     setJsonData(searchQuery);
   };
-  // const isLoggedIn = props.isLoggedIn;
+  const isLoggedIn = props.isLoggedIn;
 
   return (
     <div>
@@ -46,18 +48,18 @@ export default function Main(props) {
       
       <div className='rectnotes'>
       <div className='saveNotesDiv'>
-        {/* {isLoggedIn ? ( */}
+        {isLoggedIn ? (
         <button type='button' className='savebutt' id='save-prompt-button'>
           Save
         </button>
-        {/* ) : ( */}
+        ) : (
           {/* <p>Please log in to save</p> */}
-        {/* )} */}
+        )}
       </div>
         <div className='icon'>
         <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic'/></a>
         <a href=" "> <img src={CommentIcon} alt="My Icon" className='commic'/></a>
-      </div>
+        </div>
         <div className='notes'>
           <a href=" "> <img src={Upward} alt="My Icon" className='upward'/></a>
         </div>

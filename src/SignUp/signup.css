@@ -1,9 +1,5 @@
-body {
-/* background-color: black; */
+.back {
 background: linear-gradient(to bottom,#391789,rgb(7, 98, 125));
-display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .App {

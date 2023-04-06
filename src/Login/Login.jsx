@@ -9,6 +9,7 @@ function LogIn() {
 
   return (
     <>
+    <div className="back">
     <div className="App">
       <div className="image-container">
         <img src={logimg} alt="Mylogin" className='imglog'/>
@@ -35,6 +36,7 @@ function LogIn() {
           <button type="submit">Log In</button>
         </form>
       </div>
+    </div>
     </div>
 </>
   );
