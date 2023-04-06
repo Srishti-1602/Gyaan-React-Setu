@@ -47,13 +47,13 @@ background-color: #0F1E31;
 align-items: center;
 opacity: 1; position: absolute; 
 width: 85%;
-padding:40px;
-padding-right: 10px;
+padding-left:50px;
+padding-right: 20px;
 padding-top: 15px;
 overflow-x: hidden;
 overflow-y: auto;
 text-align:justify;
-margin-top: 4.5%;
+margin-top: 4%;
 border: 0.5mm solid;
 border-color: #485573;
 border-radius: 10px;
@@ -108,23 +108,45 @@ width: 120px;
 background-color: #D9D9D9;
 border: 0.7mm solid;
 border-color: #485573;
-margin-right: 9%;
+/* margin-right: 2%; */
 /* top: 660px;s */
 bottom: 12px;
 position: fixed;
 z-index: 1;
 }
 
-.remix {
+.icon{
+margin-left: 95%;
+/* position: fixed; */
+}
+
+.remixic {
 background-color: #0F1E31;
 border: none;
-margin-left: 93%;
-height: 6px;
-/* width: 5px; */
-/* margin-right: ; */
-margin-top: -80px;
-/* margin-bottom: 5px; */
+/* margin-left: 95%; */
+/* margin-top: 10px; */
 position: relative;
+}
+
+.commic{
+background-color: #0F1E31;
+border: none;
+margin-left: 0.5%;
+/* margin-top: -53px; */
+position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  .icon {
+    flex-direction: column;
+  }
+}
+
+.upward{
+position: fixed;
+bottom: 12px;
+height: 30px;
+margin-left: -35px;
 }
 
 .saveNotesDiv {

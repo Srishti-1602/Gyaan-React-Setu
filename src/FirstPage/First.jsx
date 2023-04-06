@@ -9,9 +9,10 @@ import backJoin from '../Images/robot-handshake-human-background-futuristic-digi
 import image from '../Images/1000_F_281653938_vmA6yDD7FSEREktJSgSawfUPI8d3Mgn8-PhotoRoom.png-PhotoRoom.png';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
-
-
+import Github from '../icons/github-fill.png';
+import Insta from '../icons/instagram-line.png';
+import Twitter from '../icons/twitter-fill.png';
+import Discord from '../icons/discord-fill.png';
 
 function Start() {
   //   const handleButtonClick = () => {
@@ -131,10 +132,10 @@ In publishing and graphic design, Lorem ipsum is a placeholder text commonly use
           <div className="col-sm-12 col-md-4">
             <h7>Follow Us</h7>
             <ul className="social-icons">
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
-              <li><a href=" "> <img src={ArrowIcon} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Github} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Insta} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Twitter} alt="My Icon" className='ArrowUp'/></a></li>
+              <li><a href=" "> <img src={Discord} alt="My Icon" className='ArrowUp'/></a></li>
             </ul>
           </div>
         </div>
