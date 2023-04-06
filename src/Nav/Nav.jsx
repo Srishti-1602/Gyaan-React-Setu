@@ -5,7 +5,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React from 'react';
 import logo from '../Images/Gyaan setu.png';
 import './nav.css';
-
+// import { useHistory } from 'react-router-dom';
+// import { Link } from "react-router-dom";
 
 function Navbar() {
   const navbarStyle = {
@@ -23,6 +24,7 @@ function Navbar() {
   const profilePicStyle = {
     display: 'none',
   };
+
 
 
 
@@ -56,14 +58,14 @@ function Navbar() {
           data-bs-toggle="collapse"
           data-bs-target=".navbar-collapse">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item">    
+            <li className="nav-item" style={navLinkStyle}>    
               <a
                 className="nav-link"
                 style={navLinkStyle}
                 href="/community">
                 Communities
               </a>
-            
+            {/* <Link to="/community" >Community</Link> */}
             </li>
             <li className="nav-item">
               <a

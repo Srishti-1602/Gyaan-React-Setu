@@ -15,6 +15,7 @@ opacity: 1;
 display: flex;
 justify-content: center;
 align-content: center;
+cursor: auto;
 }
 
 .searchbar{
@@ -43,12 +44,12 @@ opacity: 1;
 .rectnotes {
 height: 700px;
 background-color: #0F1E31;
-margin-left: 7%;
-/* margin-left: 100px; */
 align-items: center;
 opacity: 1; position: absolute; 
 width: 85%;
 padding:40px;
+padding-right: 10px;
+padding-top: 15px;
 overflow-x: hidden;
 overflow-y: auto;
 text-align:justify;
@@ -58,7 +59,7 @@ border-color: #485573;
 border-radius: 10px;
 }
 
-/* @media (min-width: 400px) {
+ @media (min-width: 400px) {
     .rectnotes {
        margin-left: 7.5%; 
     }
@@ -80,15 +81,15 @@ border-radius: 10px;
     .rectnotes {
        margin-right: 24%;
     }
-} */
+} 
 
-/* @media (min-width: 960px) {
+ @media (min-width: 960px) {
     .rectnotes {
        margin-right: 20%;
     }
-} */
+} 
 
-/* @media (min-width: 1195px) {
+ @media (min-width: 1195px) {
     .rectnotes {
        margin-left: 7%;
     }
@@ -98,7 +99,7 @@ border-radius: 10px;
     .rectnotes {
        margin-left: 0;
     }
-} */
+} 
 
 .savebutt {
 border-radius: 20px;
@@ -112,6 +113,18 @@ margin-right: 9%;
 bottom: 12px;
 position: fixed;
 z-index: 1;
+}
+
+.remix {
+background-color: #0F1E31;
+border: none;
+margin-left: 93%;
+height: 6px;
+/* width: 5px; */
+/* margin-right: ; */
+margin-top: -80px;
+/* margin-bottom: 5px; */
+position: relative;
 }
 
 .saveNotesDiv {

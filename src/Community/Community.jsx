@@ -4,7 +4,7 @@ import './community.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-function Comm() {
+function Community() {
   return (
     <div>
       <Navbar />
@@ -44,4 +44,4 @@ function Comm() {
   );
 }
 
-export default Comm;
+export default Community;

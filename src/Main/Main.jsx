@@ -5,6 +5,8 @@ import './main.css';
 import Navbar from '../Nav/Nav.jsx';
 import JsonNode from './JSONnode/JsonNode';
 import Search  from './Search/Search';
+// import ArrowIcon from '../Images/9040034_box_arrow_up_right_icon.png';
+import RemixIcon from '../Images/icons8-code-fork-30 (1).png';
 
 const data = {
   id: 1,
@@ -45,7 +47,14 @@ export default function Main() {
           Save
         </button>
       </div>
+      
       <div className='rectnotes'>
+        <div>
+        <button type='button' className='remix' id='remix-prompt'>
+        <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic'/></a>
+        <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic'/></a>
+        </button>
+      </div>
         <div id='Summary-Preview'></div>
         <div id="tree-view">
           <JsonNode data={jsonData} setData={handleSetData} />

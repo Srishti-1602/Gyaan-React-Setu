@@ -63,9 +63,9 @@ function Start() {
       <div className='JoinInfo'>
         <h3 className='JoinHead'>Joining the Community helps in</h3>
         <p className='JoinPara'>By joining this community, you can benefit from the collective knowledge and experience of other members. You can collaborate with other students and professionals, share notes and resources, and learn from one another.
-By accessing notes and resources created by other users, you can save time and effort in researching and compiling information. This can help you be more efficient and productive in your studies or work.
+By accessing notes and resources created by other users, you can save time and effort in researching and compiling information. This can help you be more efficient and productive in your studies or work.</p>
 
-By joining this community, you can connect with other like-minded individuals who share your interests and goals. This can help you expand your professional network and build relationships with others in your field.
+<p className='JoinPara1'>By joining this community, you can connect with other like-minded individuals who share your interests and goals. This can help you expand your professional network and build relationships with others in your field.
 
 By collaborating with others and sharing knowledge and resources, you can improve your skills and knowledge in your area of study or work. You can also receive feedback and guidance from other members to help you improve.
 </p>
