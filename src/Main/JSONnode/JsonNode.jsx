@@ -1,7 +1,40 @@
-
-//WITHOUT DELETE BUTTON
-
 import React, { useState } from 'react';
+import { useEffect } from "react";
+
+function MathJax(props) {
+  useEffect(() => {
+    // Load MathJax script
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.onload = () => {
+      window.MathJax.Hub.Config({
+        extensions: ["tex2jax.js", "autoMath2.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [["$", "$"],
+						['\\(\\', '\\)\\'],
+						["\\[", "\\]"],
+					],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js"],
+        },
+      });
+      window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
+    };
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML";
+    document.head.appendChild(script);
+
+    return () => {
+      // Unload MathJax script
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return <span dangerouslySetInnerHTML={{ __html: props.children }} />;
+}
 
 function JsonNode({ data, setData }) {
   const [expanded, setExpanded] = useState([]);
@@ -56,26 +89,26 @@ function JsonNode({ data, setData }) {
           ? value.map((paragraph) => {
             if (paragraph.startsWith("IMAGE_URL: ")) {
               const imageUrl = paragraph.substring("IMAGE_URL: ".length);
-              return <img src={imageUrl} alt="embedded" />;
+              return <img src={imageUrl} alt="embedded" style={{backgroundColor: "white"}} />;
+            } else if(paragraph.startsWith("LIST_TEXT: ")){
+              const listText = paragraph.substring("LIST_TEXT: ".length);
+              return <li style={{ color: "white" , fontSize: "16px" }}>{listText}</li>;
             } else {
-              return paragraph;
+              return <MathJax>{ paragraph}</MathJax>;
             }
-            
             })
           : value;
   
-        return <span style={{ color: "white" }}>
+        return <span style={{ color: "white" , fontSize: "16px" }}>
         {paragraphs.map((paragraph) => (
-          <>
-            {paragraph}
-            <br />
+          <>{paragraph}          <br />
           </>
         ))}
         </span>
           ;
       } else if (isUrl) {
         return (
-          <span style={{ color: "white" }}>
+          <span style={{ color: "white", fontSize: "16px"}}>
             <span
               style={{
                 color: "gray",
@@ -94,7 +127,7 @@ function JsonNode({ data, setData }) {
           <li key={key}>
             <span
               onClick={() => handleNodeClick(key)}
-              style={{ cursor: "pointer", color: "white" }}
+              style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
             >
               {isExpanded ? (
                 <i
