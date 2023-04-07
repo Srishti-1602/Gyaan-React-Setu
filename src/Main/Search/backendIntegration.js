@@ -1,7 +1,7 @@
 export default async function apiComm(query) {
     // Call the query_input function
     try {
-        const response = await fetch('http://127.0.0.1:8080/api/function', { //https://gyaan-setu-webapp.azurewebsites.net/api/function, https://gyaansetuapi-web-mzudn63mqq-ue.a.run.app/api/function
+        const response = await fetch('https://gyaansetuapi-web-mzudn63mqq-ue.a.run.app/api/function', { //https://gyaan-setu-webapp.azurewebsites.net/api/function, https://gyaansetuapi-web-mzudn63mqq-ue.a.run.app/api/function, http://127.0.0.1:8080/api/function
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
