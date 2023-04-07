@@ -8,6 +8,8 @@ import Search  from './Search/Search';
 import CommentIcon from '../icons/discuss-line.png';
 import RemixIcon from '../icons/share-forward-box-line.png';
 import Upward from '../icons/icons8-send-letter-50.png';
+// import { Navigate } from 'react-router-dom';
+
 const data = {
   id: 'A function of a real variable f(x) is differentiable at a point a of its domain, if its domain contains an open interval I containing a, and the limit","exists. This means that, for every positive real number \\(\\varepsilon \\) (even very small), there exists a positive real number \\\\(\\\\delta \\\\) such that, for every h such that \\\\(\\|h|<\\delta \\\\) and h≠0{\\displaystyle h\\neq 0} then $f(a+h)$ is defined, and',
   name: 'John Doe',
@@ -25,6 +27,7 @@ const data = {
 
 export default function Main(props) {
   const [jsonData, setJsonData] = useState(data);
+  // const [redirectToLogin, setRedirectToLogin] = useState(false);
 
   const handleSetData = (newData) => {
     setJsonData(newData);
@@ -51,13 +54,42 @@ export default function Main(props) {
           Save
         </button>
         {/* ) : ( */}
-          {/* <p>Please log in to save</p> */}
+        
         {/* )} */}
       </div>
+
+    <div className="card bg-dark text-white save-note" id="save-in-rect">
+			<span className="close" id="close-save-form-button">&times;</span>
+			<div className="card-body p-5 text-center">
+				<div className="mb-md-5 mt-md-4 pb-5">
+					<h2 className="fw-bold mb-2 text-uppercase save-head">Save Note</h2>
+					<div className="save-inforec">
+						<div className="save-info">
+							<form id="savenote-form" onsubmit="return false;">
+								<input
+									type="text"
+									className="save-title"
+									id="save-title"
+									placeholder="Note Title"
+									required />
+								<input
+									type="text"
+									className="save-title"
+									id="save-subject"
+									placeholder="Subject"
+									required />
+								<button type="submit" class="sign-up" id="save-button"
+									>Save</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
         <div className='icon'>
         <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic'/></a>
         <a href=" "> <img src={CommentIcon} alt="My Icon" className='commic'/></a>
-      </div>
+        </div>
         <div className='notes'>
           <a href=" "> <img src={Upward} alt="My Icon" className='upward'/></a>
         </div>
