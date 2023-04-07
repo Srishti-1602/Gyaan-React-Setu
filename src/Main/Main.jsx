@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './main.css';
 import Navbar from '../Nav/Nav.jsx';
 import JsonNode from './JSONnode/JsonNode';
@@ -8,7 +8,7 @@ import Search  from './Search/Search';
 import CommentIcon from '../icons/discuss-line.png';
 import RemixIcon from '../icons/share-forward-box-line.png';
 import Upward from '../icons/icons8-send-letter-50.png';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const data = {
   id: 'A function of a real variable f(x) is differentiable at a point a of its domain, if its domain contains an open interval I containing a, and the limit","exists. This means that, for every positive real number \\(\\varepsilon \\) (even very small), there exists a positive real number \\\\(\\\\delta \\\\) such that, for every h such that \\\\(\\|h|<\\delta \\\\) and h≠0{\\displaystyle h\\neq 0} then $f(a+h)$ is defined, and',
@@ -27,7 +27,7 @@ const data = {
 
 export default function Main(props) {
   const [jsonData, setJsonData] = useState(data);
-  // const [redirectToLogin, setRedirectToLogin] = useState(false);
+  const [showSaveNote, setShowSaveNote] = useState(false);
 
   const handleSetData = (newData) => {
     setJsonData(newData);
@@ -37,7 +37,26 @@ export default function Main(props) {
     console.log(`Search query: ${searchQuery}`);
     setJsonData(searchQuery);
   };
-  // const isLoggedIn = props.isLoggedIn;
+  const isLoggedIn = props.isLoggedIn;
+
+  const handleSaveButtonClick = () => {
+      if (isLoggedIn) {
+        setShowSaveNote(true);
+      } else {
+        // Redirect to login page
+        return <Navigate to="/login" />;
+      }
+    };
+
+const rectNotesRef = useRef(null);
+
+ const handleScrollToTop = () => {
+  const rectNotesElement = rectNotesRef.current;
+    window.scrollTo({
+      top: rectNotesElement.offsetTop,
+      behavior: 'smooth'
+    });
+ };
 
   return (
     <div>
@@ -47,20 +66,9 @@ export default function Main(props) {
       </div>
       
       
-      <div className='rectnotes'>
-      <div className='saveNotesDiv'>
-        {/* {isLoggedIn ? ( */}
-        <button type='button' className='savebutt' id='save-prompt-button'>
-          Save
-        </button>
-        {/* ) : ( */}
-        
-        {/* )} */}
-      </div>
-
-    <div className="card bg-dark text-white save-note" id="save-in-rect">
+      <div className="card bg-dark text-white save-note" id="save-in-rect" style={{ display: showSaveNote ? 'block' : 'none' }}>
 			<span className="close" id="close-save-form-button">&times;</span>
-			<div className="card-body p-5 text-center">
+			<div className="card-body p-5 text-center card-save">
 				<div className="mb-md-5 mt-md-4 pb-5">
 					<h2 className="fw-bold mb-2 text-uppercase save-head">Save Note</h2>
 					<div className="save-inforec">
@@ -85,13 +93,26 @@ export default function Main(props) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>      
+
+      <div className='rectnotes'>
+      <div className='saveNotesDiv'>
+        
+        <button type='button' className='savebutt' id='save-prompt-button' onSubmit={handleSaveButtonClick}>
+          Save
+        </button>
+        
+        
+        
+      </div>
+
+    
         <div className='icon'>
-        <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic'/></a>
+        <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic' ref={rectNotesRef}/></a>
         <a href=" "> <img src={CommentIcon} alt="My Icon" className='commic'/></a>
         </div>
         <div className='notes'>
-          <a href=" "> <img src={Upward} alt="My Icon" className='upward'/></a>
+          <a href=" " onClick={handleScrollToTop}> <img src={Upward} alt="My Icon" className='upward'/></a>
         </div>
         <div id='Summary-Preview'></div>
         <div id="tree-view">
