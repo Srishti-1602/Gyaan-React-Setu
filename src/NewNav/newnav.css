@@ -70,3 +70,19 @@ margin-top: -30px;
 margin-bottom: 5px;
 padding: 0;
 }
+
+
+@media (max-width: 991.5px) {
+    .navwork2 {
+        margin-left: 50%;
+        margin-top: 20px;
+        transform: translate(-50%, -50%);
+    
+    }
+    .navwork3 {
+        margin-left: 50%;
+        /* margin-top: %; */
+        transform: translate(-50%, -50%);
+    
+    }
+}

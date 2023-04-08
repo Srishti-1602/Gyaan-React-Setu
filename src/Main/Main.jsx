@@ -50,13 +50,27 @@ export default function Main(props) {
 
 const rectNotesRef = useRef(null);
 
- const handleScrollToTop = () => {
-  const rectNotesElement = rectNotesRef.current;
-    window.scrollTo({
-      top: rectNotesElement.offsetTop,
-      behavior: 'smooth'
-    });
- };
+//  const handleScrollToTop = (e) => {
+//   e.preventDefault();
+//   const remixElement = rectNotesRef.current;
+//   const rect = remixElement.getBoundingClientRect();
+//     window.scroll({
+//       top: window.pageYOffset + rect.top,
+//       behavior: 'smooth'
+//     });
+//  };
+
+const handleScrollToTop = (e) => {
+  e.preventDefault();
+  const remixElement = rectNotesRef.current;
+  const rect = remixElement.getBoundingClientRect();
+  const distanceToTop = rect.top;
+  const rectnotesDiv = document.querySelector('.rectnotes');
+  rectnotesDiv.scrollBy({
+    top: distanceToTop,
+    behavior: 'smooth'
+  });
+};
 
   return (
     <div>
@@ -103,11 +117,11 @@ const rectNotesRef = useRef(null);
         </button>    
       </div>
         <div className='icon'>
-        <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic' ref={rectNotesRef}/></a>
+        <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic' id="scrollid" ref={rectNotesRef}/></a>
         <a href=" "> <img src={CommentIcon} alt="My Icon" className='commic'/></a>
         </div>
         <div className='notes'>
-          <a href=" " onClick={handleScrollToTop}> <img src={Upward} alt="My Icon" className='upward'/></a>
+          <a onClick={handleScrollToTop}> <img src={Upward} alt="My Icon" className='upward'/></a>
         </div>
         <div id='Summary-Preview'></div>
         <div id="tree-view">
