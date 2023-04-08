@@ -7,7 +7,7 @@ import Search  from './Search/Search';
 import CommentIcon from '../icons/discuss-line.png';
 import RemixIcon from '../icons/share-forward-box-line.png';
 import Upward from '../icons/icons8-send-letter-50.png';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Navbar1 from '../NewNav/NewNav';
 
 const data = {
@@ -28,6 +28,7 @@ const data = {
 export default function Main(props) {
   const [jsonData, setJsonData] = useState(data);
   const [showSaveNote, setShowSaveNote] = useState(false);
+  const navigate = useNavigate();
 
   const handleSetData = (newData) => {
     setJsonData(newData);
@@ -44,21 +45,13 @@ export default function Main(props) {
         setShowSaveNote(true);
       } else {
         // Redirect to login page
-        return <Navigate to="/login" />;
+        navigate('/login');
       }
     };
 
-const rectNotesRef = useRef(null);
 
-//  const handleScrollToTop = (e) => {
-//   e.preventDefault();
-//   const remixElement = rectNotesRef.current;
-//   const rect = remixElement.getBoundingClientRect();
-//     window.scroll({
-//       top: window.pageYOffset + rect.top,
-//       behavior: 'smooth'
-//     });
-//  };
+
+const rectNotesRef = useRef(null);
 
 const handleScrollToTop = (e) => {
   e.preventDefault();
@@ -82,7 +75,7 @@ const handleScrollToTop = (e) => {
       
       
       <div className="card bg-dark text-white save-note" id="save-in-rect" style={{ display: showSaveNote ? 'block' : 'none' }}>
-			<span className="close" id="close-save-form-button">&times;</span>
+			<span className="close" id="close-save-form-button" onClick={() => setShowSaveNote(false)}>&times;</span>
 			<div className="card-body p-5 text-center card-save">
 				<div className="mb-md-5 mt-md-4 pb-5">
 					<h2 className="fw-bold mb-2 text-uppercase save-head">Save Note</h2>
@@ -112,7 +105,7 @@ const handleScrollToTop = (e) => {
 
       <div className='rectnotes'>
       <div className='saveNotesDiv'>
-        <button type='button' className='savebutt' id='save-prompt-button' onSubmit={handleSaveButtonClick}>
+        <button type='button' className='savebutt' id='save-prompt-button' onClick={handleSaveButtonClick}>
           Save
         </button>    
       </div>
