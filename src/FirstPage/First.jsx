@@ -26,7 +26,7 @@ function Start() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link href="#about" className='navabout'>About</Nav.Link>
+          <Nav.Link href="/community" className='navabout'>About</Nav.Link>
           <Nav.Link href="#services" className='navabout'>Services</Nav.Link>
           <Nav.Link href="#blog" className='navabout'>Blog</Nav.Link>
           <Nav.Link href="#contact" className='navabout'>Contact</Nav.Link>

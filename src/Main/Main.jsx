@@ -2,13 +2,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React, { useState, useRef } from 'react';
 import './main.css';
-import Navbar from '../Nav/Nav.jsx';
 import JsonNode from './JSONnode/JsonNode';
 import Search  from './Search/Search';
 import CommentIcon from '../icons/discuss-line.png';
 import RemixIcon from '../icons/share-forward-box-line.png';
 import Upward from '../icons/icons8-send-letter-50.png';
 import { Navigate } from 'react-router-dom';
+import Navbar1 from '../NewNav/NewNav';
 
 const data = {
   id: 1,
@@ -60,7 +60,8 @@ const rectNotesRef = useRef(null);
 
   return (
     <div>
-      <Navbar />
+    <Navbar1 />
+      
       <div className='your-topics'>
       <Search onSearch={handleSearch} />
       </div>
@@ -97,16 +98,10 @@ const rectNotesRef = useRef(null);
 
       <div className='rectnotes'>
       <div className='saveNotesDiv'>
-        
         <button type='button' className='savebutt' id='save-prompt-button' onSubmit={handleSaveButtonClick}>
           Save
-        </button>
-        
-        
-        
+        </button>    
       </div>
-
-    
         <div className='icon'>
         <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic' ref={rectNotesRef}/></a>
         <a href=" "> <img src={CommentIcon} alt="My Icon" className='commic'/></a>

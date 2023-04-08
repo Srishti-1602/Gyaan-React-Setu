@@ -7,6 +7,7 @@ import logo from '../Images/Gyaan setu.png';
 import './nav.css';
 // import { useHistory } from 'react-router-dom';
 // import { Link } from "react-router-dom";
+import { Nav } from 'react-bootstrap';
 
 function Navbar() {
   const navbarStyle = {
@@ -59,12 +60,7 @@ function Navbar() {
           data-bs-target=".navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item" style={navLinkStyle}>    
-              <a
-                className="nav-link"
-                style={navLinkStyle}
-                href="/community">
-                Communities
-              </a>
+              <Nav.Link href="/community" className='nav-link'>Community</Nav.Link>
             {/* <Link to="/community" >Community</Link> */}
             </li>
             <li className="nav-item">

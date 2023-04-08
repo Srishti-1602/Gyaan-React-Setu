@@ -1,0 +1,72 @@
+.backgroundNav {
+background-color: #0F1E31;
+top: -33px;
+}
+
+.navbar-brand{
+width: 50%;
+display: inline;
+}
+
+.Gyaanlogo {
+border-radius:50%;
+/* margin-top: -1.8%; */
+}
+
+.headsetu {
+font-size: 3vw;
+margin-top: -1%;
+/* font-size: 300%; */
+color: #fff;
+font-family: var(--font-family-koho);
+font-style: normal;
+text-decoration: none;
+}
+
+.gyansetu{
+width: 55%;
+margin-top: 20px;
+text-decoration: none;
+margin-right: auto;
+}
+
+.profilephoto {
+width: 38px;
+height: 38px;
+border-radius:50%;
+}
+
+.navbar {
+padding-bottom: 0 !important;
+min-height: 100px;
+}
+
+.navwork {
+ color: #ffff;
+ font-size: 20px;
+text-align: center;
+cursor: pointer;
+}
+
+.navwork2 {
+ color: #ffff;
+ font-size: 20px;
+text-align: center;
+cursor: pointer;
+width: 145px;
+}
+
+.navwork3 {
+ /* color: #ffff; */
+ font-size: 20px;
+text-align: center;
+cursor: pointer;
+width: 90px;
+}
+
+.toggle{
+margin-left: auto;
+margin-top: -30px;
+margin-bottom: 5px;
+padding: 0;
+}

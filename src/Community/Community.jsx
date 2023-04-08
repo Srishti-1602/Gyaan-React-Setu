@@ -1,14 +1,23 @@
 import React from "react";
-import Navbar from "../Nav/Nav";
+// import Navbar from "../Nav/Nav";
 import './community.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar1 from '../NewNav/NewNav';
 
 function Community() {
   return (
     <div>
-      <Navbar />
-     <div className='user-search'>
+      <Navbar1 />
+      {/* <Navbar1 /> */}
+
+    <div className="row row-cols-1 row-cols-md-2 mb-3 text-center">
+      <div className="col-clg col-md-8">
+        <div className="card-clg mb-4 rounded-3 shadow-sm">
+          <div className="card-body-clg">
+            <h1 className="card-title-clg pricing-card-title">Community</h1>
+            <div id="Community-data" className="CommunityData">
+               <div className='user-search'>
             <form id='search-user'>
               <input
                 type='search'
@@ -19,14 +28,6 @@ function Community() {
               />
             </form>
         </div>
-
-    <div className="row row-cols-1 row-cols-md-2 mb-3 text-center">
-      <div className="col-clg col-md-8">
-        <div className="card-clg mb-4 rounded-3 shadow-sm">
-          <div className="card-body-clg">
-            <h1 className="card-title-clg pricing-card-title">Community</h1>
-            <div id="Community-data" className="CommunityData">
-              
             </div>
           </div>
         </div>
