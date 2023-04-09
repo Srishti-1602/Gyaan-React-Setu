@@ -368,12 +368,12 @@ color: #6F707B;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: black; 
+  background: #0F1E31; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #0F1E31; 
+  background: #546b89; 
   border-radius: 10px;
 }
 

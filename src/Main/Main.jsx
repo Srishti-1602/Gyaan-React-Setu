@@ -28,7 +28,12 @@ const data = {
 export default function Main(props) {
   const [jsonData, setJsonData] = useState(data);
   const [showSaveNote, setShowSaveNote] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
   const navigate = useNavigate();
+  const isLoggedIn = props.isLoggedIn;
+  const rectNotesRef = useRef(null);
+  
 
   const handleSetData = (newData) => {
     setJsonData(newData);
@@ -38,8 +43,7 @@ export default function Main(props) {
     console.log(`Search query: ${searchQuery}`);
     setJsonData(searchQuery);
   };
-  const isLoggedIn = props.isLoggedIn;
-
+  
   const handleSaveButtonClick = () => {
       if (isLoggedIn) {
         setShowSaveNote(true);
@@ -47,31 +51,55 @@ export default function Main(props) {
         // Redirect to login page
         navigate('/login');
       }
-    };
+  };
 
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
+    if (commentText.trim() === "") return;
+    setComments([...comments, commentText]);
+    setCommentText("");
+  };
 
-
-const rectNotesRef = useRef(null);
-
-const handleScrollToTop = (e) => {
-  e.preventDefault();
-  const remixElement = rectNotesRef.current;
-  const rect = remixElement.getBoundingClientRect();
-  const distanceToTop = rect.top;
-  const rectnotesDiv = document.querySelector('.rectnotes');
-  rectnotesDiv.scrollBy({
-    top: distanceToTop,
-    behavior: 'smooth'
-  });
+  const handleScrollToTop = (e) => {
+    e.preventDefault();
+    const remixElement = rectNotesRef.current;
+    const rect = remixElement.getBoundingClientRect();
+    const distanceToTop = rect.top;
+    const rectnotesDiv = document.querySelector('.rectnotes');
+    rectnotesDiv.scrollBy({
+      top: distanceToTop,
+      behavior: 'smooth'
+    });
 };
+
+
+
 
   return (
     <div>
     <Navbar1 />
       
+    <div id="comment-section">
+            <div id="comment-list">
+            
+            {comments.map((comment, index) => (
+            <div className="comment" key={index}>
+            {comment}
+          </div>
+        ))}
+            </div>
+            <form id="comment-form" onSubmit={handleCommentSubmit}>
+            <div class="comment-input-container">
+            <textarea id="comment-textarea" placeholder="Add a comment" value={commentText}  onChange={(e) => setCommentText(e.target.value)}></textarea>
+            <button type="submit">Post</button>
+            </div>
+          </form>
+        </div>
+
       <div className='your-topics'>
       <Search onSearch={handleSearch} />
       </div>
+      
       
       
       <div className="card bg-dark text-white save-note" id="save-in-rect" style={{ display: showSaveNote ? 'block' : 'none' }}>

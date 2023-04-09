@@ -128,7 +128,7 @@ border-color: #485573;
 /* top: 660px;s */
 bottom: 12px;
 position: fixed;
-z-index: 1;
+/* z-index: 1; */
 }
 
 .icon{
@@ -179,7 +179,7 @@ left: 50%;
 top: 50%;
 transform: translate(-50%, -50%);
 /* background-color: black; */
-z-index: 1;
+/* z-index: 1; */
 }
 
 .card-save {
@@ -206,23 +206,109 @@ margin-right: 6%;
 }
 
 
-
-::-webkit-scrollbar {
-  width: 8px;
+#comment-section {
+  position: fixed;
+  top: 0;
+  right: 12px;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.5s ease-in-out;
+  z-index: 1;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: black; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #5d718a; 
-  border-radius: 10px;
+#comment-section.show {
+  right: 0; /* slide in from the right */
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #213b5e; 
+#comment-button {
+  position: absolute;
+  top: 10px;
+  right: -50px; /* button starts off screen */
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: right 0.5s ease-in-out;
 }
+
+#comment-button.show {
+  right: 0; /* slide in from the right */
+}
+
+#comment-list {
+height: calc(100% - 60px);
+  overflow-y: scroll;
+width: 310px;
+padding: 10px;
+}
+
+#comment-form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid gray;
+}
+
+.comment-input-container {
+  display: flex;
+  align-items: center;
+  width: 95%;
+}
+
+#comment-textarea {
+  width: 90%;
+  height: 30px;
+  resize: none;
+  border: 1px solid gray;
+  flex-grow: 1;
+  margin-right: 10px;
+   
+}
+
+#comment-form button {
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  
+}
+
+#comment-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.comment {
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: rgb(240, 234, 234);
+}
+
+.comment p {
+  margin: 0;
+}
+
+.comment span {
+  font-weight: bold;
+}
+
+
+
