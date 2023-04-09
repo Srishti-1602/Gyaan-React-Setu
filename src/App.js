@@ -12,7 +12,6 @@ import Community from './Community/Community';
 import Dash from './Dashboard/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import ErrorBoundary from './error/errorBound';
-// import Navbar from './Nav/Nav';
 import LogIn from './Login/Login';
 import SignUp from './SignUp/Signup';
 
