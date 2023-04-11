@@ -25,7 +25,7 @@ function LogIn() {
           <h1 className='gyaan'>Gyaan Setu</h1>
           <label >
             Username:
-            <input type="text" name="username" className='textinput' />
+            <input type="text" name="username" className='username' />
           </label>
           <br />
           <label>
@@ -41,6 +41,16 @@ function LogIn() {
              <label className='school'>
             Course:
             <input type="text" name="course" />
+          </label>
+          <br />
+          <label className='school'>
+            Department:
+            <input type="text" name="course" />
+          </label>
+          <br />
+             <label className='email'>
+            Email:
+            <input type="email" name="course" />
           </label>
           <br />
           <button type="submit">Log In</button>

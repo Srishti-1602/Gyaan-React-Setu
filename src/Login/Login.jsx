@@ -3,9 +3,14 @@ import './login.css';
 // import logo from '../Images/Gyaan setu.png';
 import logimg from '../Images/6059971.jpg';
 // import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function LogIn() {
+const navigate = useNavigate();
 
+const handleSignUpClick = () => {
+        navigate('/SignUp');
+  };
 
   return (
     <>
@@ -35,6 +40,7 @@ function LogIn() {
           <br />
           <button type="submit">Log In</button>
         </form>
+<span style={{color: 'white'}}>Don't have an account?</span><span onClick={handleSignUpClick} style={{color: 'white'}}>Sign Up</span>
       </div>
     </div>
     </div>
