@@ -5,10 +5,12 @@ import { Navigate } from 'react-router-dom';
 
 export default function Search({ onSearch }) {
   const [searchText, setSearchText] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [redirectToLogin, setRedirectToLogin] = useState(false);
 
   const handleSearch = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     try {
       const { data } = await apiComm(searchText);
       console.log(JSON.parse(data));
@@ -16,7 +18,8 @@ export default function Search({ onSearch }) {
     } catch (error) {
       console.error(error);
     }
-    setSearchText('');
+    setIsLoading(false);
+    //setSearchText('');
   };
 
 

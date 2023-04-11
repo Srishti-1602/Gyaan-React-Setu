@@ -9,6 +9,7 @@ import RemixIcon from '../icons/share-forward-box-line.png';
 import Upward from '../icons/icons8-send-letter-50.png';
 import { useNavigate } from 'react-router-dom';
 import Navbar1 from '../NewNav/NewNav';
+import isLoading from './Search/Search';
 
 const data = {
   id: 'A function of a real variable f(x) is differentiable at a point a of its domain, if its domain contains an open interval I containing a, and the limit","exists. This means that, for every positive real number \\(\\varepsilon \\) (even very small), there exists a positive real number \\\\(\\\\delta \\\\) such that, for every h such that \\\\(\\|h|<\\delta \\\\) and h≠0{\\displaystyle h\\neq 0} then $f(a+h)$ is defined, and',
@@ -146,6 +147,7 @@ export default function Main(props) {
         </div>
         <div id='Summary-Preview'></div>
         <div id="tree-view">
+          {isLoading ? <p style={{color: "white"}}>Loading...</p> : <p>Hello</p>} 
           <JsonNode data={jsonData} setData={handleSetData} />
         </div>
       </div>
