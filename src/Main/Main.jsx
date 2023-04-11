@@ -34,7 +34,7 @@ export default function Main(props) {
   const navigate = useNavigate();
   const isLoggedIn = props.isLoggedIn;
   const rectNotesRef = useRef(null);
-  
+  const [showCommentSection, setShowCommentSection] = useState(false);
 
   const handleSetData = (newData) => {
     setJsonData(newData);
@@ -73,16 +73,18 @@ export default function Main(props) {
     });
 };
 
-
+  const toggleCommentSection = () => {
+    setShowCommentSection(!showCommentSection);
+  }
 
 
   return (
     <div>
     <Navbar1 />
       
-    <div id="comment-section">
+    <div id="comment-section" className='comment-section'style={{ display: showCommentSection ? 'block' : 'none' }}>
             <div id="comment-list">
-            
+            <span className="close" id="close-save-form-button" style={{cursor: 'pointer', color: 'white'}} onClick={() =>  setShowCommentSection(false)}>&times;</span>
             {comments.map((comment, index) => (
             <div className="comment" key={index}>
             {comment}
@@ -90,7 +92,7 @@ export default function Main(props) {
         ))}
             </div>
             <form id="comment-form" onSubmit={handleCommentSubmit}>
-            <div class="comment-input-container">
+            <div className="comment-input-container">
             <textarea id="comment-textarea" placeholder="Add a comment" value={commentText}  onChange={(e) => setCommentText(e.target.value)}></textarea>
             <button type="submit">Post</button>
             </div>
@@ -110,7 +112,7 @@ export default function Main(props) {
 					<h2 className="fw-bold mb-2 text-uppercase save-head">Save Note</h2>
 					<div className="save-inforec">
 						<div className="save-info">
-							<form id="savenote-form" onsubmit="return false;">
+							<form id="savenote-form" onSubmit="return false;">
 								<input
 									type="text"
 									className="save-title"
@@ -123,7 +125,7 @@ export default function Main(props) {
 									id="save-subject"
 									placeholder="Subject"
 									required />
-								<button type="submit" class="sign-up" id="save-button"
+								<button type="submit" className="sign-up" id="save-button"
 									>Save</button>
 							</form>
 						</div>
@@ -140,10 +142,10 @@ export default function Main(props) {
       </div>
         <div className='icon'>
         <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic' id="scrollid" ref={rectNotesRef}/></a>
-        <a href=" "> <img src={CommentIcon} alt="My Icon" className='commic'/></a>
+        <a onClick={toggleCommentSection} > <img src={CommentIcon} alt="My Icon" className='commic'/></a>
         </div>
         <div className='notes'>
-          <a onClick={handleScrollToTop}> <img src={Upward} alt="My Icon" className='upward'/></a>
+          <a onClick={handleScrollToTop} > <img src={Upward} alt="My Icon" className='upward'/></a>
         </div>
         <div id='Summary-Preview'></div>
         <div id="tree-view">
