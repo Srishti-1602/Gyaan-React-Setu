@@ -38,12 +38,14 @@ const handleSubmit = (event) => {
     }
   };
 
+
   if (redirectToLogin) {
     return <Navigate to="/login" />;
   }
 
   return (
     <form onSubmit={handleSubmit} id='search-form'>
+    
       <input
         type='search'
         className='searchbar'

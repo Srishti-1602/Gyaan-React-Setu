@@ -22,37 +22,40 @@ function LogIn() {
           <h2 className='welcome'>Welcome to</h2>
           
           <h1 className='gyaan'>Gyaan Setu</h1>
-          <label >
-            Username:
-            <input type="text" name="username" className='username' />
+<div className='inforec'>
+          <label className='school'>
+            
+            <input type="text" name="username" placeholder='Username'/>
           </label>
           <br />
-          <label>
-            Password:
-            <input type="password" name="password" />
-          </label>
-          <br />
-             <label className='school'>
-            School:
-            <input type="text" name="school" />
+         
+              <label className='school'>
+            <input type="email" name="email" placeholder='Email'/>
           </label>
           <br />
              <label className='school'>
-            Course:
-            <input type="text" name="course" />
+            
+            <input type="password" name="password" placeholder='Password'/>
+
+          </label>
+          <br />
+             <label className='school'>
+            
+            <input type="text" name="course" placeholder='School'/>
           </label>
           <br />
           <label className='school'>
-            Department:
-            <input type="text" name="department" />
+            
+            <input type="text" name="course" placeholder='Course'/>
           </label>
           <br />
-             <label className='email'>
-            Email:
-            <input type="email" name="email" />
+             <label className='school'>
+            
+            <input type="text" name="course" placeholder='Department'/>
           </label>
           <br />
-          <button type="submit">Log In</button>
+          <button type="submit">Sign Up</button>
+          </div>
         </form>
       </div>
     </div>
