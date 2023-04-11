@@ -1,12 +1,12 @@
-// Your web app's Firebase configuration
 const config = {
-    apiKey: "AIzaSyDS2bQagp5-knpkDo13L9cNewITZv4v5Xs",
-    authDomain: "gyaan-setu.firebaseapp.com",
-    databaseURL: "https://gyaan-setu-default-rtdb.firebaseio.com",
-    projectId: "gyaan-setu",
-    storageBucket: "gyaan-setu.appspot.com",
-    messagingSenderId: "292969099916",
-    appId: "1:292969099916:web:7c53e2f63dc82a970a81a9",
+    apiKey: "AIzaSyA9PcbJ2XU4AkrCLJgZ_-0kxqjslGWng4g",
+  authDomain: "molten-gantry-379206.firebaseapp.com",
+    projectId: "molten-gantry-379206",
+    databaseURL: "https://molten-gantry-379206-default-rtdb.firebaseio.com",
+  storageBucket: "molten-gantry-379206.appspot.com",
+  messagingSenderId: "455482097947",
+  appId: "1:455482097947:web:67640decdb1173e339d3be",
+  measurementId: "G-R9B1NR3B3D",
 
     clientId: "",
     scopes: [
@@ -14,7 +14,5 @@ const config = {
         "profile"
     ]
 };
-
-firebase.initializeApp(config); //Initialize Firebase
 
 export default config;
