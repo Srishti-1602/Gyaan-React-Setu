@@ -28,8 +28,8 @@ function Start() {
         <Nav className="ml-auto">
           <Nav.Link href="/community" className='navabout'>About</Nav.Link>
           <Nav.Link href="#services" className='navabout'>Services</Nav.Link>
-          <Nav.Link href="#blog" className='navabout'>Blog</Nav.Link>
-          <Nav.Link href="#contact" className='navabout'>Contact</Nav.Link>
+          <Nav.Link href="#blog" className='navabout'>Contact</Nav.Link>
+          <Nav.Link href="#contact" className='navabout'>Log In</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
@@ -109,6 +109,7 @@ In publishing and graphic design, Lorem ipsum is a placeholder text commonly use
         </div>
       </div>
     </div>
+
 
 
 

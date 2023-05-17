@@ -8,22 +8,14 @@ import handleSignUp from './signUpUtil';
 function LogIn() {
   return (
     <>
-    <div className="back">
-    <div className="App">
-      <div className="image-container">
-        <img src={signimg} alt="MySign" className='imglog'/>
-      
-      </div>
-      <div className="signup-container">
-        {/* <div>
-          <h2>Welcome</h2>
-      </div> */}
-        <form onSubmit={handleSignUp}>
-          <h2 className='welcome'>Welcome to</h2>
-          
-          <h1 className='gyaan'>Gyaan Setu</h1>
-<div className='inforec'>
-          <label className='school'>
+    <div className="backsign">
+    <div className='App'>
+   <img className='JoinImg' src={signimg} alt='Logo'/>
+      <div className='Info'>
+        <h3 className='welcome'>Welcome to</h3>
+        <h3 className='gyaan'>Gyaan Setu</h3>
+      <form>
+        <label className='school'>
             
             <input type="text" name="username" placeholder='Username'/>
           </label>
@@ -54,11 +46,14 @@ function LogIn() {
             <input type="text" name="course" placeholder='Department'/>
           </label>
           <br />
-          <button type="submit">Sign Up</button>
+          <button type="submit" onClick={handleSignUp}>Sign Up</button>
+        <p className='Para1'>Already have an account? <span style={{color: 'yellow', cursor: 'pointer'}}>Login In</span></p>
+      </form>
           </div>
-        </form>
+
+
       </div>
-    </div>
+     
     </div>
 </>
   );

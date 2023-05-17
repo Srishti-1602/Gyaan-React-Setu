@@ -2,8 +2,8 @@ import React from "react";
 import './dashboard.css';
 import logo from '../Images/Gyaan setu.png';
 import { useState } from 'react';
-import Navbar from "../Nav/Nav";
-
+// import Navbar from "../Nav/Nav";
+import Navbar1 from '../NewNav/NewNav';
 function Dash() {
 
   const [tasks, setTasks] = useState(['Go to Gym', 'Read Articles on IncludeHelp', 'Learn JavaScript']);
@@ -26,8 +26,8 @@ function Dash() {
   }
   return (
    <> <div>
-        <Navbar />
-         <div className="row row-cols-1 row-cols-md-4 mb-3 text-center">
+        <Navbar1 />
+         <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
           <div className="col">
               <div className="card mb-4 rounded-3 shadow-sm">
                   <div className="card-body personal-info">
@@ -44,38 +44,38 @@ function Dash() {
                   </div>
               </div>
           </div>
-      </div><div className="row row-cols-1 row-cols-md-4 mb-3 text-center">
-              <div className="col">
-                  <div className="card mb-4 rounded-3 shadow-sm">
-                      <div className="card-body">
-                          <h1 className="card-title-task pricing-card-title upcomming-title">Upcoming Tasks</h1>
-                          <button type="button" className="taskOperate" onClick={handleAddTask}>Add Task</button>
-                          <button type="button" className="taskOperate" onClick={handleRemoveTask}>Remove Task</button>
-                          
-                              <li><input type="text" name="" id="input" className="task-input" placeholder="Create a task" value={newTask} onChange={handleInputChange} /></li>
-                              {tasks.map((task, index) => (
-                                  <li className="mycheck" key={index}>
-                                      <input type="checkbox" id={`check${index}`} />
-                                      <label htmlFor={`check${index}`}>{task}</label>
-                                  </li>
-                              ))}
-                      </div>
-                  </div>
-              </div>
-              <div className="col">
-                  <div className="card-overview mb-4 rounded-3 shadow-sm">
-                      <div className="card-body-overview">
-                          <h1 className="card-title-task pricing-card-title overview-title">Overview</h1>
-                          <ul className="list-unstyled-overview mt-3 mb-4">
-                              {tasks.map((task, index) => (
-                                  <li className="over" key={index}>{task}</li>
-                              ))}
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
+      </div>
+       <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div className="col-up">
+                <div className="card mb-4 rounded-3 shadow-sm">
+                    <div className="card-body">
+                        <h1 className="card-title-task pricing-card-title upcomming-title">Upcoming Tasks</h1>
+                        <button type="button" className="taskOperate" onClick={handleAddTask}>Add Task</button>
+                        <button type="button" className="taskOperate" onClick={handleRemoveTask}>Remove Task</button>
+                        <input type="text" name="" id="input" className="task-input" placeholder="Create a task" value={newTask} onChange={handleInputChange} />
+                        {tasks.map((task, index) => (
+                            <li className="mycheck" key={index}>
+                                <input type="checkbox" id={`check${index}`} />
+                                <label htmlFor={`check${index}`}>{task}</label>
+                            </li>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="col-up">
+                <div className="card-overview mb-4 rounded-3 shadow-sm">
+                    <div className="card-body-overview">
+                        <h1 className="card-title-task pricing-card-title overview-title">Overview</h1>
+                        <ul className="list-unstyled-overview mt-3 mb-4">
+                            {tasks.map((task, index) => (
+                                <li className="over" key={index}>{task}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+      </div>
 </>
   );
 }
