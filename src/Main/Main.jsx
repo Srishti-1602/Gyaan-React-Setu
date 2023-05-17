@@ -73,9 +73,16 @@ export default function Main(props) {
     });
 };
 
-  const toggleCommentSection = () => {
-    setShowCommentSection(!showCommentSection);
-  }
+const toggleCommentSection = (e) => {
+  e.preventDefault();
+  setShowCommentSection((prevState) => !prevState);
+};
+
+
+function handleSaveSubmit(event) {
+  event.preventDefault();
+  // Form submission logic
+}
 
 
   return (
@@ -112,7 +119,7 @@ export default function Main(props) {
 					<h2 className="fw-bold mb-2 text-uppercase save-head">Save Note</h2>
 					<div className="save-inforec">
 						<div className="save-info">
-							<form id="savenote-form" onSubmit="return false;">
+							<form id="savenote-form" onSubmit={handleSaveSubmit}>
 								<input
 									type="text"
 									className="save-title"
@@ -134,18 +141,19 @@ export default function Main(props) {
 			</div>
 		</div>      
 
+
+
       <div className='rectnotes'>
-      <div className='saveNotesDiv'>
+      
+        <div className='icon'>
         <button type='button' className='savebutt' id='save-prompt-button' onClick={handleSaveButtonClick}>
           Save
-        </button>    
-      </div>
-        <div className='icon'>
-        <a href=" "> <img src={RemixIcon} alt="My Icon" className='remixic' id="scrollid" ref={rectNotesRef}/></a>
-        <a onClick={toggleCommentSection} > <img src={CommentIcon} alt="My Icon" className='commic'/></a>
+        </button>
+        <a href=" " > <img src={RemixIcon} alt="My Icon" className='remixic' id="scrollid" ref={rectNotesRef}/></a>
+        <a href=" " onClick={toggleCommentSection} > <img src={CommentIcon} alt="My Icon" className='commic'/></a>
         </div>
         <div className='notes'>
-          <a onClick={handleScrollToTop} > <img src={Upward} alt="My Icon" className='upward'/></a>
+          <a href=" " onClick={handleScrollToTop} > <img src={Upward} alt="My Icon" className='upward'/></a>
         </div>
         <div id='Summary-Preview'></div>
         <div id="tree-view">
@@ -153,6 +161,10 @@ export default function Main(props) {
           <JsonNode data={jsonData} setData={handleSetData} />
         </div>
       </div>
+
+
+
+
     </div>
   );
 }
