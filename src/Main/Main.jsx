@@ -6,6 +6,7 @@ import JsonNode from './JSONnode/JsonNode';
 import Search  from './Search/Search';
 import CommentIcon from '../icons/discuss-line.png';
 import RemixIcon from '../icons/share-forward-box-line.png';
+import FeedbackIcon from '../icons/feedback-fill.png';
 import Upward from '../icons/icons8-send-letter-50.png';
 import { useNavigate } from 'react-router-dom';
 import Navbar1 from '../NewNav/NewNav';
@@ -35,6 +36,9 @@ export default function Main(props) {
   const isLoggedIn = props.isLoggedIn;
   const rectNotesRef = useRef(null);
   const [showCommentSection, setShowCommentSection] = useState(false);
+const [showFeedback, setShowFeedback] = useState(false);
+
+
 
   const handleSetData = (newData) => {
     setJsonData(newData);
@@ -83,6 +87,64 @@ function handleSaveSubmit(event) {
   event.preventDefault();
   // Form submission logic
 }
+
+const toggleFeedback = () => {
+  setShowFeedback((prevShowFeedback) => !prevShowFeedback);
+};
+
+
+const FeedbackSection = ({ isVisible, onClose }) => {
+  const [feedbackText, setFeedbackText] = useState("");
+
+  const handleFeedbackChange = (event) => {
+    setFeedbackText(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle submission of feedback
+    console.log("Feedback submitted:", feedbackText);
+    setFeedbackText("");
+  };
+
+  // const handleClose = () => {
+  //   onClose();
+  // };
+
+  return (
+    <div className={`feedback-section ${isVisible ? 'visible' : ''}`}>
+   <button className="close-button-feed" onClick={toggleFeedback}>
+        x
+      </button>
+      <h3 className='feedbachHead'>Feedback Section</h3>
+      <form onSubmit={handleSubmit} className='feedFrom'>
+      <div className="input-group">
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+         </div>
+        <textarea
+          value={feedbackText}
+          onChange={handleFeedbackChange}
+          placeholder="Enter your feedback"
+          className='feedText'
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+
+    </div>
+
+  );
+};
+
+const FeedbackButton = ({ onClick }) => {
+  return (
+  <button className="feedback-button" onClick={onClick}>
+     <img src={FeedbackIcon} alt="Feedback" className='feedback-button'/>
+    </button>
+  );
+};
+
+
 
 
   return (
@@ -149,11 +211,13 @@ function handleSaveSubmit(event) {
         <button type='button' className='savebutt' id='save-prompt-button' onClick={handleSaveButtonClick}>
           Save
         </button>
-        <a href=" " > <img src={RemixIcon} alt="My Icon" className='remixic' id="scrollid" ref={rectNotesRef}/></a>
-        <a href=" " onClick={toggleCommentSection} > <img src={CommentIcon} alt="My Icon" className='commic'/></a>
+        <a href=" " > <img src={RemixIcon} alt="Remix" className='remixic' id="scrollid" ref={rectNotesRef}/></a>
+        <a href=" " onClick={toggleCommentSection} > <img src={CommentIcon} alt="Comment" className='commic'/></a>
+        <FeedbackButton onClick={toggleFeedback} />
         </div>
+        {showFeedback && <FeedbackSection isVisible={true} />}
         <div className='notes'>
-          <a href=" " onClick={handleScrollToTop} > <img src={Upward} alt="My Icon" className='upward'/></a>
+          <a href=" " onClick={handleScrollToTop} > <img src={Upward} alt="Go Up" className='upward'/></a>
         </div>
         <div id='Summary-Preview'></div>
         <div id="tree-view">
@@ -161,8 +225,6 @@ function handleSaveSubmit(event) {
           <JsonNode data={jsonData} setData={handleSetData} />
         </div>
       </div>
-
-
 
 
     </div>
