@@ -1,6 +1,9 @@
 body {
 background-color: #222D47;
+overflow-x: hidden;
 }
+
+
 
 .your-topics {
 color: #8c7e7e; 
@@ -42,7 +45,8 @@ opacity: 1;
 }
 
 .rectnotes {
-height: 474px;
+/* height: 474px; */
+height: 64%;
 background-color: #0F1E31;
 align-items: center;
 position: absolute; 
@@ -80,9 +84,15 @@ position: fixed;
 
 .icon{
 /* margin-right: 10%; */
-width: 9%;
+width: 11%;
 margin-left: 90%;
 }
+
+/* @media screen and (max-width: 800px) {
+  .icon {
+    flex-direction: column;
+  }
+} */
 
 .remixic {
 background-color: #0F1E31;
@@ -120,6 +130,16 @@ position: relative;
   }
 }
 
+@media screen and (max-width: 1215px) {
+  .icon {
+    flex-direction: column;
+    width: 5%;
+  }
+  .feedback-button {
+    margin-left: -1px;
+    margin-top: 1px;
+  }
+}
 
 .upward{
 position: fixed;
