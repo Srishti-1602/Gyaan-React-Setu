@@ -21,10 +21,10 @@ return (
     <div>
       {/* <LogIn /> */}
       {/* <Main /> */}
-      <SignUp />
+      {/* <SignUp /> */}
         {/* <Dash /> */}
       {/* <ErrorBoundary> */}
-      {/* <Router>
+      <Router>
         
 
           <Routes>
@@ -36,7 +36,7 @@ return (
             <Route path="/login" element={<LogIn />} />
           </Routes>
        
-      </Router> */}
+      </Router>
       {/* </ErrorBoundary> */}
     </div>
    
