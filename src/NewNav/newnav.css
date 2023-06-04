@@ -1,74 +1,75 @@
 .backgroundNav {
-background-color: #0F1E31;
-top: -33px;
+    background-color: #0F1E31;
+    top: -33px;
 }
 
-.navbar-brand{
-width: 50%;
-display: inline;
+.navbar-brand {
+    width: 50%;
+    display: inline;
 }
 
 .Gyaanlogo {
-border-radius:50%;
-/* margin-top: -1.8%; */
+    border-radius: 50%;
+    /* margin-top: -1.8%; */
 }
 
 .headsetu {
-font-size: 3vw;
-margin-top: -1%;
-/* font-size: 300%; */
-color: #fff;
-font-family: var(--font-family-koho);
-font-style: normal;
-text-decoration: none;
+    font-size: 3vw;
+    margin-top: -1%;
+    /* font-size: 300%; */
+    color: #fff;
+    font-family: var(--font-family-koho);
+    font-style: normal;
+    text-decoration: none;
 }
 
-.gyansetu{
-width: 55%;
-margin-top: 20px;
-text-decoration: none;
-margin-right: auto;
+.gyansetu {
+    width: 48%;
+    margin-top: 20px;
+    text-decoration: none;
+    margin-right: auto;
 }
 
 .profilephoto {
-width: 38px;
-height: 38px;
-border-radius:50%;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
 }
 
 .navbar {
-padding-bottom: 0 !important;
-min-height: 100px;
+    padding-bottom: 0 !important;
+    min-height: 100px;
+    /* max-height: 160px; */
 }
 
 .navwork {
- color: #ffff;
- font-size: 20px;
-text-align: center;
-cursor: pointer;
+    color: #ffff;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .navwork2 {
- color: #ffff;
- font-size: 20px;
-text-align: center;
-cursor: pointer;
-width: 145px;
+    color: #ffff;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 145px;
 }
 
 .navwork3 {
- /* color: #ffff; */
- font-size: 20px;
-text-align: center;
-cursor: pointer;
-width: 90px;
+    /* color: #ffff; */
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 90px;
 }
 
-.toggle{
-margin-left: auto;
-margin-top: -30px;
-margin-bottom: 5px;
-padding: 0;
+.toggle {
+    margin-left: auto;
+    /* margin-top: -30px;
+margin-bottom: 5px; */
+    padding: 0;
 }
 
 
@@ -77,12 +78,23 @@ padding: 0;
         margin-left: 50%;
         margin-top: 20px;
         transform: translate(-50%, -50%);
-    
+
     }
+
     .navwork3 {
         margin-left: 50%;
-        /* margin-top: %; */
         transform: translate(-50%, -50%);
-    
+        margin-top: 15px;
+    }
+
+}
+
+@media (max-width: 751.5px) {
+
+    .toggle {
+        margin-left: auto;
+        margin-top: -40px;
+        margin-bottom: 10px;
+        padding: 0;
     }
 }
