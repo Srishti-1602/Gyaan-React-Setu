@@ -75,6 +75,76 @@ function JsonNode({ data, setData }) {
   
     return newNode;
   };
+
+  // Event handler for paragraph content change
+const handleParagraphChange = (key, newValue) => {
+  // Assuming `data` is the state variable representing your data object
+  const updatedData = { ...data };
+
+  // Update the paragraph value
+  updatedData[key] = newValue;
+
+  // Update the state with the modified data
+  setData(updatedData);
+};
+
+// Event handler for URL change
+const handleUrlChange = (key, newValue) => {
+  // Assuming `data` is the state variable representing your data object
+  const updatedData = { ...data };
+
+  // Update the URL value
+  updatedData[key] = newValue;
+
+  // Update the state with the modified data
+  setData(updatedData);
+};
+
+// Event handler for key change
+const handleKeyChange = (oldKey, newKey) => {
+  // Assuming `data` is the state variable representing your data object
+  const updatedData = { ...data };
+
+  // Check if the new key already exists
+  if (newKey !== oldKey && updatedData.hasOwnProperty(newKey)) {
+    // Handle the case where the new key already exists (e.g., show an error message)
+    console.error('Key already exists!');
+    return;
+  }
+
+  // Rename the key
+  updatedData[newKey] = updatedData[oldKey];
+  delete updatedData[oldKey];
+
+  // Update the state with the modified data
+  setData(updatedData);
+};
+
+// Event handler for value change
+const handleValueChange = (key, newValue) => {
+  // Assuming `data` is the state variable representing your data object
+  const updatedData = { ...data };
+
+  // Update the value
+  updatedData[key] = newValue;
+
+  // Update the state with the modified data
+  setData(updatedData);
+  };
+  
+  // Function to calculate the width of the text
+  const calculateInputWidth = (text) => {
+    const dummyInput = document.createElement('span');
+    dummyInput.style.visibility = 'hidden';
+    dummyInput.style.whiteSpace = 'pre';
+    dummyInput.innerText = text;
+
+    document.body.appendChild(dummyInput);
+    const width = dummyInput.getBoundingClientRect().width;
+    document.body.removeChild(dummyInput);
+
+    return width;
+  };
   
   
 
@@ -87,28 +157,45 @@ function JsonNode({ data, setData }) {
       if (isParagraph) {
         const paragraphs = Array.isArray(value)
           ? value.map((paragraph) => {
-            if (paragraph.startsWith("IMAGE_URL: ")) {
-              const imageUrl = paragraph.substring("IMAGE_URL: ".length);
-              return <img src={imageUrl} alt="embedded" style={{backgroundColor: "white"}} />;
-            } else if(paragraph.startsWith("LIST_TEXT: ")){
-              const listText = paragraph.substring("LIST_TEXT: ".length);
-              return <li style={{ color: "white" , fontSize: "16px" }}>{listText}</li>;
-            } else {
-              return <MathJax>{ paragraph}</MathJax>;
-            }
+              if (paragraph.startsWith("IMAGE_URL: ")) {
+                const imageUrl = paragraph.substring("IMAGE_URL: ".length);
+                return <img src={imageUrl} alt="embedded" style={{ backgroundColor: "white" }} />;
+              } else if (paragraph.startsWith("LIST_TEXT: ")) {
+                const listText = paragraph.substring("LIST_TEXT: ".length);
+                return <li style={{ color: "white", fontSize: "16px" }}>{listText}</li>;
+              } else {
+                return (
+                  <input
+                    type="text"
+                    value={paragraph}
+                    onChange={(event) => handleParagraphChange(key, event.target.value)}
+                    style={{ color: "white",
+                    fontSize: "16px",
+                    backgroundColor: "transparent",
+                    border: "none",
+                    width: "100%",
+                    maxWidth: "100%",
+                    resize: "none",
+                    overflow: "hidden",
+       }}
+                  />
+                );
+              }
             })
           : value;
   
-        return <span style={{ color: "white" , fontSize: "16px" }}>
-        {paragraphs.map((paragraph) => (
-          <>{paragraph}          <br />
-          </>
-        ))}
-        </span>
-          ;
+        return (
+          <span style={{ color: "white", fontSize: "16px" }}>
+            {paragraphs.map((paragraph) => (
+              <>
+                {paragraph} <br />
+              </>
+            ))}
+          </span>
+        );
       } else if (isUrl) {
         return (
-          <span style={{ color: "white", fontSize: "16px"}}>
+          <span style={{ color: "white", fontSize: "16px" }}>
             <span
               style={{
                 color: "gray",
@@ -132,18 +219,33 @@ function JsonNode({ data, setData }) {
               {isExpanded ? (
                 <i
                   className="fa fa-caret-down"
-                  style={{ marginRight: "10px", color: "white" }}
+                  style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
                 ></i>
               ) : (
                 <i
                   className="fa fa-caret-right"
-                  style={{ marginRight: "10px", color: "white" }}
+                  style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
                 ></i>
               )}
-              {key}{" "}
+              {isExpanded ? (
+                <input
+                  type="text"
+                  value={key}
+                  onChange={(event) => handleKeyChange(key, event.target.value)}
+                  style={{
+                    color: "white",
+                    fontSize: "16px",
+                    backgroundColor: "transparent",
+                    border: "none",
+                    width: calculateInputWidth(key),
+                  }}
+                />
+              ) : (
+                <span>{key}</span>
+              )}
               <i
                 className="fa fa-trash"
-                style={{ cursor: "pointer", color: "white" }}
+                style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
                 onClick={() => handleDeleteNode(key)}
               ></i>
             </span>
@@ -166,23 +268,28 @@ function JsonNode({ data, setData }) {
         <li key={key}>
           <span
             onClick={() => handleNodeClick(key)}
-            style={{ cursor: "pointer", color: "white" }}
+            style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
           >
             {expanded.includes(key) ? (
               <i
                 className="fa fa-caret-down"
-                style={{ marginRight: "10px", color: "white" }}
+                style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
               ></i>
             ) : (
               <i
                 className="fa fa-caret-right"
-                style={{ marginRight: "10px", color: "white" }}
+                style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
               ></i>
             )}
-            {key}:{" "}
+            <input
+              type="text"
+              value={key}
+              onChange={(event) => handleKeyChange(key, event.target.value)}
+              style={{ color: "white", fontSize: "16px", backgroundColor: "transparent", border: "none", width: calculateInputWidth(key) }}
+            />
             <i
               className="fa fa-trash"
-              style={{ cursor: "pointer", color: "white" }}
+              style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
               onClick={() => handleDeleteNode(key)}
             ></i>
           </span>
@@ -192,17 +299,23 @@ function JsonNode({ data, setData }) {
               paddingLeft: "3em",
               display: expanded.includes(key) ? "inline" : "none",
               color: "white",
+              fontSize: "16px",
             }}
           >
-            {value}
+            <input
+              type="text"
+              value={value}
+              onChange={(event) => handleValueChange(key, event.target.value)}
+              style={{ color: "white", fontSize: "16px", backgroundColor: "transparent", border: "none", width: calculateInputWidth(value) }}
+            />
           </span>
         </li>
       );
     }
   };
   
+  return <ul style={{ listStyleType: "none", paddingLeft: 0 }}>{Object.entries(data).map(([key, value]) => renderNode(key, value))}</ul>;
   
-  return <ul style={{ listStyleType: "none", paddingLeft: 0}}>{Object.entries(data).map(([key, value]) => renderNode(key, value))}</ul>;
 
 }
 
