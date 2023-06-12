@@ -77,8 +77,38 @@ function JsonNode({ data, setData }) {
   };
   
   
+  const [isEditable, setIsEditable] = useState(false);
+
+  const handleDoubleClick = () => {
+    setIsEditable(true);
+  };
+
+  const handleBlur = () => {
+    setIsEditable(false);
+  };
+
+  const [editedKey, setEditedKey] = useState("");
+
+  const handleEdit = (key) => {
+    // Retrieve the original key value and set it as the editedKey
+    const originalKeyValue = // Get the original key value based on the key
+    setEditedKey(originalKeyValue);
+    // Toggle the isEditable state to true
+    setIsEditable(true);
+  };
+
+  const handleSave = (key) => {
+    // Perform any validation or checks on the editedKey if needed
+    // Update the key value with the editedKey in your data structure
+
+    // Save the updated data or perform any necessary operations
+
+    // Toggle the isEditable state to false
+    setIsEditable(false);
+  };
 
   const renderNode = (key, value) => {
+
     if (typeof value === "object" && value !== null) {
       const isParagraph = key === "paragraphs";
       const isUrl = key === "url";
@@ -99,7 +129,7 @@ function JsonNode({ data, setData }) {
             })
           : value;
   
-        return <span style={{ color: "white" , fontSize: "16px" }}>
+        return <span style={{ color: "white" , fontSize: "16px", paddingLef: "1em" }}>
         {paragraphs.map((paragraph) => (
           <>{paragraph}          <br />
           </>
@@ -132,18 +162,18 @@ function JsonNode({ data, setData }) {
               {isExpanded ? (
                 <i
                   className="fa fa-caret-down"
-                  style={{ marginRight: "10px", color: "white" }}
+                  style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
                 ></i>
               ) : (
                 <i
                   className="fa fa-caret-right"
-                  style={{ marginRight: "10px", color: "white" }}
+                  style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
                 ></i>
               )}
               {key}{" "}
               <i
                 className="fa fa-trash"
-                style={{ cursor: "pointer", color: "white" }}
+                style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
                 onClick={() => handleDeleteNode(key)}
               ></i>
             </span>
@@ -153,6 +183,7 @@ function JsonNode({ data, setData }) {
                   display: isExpanded ? "block" : "none",
                   paddingLeft: "1em",
                   listStyleType: "none",
+                  fontSize: "16px"
                 }}
               >
                 {Object.entries(value).map(([k, v]) => renderNode(k, v))}
@@ -165,34 +196,46 @@ function JsonNode({ data, setData }) {
       return (
         <li key={key}>
           <span
-            onClick={() => handleNodeClick(key)}
-            style={{ cursor: "pointer", color: "white" }}
+            onClick={() => {
+              if (!isEditable) {
+                handleNodeClick(key);
+              }
+            }}
+            style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
+            onDoubleClick={handleDoubleClick}
+            onBlur={handleBlur}
+            contentEditable={isEditable}
           >
             {expanded.includes(key) ? (
               <i
                 className="fa fa-caret-down"
-                style={{ marginRight: "10px", color: "white" }}
+                style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
               ></i>
             ) : (
               <i
                 className="fa fa-caret-right"
-                style={{ marginRight: "10px", color: "white" }}
+                style={{ marginRight: "10px", color: "white", fontSize: "16px" }}
               ></i>
             )}
             {key}:{" "}
             <i
               className="fa fa-trash"
-              style={{ cursor: "pointer", color: "white" }}
+              style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
               onClick={() => handleDeleteNode(key)}
             ></i>
           </span>
           <br />
           <span
             style={{
-              paddingLeft: "3em",
-              display: expanded.includes(key) ? "inline" : "none",
+              display: expanded.includes(key) ? "inline-block" : "none",
               color: "white",
+              fontSize: "16px",
+              marginLeft: "1em",
             }}
+            onClick={() => handleDoubleClick()}
+            //onDoubleClick={handleDoubleClick}
+            onBlur={handleBlur}
+            contentEditable={isEditable}
           >
             {value}
           </span>
