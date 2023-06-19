@@ -107,8 +107,15 @@ function JsonNode({ data, setData }) {
     setIsEditable(false);
   };
 
-  const renderNode = (key, value) => {
+  
 
+  const renderNode = (key, value) => {
+    const handleAddNode = () => {
+      // Update the data structure with the new node
+      const newData = { ...data };
+      newData[key].push(""); // Or set an initial value for the new node
+      setData(newData);
+    };
     if (typeof value === "object" && value !== null) {
       const isParagraph = key === "paragraphs";
       const isUrl = key === "url";
@@ -133,7 +140,9 @@ function JsonNode({ data, setData }) {
         {paragraphs.map((paragraph) => (
           <>{paragraph}          <br />
           </>
+          
         ))}
+          <button onClick={handleAddNode}>Add Node</button>
         </span>
           ;
       } else if (isUrl) {
