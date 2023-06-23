@@ -4,9 +4,9 @@ import { getDatabase, ref, set } from "firebase/database";
 
 import config from "../firebase";
 
-const app = initializeApp(config);
-const auth = getAuth();
-const db = getDatabase();
+//const app = initializeApp(config);
+/* const auth = getAuth();
+const db = getDatabase(); */
 
 function handleSignUp(event) {
     if (event) {
@@ -14,7 +14,7 @@ function handleSignUp(event) {
       }
     const { email, password, username, school, course, department } = event.target.elements;
     
-    createUserWithEmailAndPassword(auth, email.value, password.value)
+    /* createUserWithEmailAndPassword(auth, email.value, password.value)
       .then((userCredential) => {
         // User signed up successfully
         const user = userCredential.user;
@@ -32,7 +32,7 @@ function handleSignUp(event) {
       .catch((error) => {
         // Handle errors
         console.log(error.message);
-      });
+      }); */
 }
   
 export default handleSignUp;

@@ -107,8 +107,9 @@ function JsonNode({ data, setData }) {
     setIsEditable(false);
   };
 
-  const renderNode = (key, value) => {
+  
 
+  const renderNode = (key, value) => {
     if (typeof value === "object" && value !== null) {
       const isParagraph = key === "paragraphs";
       const isUrl = key === "url";
@@ -133,6 +134,7 @@ function JsonNode({ data, setData }) {
         {paragraphs.map((paragraph) => (
           <>{paragraph}          <br />
           </>
+          
         ))}
         </span>
           ;

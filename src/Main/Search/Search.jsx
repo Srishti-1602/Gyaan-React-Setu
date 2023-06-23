@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import apiComm from './backendIntegration';
 import { Navigate } from 'react-router-dom';
-
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export default function Search({ onSearch }) {
   const [searchText, setSearchText] = useState('');
@@ -27,7 +27,22 @@ const handleInputChange = (event) => {
     setSearchText(event.target.value);
   };
 
-const isLoggedIn = onSearch.isLoggedIn;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
 const handleSubmit = (event) => {
     event.preventDefault();
