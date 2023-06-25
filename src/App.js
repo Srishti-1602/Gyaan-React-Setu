@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './App.css'
 import React from 'react'
+import MainOld from './Main/MainOld'
 import Main from './Main/Main'
 import Start from './FirstPage/First'
 import Community from './Community/Community'
@@ -27,6 +28,7 @@ function App () {
       <Router>
         <Routes>
           <Route exact path='/' element={<Start />} />
+          {/* <Route path='/index' element={<MainOld />} /> */}
           <Route path='/index' element={<Main />} />
           <Route path='/community' element={<Community />} />
           <Route path='/dashboard' element={<Dash />} />
