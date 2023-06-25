@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import FeedbackIcon from '../icons/feedback-fill.png'
-import './main.css';
+import FeedbackIcon from '../../icons/feedback-fill.png'
+import '../main.css';
 
 const FeedbackSection = ({ isVisible, onClose }) => {
   const [feedbackText, setFeedbackText] = useState('');

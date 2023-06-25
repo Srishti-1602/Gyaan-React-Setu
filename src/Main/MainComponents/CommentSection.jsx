@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import './main.css';
-import CommentIcon from '../icons/discuss-line.png'
+import '../main.css';
+import CommentIcon from '../../icons/discuss-line.png'
 
 const CommentSection = () => {
   const [comments, setComments] = useState([]);

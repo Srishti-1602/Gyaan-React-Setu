@@ -1,24 +1,57 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import './main.css'
+import '../main.css'
+import { getDatabase, ref, update, set } from 'firebase/database';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
-const SaveButton = () => {
+const SaveButton = ({ jsonData, queryRef, isLoggedIn }) => {
   const navigate = useNavigate();
   const [showSaveNote, setShowSaveNote] = useState(false);
-  const isLoggedIn = true; // Placeholder for isLoggedIn check
 
   const handleSaveButtonClick = () => {
     if (isLoggedIn) {
       setShowSaveNote(true);
+      console.log('jsonData:', jsonData); // Print the jsonData to the console
+      console.log('queryRef:', queryRef); // Print the queryRef to the console
     } else {
       // Redirect to login page
       navigate('/login');
     }
   };
 
-  const handleSaveSubmit = (event) => {
+  const handleSaveSubmit = async (event) => {
     event.preventDefault();
-    // Form submission logic
+    const title = document.getElementById('save-title').value;
+    const subject = document.getElementById('save-subject').value;
+
+    // Update the form values in the Firebase Realtime Database
+    const database = getDatabase();
+    const queryRefNode = ref(database, queryRef);
+    await update(queryRefNode, {
+      Query: title,
+      Subject: subject,
+    });
+
+    // Save the jsonData in Firestore with a unique ID
+    const firestore = getFirestore();
+    const collectionRef = collection(firestore, 'notes');
+
+    const jsonDataString = JSON.stringify(jsonData);
+
+    addDoc(collectionRef, {
+      jsonData: jsonDataString,
+    })
+      .then((docRef) => {
+        const uniqueFirestoreId = docRef.id;
+        console.log('Unique Firestore ID:', uniqueFirestoreId);
+        const queryRefToUpdate = ref(database, `${queryRef}/Saved`);
+        set(queryRefToUpdate, uniqueFirestoreId);
+        const notesRefToUpdate = ref(database, `notes/${title}`);
+        set(notesRefToUpdate, uniqueFirestoreId);
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
   };
 
   return (

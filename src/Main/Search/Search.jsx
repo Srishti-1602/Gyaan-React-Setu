@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import apiComm from './backendIntegration';
 import { getDatabase, ref, set, push } from 'firebase/database';
-
+import { setQueryId } from './queryIdManager';
 
 function Search({ onSearch }) {
   const [searchText, setSearchText] = useState('');
@@ -41,6 +41,7 @@ function Search({ onSearch }) {
     const queriesRef = ref(database, `users/${userId}/Queries`);
     const newQueryRef = push(queriesRef);
     const newQueryId = newQueryRef.key;
+    setQueryId(newQueryId);
     const newQueryData = {
       Query: query,
       Saved: 'no',
@@ -57,8 +58,8 @@ function Search({ onSearch }) {
     const database = getDatabase();
     const queryStatusRef = ref(database, `users/${userId}/Queries/${queryId}/Status`);
     const queryRef = ref(database, `users/${userId}/Queries/currentQueryStatus`);
-    await set(queryStatusRef, 'delivered');
     await set(queryRef, 'static');
+    await set(queryStatusRef, 'delivered');
   };
 
   const handleSubmit = async (event) => {
