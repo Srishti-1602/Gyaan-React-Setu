@@ -1,24 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import '../main.css'
-import { getDatabase, ref, update, set } from 'firebase/database';
+import { getDatabase, ref, update, set, onValue } from 'firebase/database';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
-const SaveButton = ({ jsonData, queryRef, isLoggedIn }) => {
+const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
   const navigate = useNavigate();
   const [showSaveNote, setShowSaveNote] = useState(false);
 
+  /* Get User Data */
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    const database = getDatabase();
+    const userRef = ref(database, `users/${UserID}`);
+
+    onValue(userRef, (snapshot) => {
+      const userDataValue = snapshot.val();
+      setUserData(userDataValue);
+      console.log('userData:', userData);
+    });
+  }, [UserID]);
+  /* End of Get User Data */
+
+
+  /* Save Button Click */
   const handleSaveButtonClick = () => {
     if (isLoggedIn) {
       setShowSaveNote(true);
       console.log('jsonData:', jsonData); // Print the jsonData to the console
       console.log('queryRef:', queryRef); // Print the queryRef to the console
+      console.log('UserID:', UserID); // Print the UserID to the console
+      console.log('userData:', userData); // Print the userData to the console
     } else {
       // Redirect to login page
       navigate('/login');
     }
   };
+  /* End of Save Button Click */
 
+
+  /* Save Form Submit */
   const handleSaveSubmit = async (event) => {
     event.preventDefault();
     const title = document.getElementById('save-title').value;
@@ -46,13 +67,28 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn }) => {
         console.log('Unique Firestore ID:', uniqueFirestoreId);
         const queryRefToUpdate = ref(database, `${queryRef}/Saved`);
         set(queryRefToUpdate, uniqueFirestoreId);
-        const notesRefToUpdate = ref(database, `notes/${title}`);
-        set(notesRefToUpdate, uniqueFirestoreId);
+        const notesRefToUpdate = ref(database, `notes/${title}`); //UNIMPORTANT
+        set(notesRefToUpdate, uniqueFirestoreId); //UNIMPORTANT
+        /* Save data for Community Page */
+        const userRef = ref(database, `users/${UserID}`);
+
+        console.log('userData:', userData);
+
+        const school = userData.school;
+        const course = userData.course;
+        const department = userData.department;
+
+        const communityRefToUpdate = ref(database, `community/${school}/${course}/${department}/${uniqueFirestoreId}`);
+        set(communityRefToUpdate, {
+          title: title,
+          userid: UserID,
+        });
       })
       .catch((error) => {
         console.error('Error adding document: ', error);
       });
   };
+  /* End of Save Form Submit */
 
   return (
     <div>

@@ -87,7 +87,7 @@ export default function Main(props) {
 
             <div className='rectnotes'>
                 <div className='icon'>
-                    <SaveButton jsonData={jsonData} queryRef={queryRef} isLoggedIn={isLoggedIn} />
+                    <SaveButton jsonData={jsonData} queryRef={queryRef} isLoggedIn={isLoggedIn} UserID={userId} />
                     <Remix />
                     <CommentSection />
                     <FeedbackComponent />
