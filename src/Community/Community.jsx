@@ -3,9 +3,33 @@ import React from 'react'
 import './community.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import Navbar1 from '../NewNav/NewNav'
+import Navbar1 from '../NewNav/NewNav';
+import JsonNode from '../Main/JSONnode/JsonNode';
+import { useState, useEffect } from 'react';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
-function Community () {
+const jsonData = {}
+
+function Community() {
+  /* Handling Fetch Community data from Firebase and Giving JSON output for rendering */
+  const [communityData, setCommunityData] = useState(jsonData);
+
+  useEffect(() => {
+    const database = getDatabase();
+    const communityRef = ref(database, 'community');
+
+    onValue(communityRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      setCommunityData(data);
+      console.log(communityData);
+    });
+  }, []);
+  /* End of Handling Search and Giving JSON output for rendering */
+  const handleSetData = (newData) => {
+    setCommunityData(newData);
+    console.log(newData);
+  };
   return (
     <div>
       <Navbar1 />
@@ -31,6 +55,7 @@ function Community () {
                 </form>
               </div>
             </div>
+            <JsonNode data={communityData} setData={handleSetData} />
           </div>
         </div>
       </div>
