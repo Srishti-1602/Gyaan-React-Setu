@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import RemixIcon from '../icons/share-forward-box-line.png';
-import './main.css';
+import RemixIcon from '../../icons/share-forward-box-line.png';
+import '../main.css';
 
 const Remix = () => {
   const rectNotesRef = useRef(null);
