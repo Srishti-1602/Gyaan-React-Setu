@@ -9,8 +9,14 @@
 }
 
 .Gyaanlogo {
-    border-radius: 50%;
-    /* margin-top: -1.8%; */
+
+    /* Ensure the image behaves as a block element */
+    width: 100%;
+    /* Ensure the image fills the container horizontally */
+    height: auto;
+    /* Let the height adjust automatically */
+    object-fit: cover;
+    margin-top: -1.8%;
 }
 
 .headsetu {
@@ -24,10 +30,18 @@
 }
 
 .gyansetu {
-    width: 48%;
+    /* width: 48%; */
     margin-top: 20px;
     text-decoration: none;
     margin-right: auto;
+    width: 100%;
+    /* Set the initial width of the container */
+    max-width: 600px;
+    /* Set the maximum width of the container */
+    height: auto;
+    max-height: 80px;
+    /* Let the height adjust automatically */
+    overflow: hidden;
 }
 
 .profilephoto {
@@ -50,7 +64,8 @@
 .navbar {
     padding-bottom: 0 !important;
     min-height: 100px;
-    /* max-height: 160px; */
+    max-height: 260px;
+    overflow: hidden;
 }
 
 .navwork {
@@ -79,8 +94,8 @@
 
 .toggle {
     margin-left: auto;
-    /* margin-top: -30px;
-margin-bottom: 5px; */
+    margin-top: -60px;
+    margin-bottom: 20px;
     padding: 0;
 }
 
@@ -101,12 +116,12 @@ margin-bottom: 5px; */
 
 }
 
-@media (max-width: 751.5px) {
+/* @media (max-width: 751.5px) {
 
     .toggle {
         margin-left: auto;
-        margin-top: -40px;
-        margin-bottom: 10px;
+        margin-top: -60px;
+        margin-bottom: 20px;
         padding: 0;
     }
-}
+} */
