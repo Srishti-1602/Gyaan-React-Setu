@@ -1,15 +1,12 @@
-/* body{
-background-color: #222D47;
-} */
-
+/* Searchbar */
 .user-search {
     color: #8c7e7e;
-    cursor: pointer;
+    cursor: auto;
     font-family: var(--font-family-koho);
     font-weight: 600;
     font-size: var(--font-size-m);
     margin-top: 2%;
-    margin-bottom: 2.5%;
+    margin-bottom: 35px;
     opacity: 1;
     display: flex;
     justify-content: center;
@@ -17,31 +14,20 @@ background-color: #222D47;
 }
 
 .searchbar-user {
-    height: 30px;
+    height: 40px;
     border: 0.7mm solid;
     border-radius: 3mm;
     border-color: #0F1930;
-    width: 35vw;
+    width: 38vw;
     /* width: 50%; */
     background-color: #D9D9D9;
     opacity: 1;
 }
 
-@media (min-width: 500px) {
-    .searchbar-user {
-        height: 35px;
-        /* width: 80%; */
-        /* margin-left: 10%; */
-    }
-}
-
-/* Change height of search bar on screens larger than 900px */
-@media (min-width: 900px) {
+@media (max-width: 768px) {
     .searchbar-user {
         height: 40px;
-        width: 38vw;
-        /* width: 50%; */
-        /* margin-left: 8%; */
+        width: 70vw;
     }
 }
 
@@ -52,6 +38,8 @@ background-color: #222D47;
     line-height: 1.2; */
     color: #D9D9D9;
     margin-top: 10px;
+    text-align: center;
+    font-weight: 350;
     /* margin-bottom: 0.75rem; */
 }
 
@@ -59,12 +47,34 @@ background-color: #222D47;
     border-radius: 1rem;
     transition: all 0.2s;
     background-color: #0F1E31;
-    height: 580px;
+    height: 300px;
     border: 1px solid #D9D9D9;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-content: center;
+    /* margin-left: 10px; */
+    /* margin-right: -15px; */
+}
+
+.col-clg {
+    margin-bottom: 0;
+    margin-top: -10px;
+    /* width: 94.5%; */
+}
+
+.card-data {
+    border-radius: 1rem;
+    transition: all 0.2s;
+    background-color: #0F1E31;
+    /* height: 130px; */
+    height: 20%;
+    /* max-height: 130px; */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    /* display: flex;
+justify-content: center;
+align-content: center; */
     /* margin-left: 10px; */
     /* margin-right: -15px; */
 }
@@ -76,31 +86,20 @@ background-color: #222D47;
     height: 580px;
     border: 1px solid #D9D9D9;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-    /* display: flex;
-justify-content: center;
-align-content: center; */
-    width: 100% !important;
-}
-
-.col-clg {
-    margin-bottom: 0;
-    margin-top: -10px;
-    /* width: 94.5%; */
+    /* margin-left: 50px; */
+    /* width: 100% !important; */
 }
 
 .col-filter {
     margin-bottom: 0;
-    margin-top: -10px;
+    margin-top: 10px;
+    margin-left: 1.5%;
 }
 
 .row {
     width: 99%;
 }
 
-.pricing-card-title {
-    text-align: center;
-    font-weight: 350;
-}
 
 .checkpoints {
     color: rgb(224, 209, 209);
@@ -131,6 +130,120 @@ align-content: center; */
     cursor: auto;
 }
 
-.checkpoint-label {
+label {
     margin-left: 8px;
+}
+
+.button-container {
+    margin-top: 50px;
+    padding: 0px 20px;
+}
+
+.btn-secondary {
+    margin-right: 6px;
+    padding: 5px 23px;
+}
+
+.btn-primary {
+    margin-left: 6px;
+    padding: 5px 23px;
+
+}
+
+@media screen and (max-width: 1175px) {
+    .btn-primary {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    .btn-secondary {
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 766px) {
+    .btn-primary {
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+
+    .btn-secondary {
+        margin-right: 0px;
+    }
+}
+
+h5 {
+    color: #D9D9D9;
+}
+
+.card-body-data {
+    transition: all 0.2s;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 80px;
+    /* margin-right: -15px; */
+}
+
+.CommunityData,
+.CommunityIcon {
+    display: flex;
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center items vertically */
+    width: 100%;
+}
+
+
+
+.CommunityDataNote,
+.CommunityDataSub,
+.CommunityCreator,
+.CommunityCreated {
+    display: flex;
+    width: 50%;
+}
+
+.CommunityStar,
+.CommunityRemix {
+    display: flex;
+    width: 12%;
+    justify-content: flex-end;
+}
+
+.data-row {
+    display: flex;
+    align-items: center;
+}
+
+.data-row h5 {
+    margin-right: 10px;
+}
+
+.CommunityIcon {
+    margin-top: 10px;
+    padding-right: 20px;
+    /* flex-direction: column; */
+}
+
+.Like,
+.Unlike {
+    width: 25px;
+    height: 25px;
+    margin-top: -15px;
+}
+
+.card-note {
+    border-radius: 1rem;
+    transition: all 0.2s;
+    background-color: #0F1E31;
+    height: 310px;
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
