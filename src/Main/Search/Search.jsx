@@ -46,7 +46,9 @@ function Search({ onSearch }) {
       Query: query,
       Saved: 'no',
       Status: 'processing',
-      Subject: '-'
+      Subject: '-',
+      Queried_At: new Date().toISOString(),
+      
     };
 
     await set(newQueryRef, newQueryData);

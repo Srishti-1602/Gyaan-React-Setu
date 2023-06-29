@@ -53,6 +53,12 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
       Subject: subject,
     });
 
+    await set(queryRefNode, {
+      Note_title: title,
+      
+    });
+    
+
     // Save the jsonData in Firestore with a unique ID
     const firestore = getFirestore();
     const collectionRef = collection(firestore, 'notes');
@@ -81,7 +87,11 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
         const communityRefToUpdate = ref(database, `community/${school}/${course}/${department}/${uniqueFirestoreId}`);
         set(communityRefToUpdate, {
           title: title,
-          userid: UserID,
+          created_by: UserID,
+          created_at: Date.now(),
+          forked: false,
+          forked_from: null,
+          ownner: UserID,
         });
       })
       .catch((error) => {
