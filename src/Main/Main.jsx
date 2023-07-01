@@ -13,7 +13,7 @@ import Remix from './MainComponents/Remix';
 import LoadingBar from './Search/loadingAnimation/loadingAnimation';
 import { getQueryId } from './Search/queryIdManager';
 import { useLocation } from 'react-router-dom';
-import ExpandableData from './JSONnode/AddNode';
+import PopoverButton from './JSONnode/AddNode';
 
 const data = {
   id: 'root',
@@ -208,9 +208,10 @@ useEffect(() => {
           <FeedbackComponent />
         </div>
         <div id="tree-view">
+        <PopoverButton/>
           {queryStatus === 'processing' ? <LoadingBar /> : null}
           <JsonNode data={jsonData} setData={handleSetData} />
-          <ExpandableData data={jsonData} onUpdateData={handleUpdateData} />
+          <PopoverButton/>
         </div>
       </div>
     </div>

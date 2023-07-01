@@ -1,59 +1,53 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Button, Overlay, Popover } from 'react-bootstrap';
 
-const ExpandableData = ({ data, onUpdateData }) => {
-  const [expandedNodes, setExpandedNodes] = useState({});
+const PopoverButton = () => {
+  const [showPopover, setShowPopover] = useState(false);
+  const [target, setTarget] = useState(null);
+  const [clickedButton, setClickedButton] = useState('');
 
-  const handleExpand = (key) => {
-    setExpandedNodes((prevState) => ({
-      ...prevState,
-      [key]: !prevState[key],
-    }));
+  const handleClick = (event, buttonName) => {
+    setShowPopover(!showPopover);
+    setTarget(event.target);
+    setClickedButton(buttonName);
   };
 
-  const handleSearch = (parentKey) => {
-    const inputValue = prompt("Enter search value:");
-    if (inputValue) {
-      const newKey = "SEARCH";
-      const newValue = inputValue;
-      const updatedData = {
-        ...data,
-        [parentKey]: {
-          ...data[parentKey],
-          [newKey]: newValue,
-        },
-      };
-      setExpandedNodes((prevState) => ({
-        ...prevState,
-        [parentKey]: true,
-      }));
-      onUpdateData(updatedData);
-    }
+  const handlePopoverHide = () => {
+    setShowPopover(false);
+    setClickedButton('');
   };
 
-  const renderData = (obj, parentKey = "") => {
-    return Object.keys(obj).map((key) => {
-      const value = obj[key];
-      const isNestedObject = typeof value === "object" && !Array.isArray(value);
-      const nestedKey = parentKey ? `${parentKey}.${key}` : key;
-      const isExpanded = expandedNodes[nestedKey];
+  const handleButtonClick = () => {
+    console.log(`${clickedButton}: Click me`);
+  };
 
-      return (
-        <div key={nestedKey} style={{ color: "white" }}>
-          <span>{nestedKey}</span>
-          <span onClick={() => handleExpand(nestedKey)}>+</span>
-          {isExpanded && (
-            <div>
-              <input type="text" placeholder="Search..." />
-              <button onClick={() => handleSearch(nestedKey)}>Search</button>
+  return (
+    <>
+      <i
+                className="fa fa-plus-circle"
+                style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
+                onClick={handleClick}
+            ></i>
+      <Overlay
+        show={showPopover}
+        target={target}
+        placement="right"
+        container={document.body}
+        rootClose
+        onHide={handlePopoverHide}
+      >
+        <Popover id="popover-contained">
+          <Popover.Body>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Button onClick={handleButtonClick.bind(null, 'ABC')}
+              style={{ marginBottom: '10px' }}>ABC</Button>
+              <Button onClick={handleButtonClick.bind(null, 'XYZ')}>XYZ</Button>
             </div>
-          )}
-          {isNestedObject && renderData(value, nestedKey)}
-        </div>
-      );
-    });
-  };
-
-  return <div>{renderData(data)}</div>;
+          </Popover.Body>
+        </Popover>
+      </Overlay>
+    </>
+  );
 };
 
-export default ExpandableData;
+export default PopoverButton;
