@@ -13,8 +13,68 @@ import Remix from './MainComponents/Remix';
 import LoadingBar from './Search/loadingAnimation/loadingAnimation';
 import { getQueryId } from './Search/queryIdManager';
 import { useLocation } from 'react-router-dom';
+import PopoverButton from './JSONnode/AddNode';
 
-const data = {};
+const data = {
+  id: 'root',
+  name: 'root',
+  node: {
+    sub1: {
+      id: 'sub1',
+      name: 'sub1',
+      node: {
+        sub1sub1: {
+          id: 'sub1sub1',
+          name: 'sub1sub1',
+        }
+      },
+    sub2: {
+        id: 'sub2',
+        name: 'sub2',
+      }
+    }
+  },
+  children: [
+    {
+      id: '1',
+      name: '1',
+      children: [
+        {
+          id: '1.1',
+          name: '1.1',
+          children: [
+            {
+              id: '1.1.1',
+              name: '1.1.1',
+              children: [
+                {
+                  id: '',
+                  name: ''
+                },
+                {
+                  id: '',
+                  name: ''
+                }
+              ]
+            },
+            {
+              id: '',
+              name: '',
+            }
+          ]
+        },
+        {
+          id: '',
+          name: ''
+        }
+      ]
+    },
+    {
+      id: '',
+      name: ''
+    }
+  ]
+};
 
 export default function Main(props) {
   /* Getting User ID */
@@ -115,7 +175,14 @@ const fetchData = async (savedNoteId) => {
 useEffect(() => {
   fetchData(savedNoteId); // Call fetchData initially with the savedNoteId
 }, [location.search, savedNoteId]);
-/* End of Fetch data from Firestore based on queryId */
+  /* End of Fetch data from Firestore based on queryId */
+  
+
+  /* Add nodes functionality */
+  const handleUpdateData = (updatedData) => {
+    setJsonData(updatedData);
+  };
+  /* End of Add nodes functionality */
 
 
   /* RETURN COMPONENT */
@@ -141,8 +208,10 @@ useEffect(() => {
           <FeedbackComponent />
         </div>
         <div id="tree-view">
+        <PopoverButton/>
           {queryStatus === 'processing' ? <LoadingBar /> : null}
           <JsonNode data={jsonData} setData={handleSetData} />
+          <PopoverButton/>
         </div>
       </div>
     </div>

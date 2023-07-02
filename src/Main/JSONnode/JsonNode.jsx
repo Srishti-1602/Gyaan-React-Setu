@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import { Button, Overlay, Popover } from 'react-bootstrap';
+import PopoverButton from './AddNode';
 
 function MathJax(props) {
   useEffect(() => {
@@ -173,6 +174,8 @@ function JsonNode({ data, setData }) {
                 ></i>
               )}
               {key}{" "}
+              <PopoverButton/>
+              {" "}
               <i
                 className="fa fa-trash"
                 style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
@@ -220,6 +223,8 @@ function JsonNode({ data, setData }) {
               ></i>
             )}
             {key}:{" "}
+            <PopoverButton/>
+            {" "}
             <i
               className="fa fa-trash"
               style={{ cursor: "pointer", color: "white", fontSize: "16px" }}
