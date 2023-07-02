@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PopoverButton from './AddNode';
 import Paragraph from './JSONcomponents/paragraphRender';
 import URL from './JSONcomponents/urlRender';
@@ -21,7 +21,7 @@ function JsonNode({ data, setData }) {
         const isExpanded = expanded.includes(key);
 
         if (typeof value === "object" && value !== null) {
-            const isParagraph = key === "paragraphs";
+            const isParagraph = key === "paragraphs" || key === "searchFor";
             const isUrl = key === "url";
             
             if (isParagraph) {
@@ -32,7 +32,7 @@ function JsonNode({ data, setData }) {
                 return (
                     <li key={key}>
                         <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} />
-                        <PopoverButton nodeKey={key} />
+                        <PopoverButton nodeKey={key} mydata={data} setData={setData} />
                         {" "}
                         <DeleteNodeButton data={data} nodeKey={key} setData={setData} />
                         {Object.entries(value).length > 0 && (
@@ -54,7 +54,7 @@ function JsonNode({ data, setData }) {
             return (
                 <li key={key}>
                     <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} />
-                    <PopoverButton nodeKey={key} />
+                    <PopoverButton nodeKey={key} mydata={data} setData={setData} />
                     {" "}
                     <DeleteNodeButton data={data} nodeKey={key} setData={setData} />
                     <br />

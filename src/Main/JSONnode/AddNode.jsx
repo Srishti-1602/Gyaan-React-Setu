@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Overlay, Popover } from 'react-bootstrap';
 
-const PopoverButton = ({ nodeKey }) => {
+const PopoverButton = ({ nodeKey, mydata, setData }) => {
   const [showPopover, setShowPopover] = useState(false);
   const [target, setTarget] = useState(null);
   const [clickedButton, setClickedButton] = useState('');
@@ -21,7 +21,30 @@ const PopoverButton = ({ nodeKey }) => {
   };
 
   const handleGenerateNewSubtopic = (keyText) => {
-    console.log(keyText);
+    const existingValue = mydata[keyText];
+    console.log(existingValue);
+    let newValue;
+
+    if (typeof existingValue === 'object' && !Array.isArray(existingValue)) {
+      // Handle the case when the existing value is already an object
+      newValue = {
+        ...existingValue,
+        searchFor: ['subnodeValue'],
+      };
+    } else {
+      // Handle the case when the existing value is a string
+      newValue = {
+        searchFor: ['subnodeValue'],
+        value: existingValue,
+      };
+    }
+
+    const newData = {
+      ...mydata,
+      [keyText]: newValue,
+    };
+    setData(newData);
+    setShowPopover(false);
   };
 
   return (
