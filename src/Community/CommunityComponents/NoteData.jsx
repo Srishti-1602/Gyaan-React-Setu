@@ -36,14 +36,16 @@ const NotesData = () => {
               <span>Creator Name</span>
             </div>
           </div>
-          <div className='CommunityStar'>
-            <div className='icon-row'>
-              <Stars />
+          <div className='CommunityDownloadIcon'>
+            <div className='CommunityStar'>
+              <div className='icon-row'>
+                <Stars />
+              </div>
             </div>
-          </div>
-          <div className='CommunityRemix'>
-            <div className='icon-row'>
-              <Remix />
+            <div className='CommunityRemix'>
+              <div className='icon-row'>
+                <Remix />
+              </div>
             </div>
           </div>
         </div>
