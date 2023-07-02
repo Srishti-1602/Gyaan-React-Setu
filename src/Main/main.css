@@ -113,9 +113,10 @@ body {
   position: relative;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 750px) {
   .icon {
     flex-direction: column;
+    margin-left: 93%;
   }
 
   .commic {
@@ -123,15 +124,20 @@ body {
   }
 }
 
-@media screen and (max-width: 1215px) {
+@media screen and (max-width: 920px) {
   .icon {
-    flex-direction: column;
-    width: 5%;
+    margin-left: 85%;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .icon {
+    margin-left: 88%;
   }
 
   .feedback-button {
     margin-left: -1px;
-    margin-top: 1px;
+    margin-top: -3px;
   }
 }
 
@@ -164,7 +170,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
-  margin-top: 0px !important;
+  margin-top: 25px !important;
+  margin-bottom: 5px;
   width: 100% !important;
   padding: 10px 20px !important;
 }
@@ -172,6 +179,7 @@ body {
 .containInfo {
   width: 100%;
   padding-bottom: 20px;
+  /* margin-top: 20px; */
 }
 
 .save-inforec {
@@ -208,6 +216,7 @@ body {
 .close {
   cursor: pointer;
   margin-left: 49%;
+  margin-bottom: 20px;
 }
 
 #comment-section {
