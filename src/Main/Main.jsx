@@ -4,6 +4,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import Navbar1 from '../NewNav/NewNav';
+/* import JsonNode from './JSONnode/JsonNodeOld'; */
 import JsonNode from './JSONnode/JsonNode';
 import Search from './Search/Search';
 import SaveButton from './MainComponents/SaveButton';
@@ -13,67 +14,21 @@ import Remix from './MainComponents/Remix';
 import LoadingBar from './Search/loadingAnimation/loadingAnimation';
 import { getQueryId } from './Search/queryIdManager';
 import { useLocation } from 'react-router-dom';
-import PopoverButton from './JSONnode/AddNode';
 
 const data = {
-  id: 'root',
-  name: 'root',
-  node: {
-    sub1: {
-      id: 'sub1',
-      name: 'sub1',
-      node: {
-        sub1sub1: {
-          id: 'sub1sub1',
-          name: 'sub1sub1',
-        }
-      },
-    sub2: {
-        id: 'sub2',
-        name: 'sub2',
-      }
-    }
+  id: 'A function of a real variable f(x) is differentiable at a point a of its domain, if its domain contains an open interval I containing a, and the limit","exists. This means that, for every positive real number \\(\\varepsilon \\) (even very small), there exists a positive real number \\\\(\\\\delta \\\\) such that, for every h such that \\\\(\\|h|<\\delta \\\\) and h≠0{\\displaystyle h\\neq 0} then $f(a+h)$ is defined, and',
+  url: ['dsadsadsa.dsafsa'],
+  name: 'John Doe',
+  paragraphs: ['dsadas'],
+  age: 30,
+  hobbies: {paragraphs:['dsadas'], basketball: 'football', music: 'movies'},
+  address: {
+    street: {paragraphs: ['afasfsa', 'IMAGE_URL: https://www.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg', 'dsafafa'], '123 Main St': 'Apt 1',},
+    city: 'Anytown',
+    state: 'CA',
+    url: ['https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL'],
+    paragraphs: ['afasfsa', 'dsafafa', 'IMAGE_URL: https://www.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg', "new element", 'dasfsafsa', 'ds', 'dsafsa', 'fsafsa'],
   },
-  children: [
-    {
-      id: '1',
-      name: '1',
-      children: [
-        {
-          id: '1.1',
-          name: '1.1',
-          children: [
-            {
-              id: '1.1.1',
-              name: '1.1.1',
-              children: [
-                {
-                  id: '',
-                  name: ''
-                },
-                {
-                  id: '',
-                  name: ''
-                }
-              ]
-            },
-            {
-              id: '',
-              name: '',
-            }
-          ]
-        },
-        {
-          id: '',
-          name: ''
-        }
-      ]
-    },
-    {
-      id: '',
-      name: ''
-    }
-  ]
 };
 
 export default function Main(props) {
@@ -208,10 +163,8 @@ useEffect(() => {
           <FeedbackComponent />
         </div>
         <div id="tree-view">
-        <PopoverButton/>
           {queryStatus === 'processing' ? <LoadingBar /> : null}
           <JsonNode data={jsonData} setData={handleSetData} />
-          <PopoverButton/>
         </div>
       </div>
     </div>
