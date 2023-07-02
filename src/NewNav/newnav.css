@@ -16,12 +16,12 @@
     height: auto;
     /* Let the height adjust automatically */
     object-fit: cover;
-    margin-top: -1.8%;
+    margin-top: -3%;
 }
 
 .headsetu {
     font-size: 3vw;
-    margin-top: -1%;
+    margin-top: -2%;
     /* font-size: 300%; */
     color: #fff;
     font-family: var(--font-family-koho);
@@ -116,12 +116,38 @@
 
 }
 
-/* @media (max-width: 751.5px) {
+@media (max-width: 450px) {
 
     .toggle {
         margin-left: auto;
-        margin-top: -60px;
-        margin-bottom: 20px;
+        /* margin-top: 10px; */
+        margin-bottom: 10px;
         padding: 0;
     }
-} */
+
+    .headsetu {
+        font-size: 18px;
+    }
+
+    .gyansetu {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .toggle {
+        margin-left: auto;
+        /* margin-top: 10px; */
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    .headsetu {
+        font-size: 18px;
+    }
+
+    .gyansetu {
+        margin-bottom: 20px;
+    }
+}
