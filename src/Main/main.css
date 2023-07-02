@@ -72,9 +72,6 @@ body {
   border: 0.7mm solid;
   border-color: #485573;
   right: 10%;
-  /* margin-left: 10%; */
-  /* margin-top: 40px; */
-  /* margin-bottom: -55px; */
   bottom: 12px;
   position: fixed;
   /* margin-bottom: 30%; */
@@ -91,9 +88,6 @@ body {
 .remixic {
   background-color: #0F1E31;
   border: none;
-  /* margin-left: 20px; */
-  /* margin-left: 95%; */
-  /* margin-top: 10px; */
   position: relative;
   padding: 5px;
   padding-top: 0;
@@ -149,8 +143,6 @@ body {
   z-index: 0;
 }
 
-
-
 .saveNotesDiv {
   display: flex;
   align-items: center;
@@ -162,33 +154,61 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* background-color: black; */
+  background-color: black;
   /* z-index: 1; */
 }
 
 .card-save {
-  background-color: black;
+  background-color: black !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 320px;
+  height: 100%;
+  margin-top: 0px !important;
+  width: 100% !important;
+  padding: 10px 20px !important;
+}
+
+.containInfo {
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .save-inforec {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .save-head {
-  margin-top: 25px;
-  padding-bottom: 30px;
+  /* margin-top: 25px; */
+  /* padding-bottom: 30px; */
+  color: wheat;
 }
 
-.save-title {
+.save-title-Note {
   margin-right: 6%;
+  margin-left: 6%;
+  margin-top: 10px;
+  width: 88%;
 }
 
+.save-title-Sub {
+  margin-right: 6%;
+  margin-left: 6%;
+  margin-top: 25px;
+  width: 88%;
+}
+
+.sign-up {
+  margin-top: 40px;
+}
+
+.close {
+  cursor: pointer;
+  margin-left: 49%;
+}
 
 #comment-section {
   position: fixed;
