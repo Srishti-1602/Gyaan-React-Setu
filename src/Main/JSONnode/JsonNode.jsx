@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import PopoverButton from './AddNode';
+import PopoverButton from './JSONcomponents/AddNode';
 import Paragraph from './JSONcomponents/paragraphRender';
 import URL from './JSONcomponents/urlRender';
 import { KeyNode } from './JSONcomponents/keyNode';
-import DeleteNodeButton from './JSONcomponents/keyNodeUtils/deleteNode';
+import DeleteNodeButton from './JSONcomponents/deleteNode';
+import AddNewSubtopic from './JSONcomponents/AddNodeUtils/YourOwnNotes/NewSubtopicRender';
+
 
 function JsonNode({ data, setData }) {
     const [expanded, setExpanded] = useState([]);
@@ -19,10 +21,12 @@ function JsonNode({ data, setData }) {
 
     const renderNode = (key, value) => {
         const isExpanded = expanded.includes(key);
+        const isNewSubtitle = key === "newSubtitle";
 
         if (typeof value === "object" && value !== null) {
-            const isParagraph = key === "paragraphs" || key === "searchFor";
+            const isParagraph = key === "paragraphs" || key === "searchFor" || key === "newParagraph";
             const isUrl = key === "url";
+            const isNewSubtopic = key === "newSubtitle";
             
             if (isParagraph) {
                 return <Paragraph value={value} />;
@@ -65,6 +69,7 @@ function JsonNode({ data, setData }) {
                         fontSize: "16px",
                         marginLeft: "1em",
                         }}
+                        contentEditable
                     >
                         {value}
                     </span>
