@@ -43,41 +43,14 @@
     /* margin-bottom: 0.75rem; */
 }
 
-.card-clg {
-    border-radius: 1rem;
-    transition: all 0.2s;
-    background-color: #0F1E31;
-    height: 300px;
-    border: 1px solid #D9D9D9;
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    /* margin-left: 10px; */
-    /* margin-right: -15px; */
-}
 
-.col-clg {
+.col-search {
     margin-bottom: 0;
     margin-top: -10px;
     /* width: 94.5%; */
 }
 
-.card-data {
-    border-radius: 1rem;
-    transition: all 0.2s;
-    background-color: #0F1E31;
-    /* height: 130px; */
-    height: 20%;
-    /* max-height: 130px; */
-    border: 1px solid #D9D9D9;
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-    /* display: flex;
-justify-content: center;
-align-content: center; */
-    /* margin-left: 10px; */
-    /* margin-right: -15px; */
-}
+
 
 .card-filter {
     border-radius: 1rem;
@@ -176,6 +149,17 @@ h5 {
     color: #D9D9D9;
 }
 
+.card-data {
+    border-radius: 1rem;
+    transition: all 0.2s;
+    background-color: #0F1E31;
+    /* height: 130px; */
+    /* height: 20%; */
+    /* max-height: 130px; */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
 .card-body-data {
     transition: all 0.2s;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
@@ -185,24 +169,37 @@ h5 {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    height: 80px;
+    /* height: 80px; */
     /* margin-right: -15px; */
+}
+
+.card-note {
+    border-radius: 1rem;
+    transition: all 0.2s;
+    background-color: #0F1E31;
+    height: 310px;
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .CommunityData,
 .CommunityIcon {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     /* Center items horizontally */
-    justify-content: center;
+    /* justify-content: center; */
     /* Center items vertically */
     width: 100%;
 }
 
 
-
 .CommunityDataNote,
-.CommunityDataSub,
+.CommunityDataSub {
+    display: flex;
+    width: 42.5%;
+}
+
 .CommunityCreator,
 .CommunityCreated {
     display: flex;
@@ -211,9 +208,14 @@ h5 {
 
 .CommunityStar,
 .CommunityRemix {
-    display: flex;
-    width: 12%;
-    justify-content: flex-end;
+    /* display: flex; */
+    width: 40%;
+    /* justify-content: flex-end; */
+}
+
+.CommunityDataSub,
+.CommunityCreated {
+    margin-left: 15px;
 }
 
 .data-row {
@@ -227,8 +229,21 @@ h5 {
 
 .CommunityIcon {
     margin-top: 10px;
-    padding-right: 20px;
-    /* flex-direction: column; */
+    /* padding-right: 20px; */
+    flex-direction: row;
+    display: flex;
+}
+
+.CommunityDownloadIcon {
+    width: 15%;
+    margin-right: 10px;
+    display: flex;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.CommunityStar {
+    margin-top: 3px;
 }
 
 .Like,
@@ -238,12 +253,50 @@ h5 {
     margin-top: -15px;
 }
 
-.card-note {
-    border-radius: 1rem;
-    transition: all 0.2s;
-    background-color: #0F1E31;
-    height: 310px;
-    border: 1px solid #D9D9D9;
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+@media screen and (max-width: 766px) {
+
+    .CommunityIcon,
+    .CommunityData {
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-right: 10px;
+    }
+
+    .CommunityIcon {
+        margin-top: 0;
+    }
+
+    .CommunityCreated,
+    .CommunityCreator,
+    .CommunityDataNote,
+    .CommunityDataSub {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .CommunityStar,
+    .CommunityRemix {
+        margin-right: 0 !important;
+        padding: 0;
+        width: 10%;
+    }
+
+    .CommunityDownloadIcon {
+        display: flex;
+        flex-direction: row !important;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-left: 0;
+        padding-left: 0;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+span {
+    color: #D9D9D9;
+    margin-top: -5px;
 }

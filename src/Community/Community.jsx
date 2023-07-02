@@ -39,7 +39,7 @@ function Community () {
         <div className='col-filter col-md-3'>
           <FilterBy />
         </div>
-        <div className='col-clg col-md-8'>
+        <div className='col-search col-md-8'>
           <div className='user-search'>
             <form id='search-user'>
               <input
