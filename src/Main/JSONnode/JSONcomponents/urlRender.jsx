@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const URL = ({ value }) => {
     return (
-        <span style={{ color: "white", fontSize: "16px"}}>
+        <span>
           <span
             style={{
               color: "gray",
