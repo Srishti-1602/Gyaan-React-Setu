@@ -13,12 +13,12 @@ export const KeyNode = ({ nodeKey, isExpanded, handleClick }) => {
     setEditableKey(event.target.textContent); // Update the editable key value
   };
 
-  const isUnderlined = editableKey === "newSubtitle"; // Check if editableKey is equal to "newSubtitle"
+  const isUnderlined = nodeKey === "newSubtitle"; // Check if editableKey is equal to "newSubtitle"
 
   return (
     <span>
       <span
-        onClick={() => handleNodeClick(editableKey)}
+        onClick={() => handleNodeClick(nodeKey)}
         style={{ cursor: "pointer", color: "aliceblue", fontSize: "16px" }}
       >
         {isExp ? (
@@ -44,7 +44,7 @@ export const KeyNode = ({ nodeKey, isExpanded, handleClick }) => {
         onBlur={handleKeyChange} // Handle onBlur event to save the updated key value
         suppressContentEditableWarning={true} // Suppress the contentEditable warning
       >
-        {isUnderlined ? "Add Your Topic Title Here" : editableKey}
+        {isUnderlined ? "Add Your Topic Title Here" : nodeKey}
       </span>{" "}
     </span>
   );
