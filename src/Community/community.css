@@ -31,7 +31,6 @@
     }
 }
 
-
 .pricing-card-title {
     /* font-size: 1.5rem;
     font-weight: 500;
@@ -43,20 +42,17 @@
     /* margin-bottom: 0.75rem; */
 }
 
-
 .col-search {
     margin-bottom: 0;
     margin-top: -10px;
     /* width: 94.5%; */
 }
 
-
-
 .card-filter {
     border-radius: 1rem;
     transition: all 0.2s;
     background-color: #0F1E31;
-    height: 580px;
+    height: auto;
     border: 1px solid #D9D9D9;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
     /* margin-left: 50px; */
@@ -73,7 +69,6 @@
     width: 99%;
 }
 
-
 .checkpoints {
     color: rgb(224, 209, 209);
     cursor: pointer;
@@ -84,22 +79,21 @@
     margin-bottom: 2.5%;
     /* width: 80%; */
     display: flex;
-    justify-content: center;
-    align-content: center;
+    justify-content: flex-end !important;
     flex-direction: column;
 
 }
 
 .checkpoint {
     /* margin: 10px; */
-    width: 100%;
-    margin-top: 10px;
+    width: 90%;
+    /* margin-top: 10px; */
     padding: 10px;
     font-size: 20px;
     font-weight: lighter;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #9f9999 !important;
+    /* border-bottom: 1px solid #9f9999 !important; */
     cursor: auto;
 }
 
@@ -108,8 +102,9 @@ label {
 }
 
 .button-container {
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 0px 20px;
+    margin-bottom: 20px;
 }
 
 .btn-secondary {
@@ -145,23 +140,16 @@ label {
     }
 }
 
-h5 {
-    color: #D9D9D9;
-}
-
 .card-data {
     border-radius: 1rem;
     transition: all 0.2s;
     background-color: #0F1E31;
-    /* height: 130px; */
-    /* height: 20%; */
-    /* max-height: 130px; */
     border: 1px solid #D9D9D9;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 .card-body-data {
-    transition: all 0.2s;
+    /* transition: all 0.2s; */
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     margin-left: 20px;
@@ -169,8 +157,7 @@ h5 {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    /* height: 80px; */
-    /* margin-right: -15px; */
+    overflow-x: scroll;
 }
 
 .card-note {
@@ -183,27 +170,24 @@ h5 {
     margin-top: 20px;
 }
 
+.CommunityDataNote {
+    margin-right: 5px;
+}
+
+.CommunityDataSub {
+    margin-left: 5px;
+}
+
+.CommunityData {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(149, 185, 253);
+}
+
 .CommunityData,
 .CommunityIcon {
     display: flex;
-    /* align-items: center; */
-    /* Center items horizontally */
-    /* justify-content: center; */
-    /* Center items vertically */
     width: 100%;
-}
-
-
-.CommunityDataNote,
-.CommunityDataSub {
-    display: flex;
-    width: 42.5%;
-}
-
-.CommunityCreator,
-.CommunityCreated {
-    display: flex;
-    width: 50%;
 }
 
 .CommunityStar,
@@ -213,7 +197,6 @@ h5 {
     /* justify-content: flex-end; */
 }
 
-.CommunityDataSub,
 .CommunityCreated {
     margin-left: 15px;
 }
@@ -223,22 +206,22 @@ h5 {
     align-items: center;
 }
 
-.data-row h5 {
-    margin-right: 10px;
-}
 
 .CommunityIcon {
-    margin-top: 10px;
-    /* padding-right: 20px; */
     flex-direction: row;
     display: flex;
+    /* height: auto; */
+    color: #D9D9D9;
+    margin-bottom: 15px;
+    margin-top: 5px;
+
 }
 
 .CommunityDownloadIcon {
     width: 15%;
     margin-right: 10px;
     display: flex;
-    margin-top: 5%;
+    /* margin-top: 5%; */
     margin-left: 3%;
 }
 
@@ -248,30 +231,49 @@ h5 {
 
 .Like,
 .Unlike {
-    width: 25px;
-    height: 25px;
-    margin-top: -15px;
+    width: 20px;
+    height: 20px;
+    margin-top: -11px;
+}
+
+.RemixComm {
+    width: 20px;
+    height: 20px;
+}
+
+.NameBy,
+.DateOn {
+    margin-left: 5px;
+    color: #9f9f9f;
+}
+
+.On,
+.By {
+    color: #c7c7c7;
 }
 
 @media screen and (max-width: 766px) {
 
-    .CommunityIcon,
-    .CommunityData {
+    .CommunityIcon {
         flex-direction: column;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         padding-right: 10px;
-    }
-
-    .CommunityIcon {
         margin-top: 0;
     }
 
+    .CommunityData {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-right: 10px;
+        margin-top: 0;
+        width: max-content;
+    }
+
     .CommunityCreated,
-    .CommunityCreator,
-    .CommunityDataNote,
-    .CommunityDataSub {
+    .CommunityCreator {
         width: 100%;
         margin-left: 0;
     }
@@ -286,17 +288,27 @@ h5 {
     .CommunityDownloadIcon {
         display: flex;
         flex-direction: row !important;
-        justify-content: flex-end;
-        align-items: flex-end;
+        /* justify-content: flex-end;
+align-items: flex-end; */
         margin-left: 0;
         padding-left: 0;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 8px;
         margin-bottom: 5px;
     }
-}
 
-span {
-    color: #D9D9D9;
-    margin-top: -5px;
+    .Like,
+    .Unlike {
+        width: 22px;
+        height: 22px;
+    }
+
+    .RemixComm {
+        margin-top: -1px;
+    }
+
+    /* .CommunityDataNote,
+.CommunityDataSub {
+    width: auto;
+} */
 }

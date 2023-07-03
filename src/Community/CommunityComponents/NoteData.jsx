@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import '../community.css'
-import Remix from '../../Main/MainComponents/Remix'
+import RemixCom from './Remix2'
 import Stars from './Stars'
 
 const NotesData = () => {
@@ -12,28 +12,29 @@ const NotesData = () => {
         <div className='CommunityData'>
           <div id='Community-data' className='CommunityDataNote'>
             <div className='data-row'>
-              <h5>Note Title:</h5>
-              <span>Note Title Answer</span>
+              {/* <h5>Note Title:</h5> */}
+              <span className='Title'>Note Title Answer</span>
             </div>
           </div>
+          <span>/</span>
           <div id='Community-data' className='CommunityDataSub'>
             <div className='data-row'>
-              <h5>Subject:</h5>
-              <span>Subject Answer</span>
+              {/* <h5>Subject:</h5> */}
+              <span className='subj'>Subject Answer </span>
             </div>
           </div>
         </div>
         <div id='Community-icon' className='CommunityIcon'>
           <div className='CommunityCreator'>
             <div className='data-row'>
-              <h5>Created By:</h5>
-              <span>Creator Name</span>
+              <span className='By'>By:</span>
+              <span className='NameBy'>Creator Name</span>
             </div>
           </div>
           <div className='CommunityCreated'>
             <div className='data-row'>
-              <h5>Created On:</h5>
-              <span>Creator Name</span>
+              <span className='On'>Date:</span>
+              <span className='DateOn'>Created on</span>
             </div>
           </div>
           <div className='CommunityDownloadIcon'>
@@ -44,7 +45,7 @@ const NotesData = () => {
             </div>
             <div className='CommunityRemix'>
               <div className='icon-row'>
-                <Remix />
+                <RemixCom />
               </div>
             </div>
           </div>
