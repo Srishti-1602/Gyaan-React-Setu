@@ -52,13 +52,6 @@ function Community () {
             </form>
           </div>
           <NoteData />
-          <div className='card-note mb-4 rounded-3 shadow-sm'>
-            <div className='card-body-note'>
-              <h1 className='card-title-clg pricing-card-title'></h1>
-              <div id='Community-data' className='CommunityData'></div>
-            </div>
-            <JsonNode data={communityData} setData={handleSetData} />
-          </div>
         </div>
       </div>
     </div>
