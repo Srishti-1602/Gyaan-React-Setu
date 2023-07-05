@@ -4,7 +4,7 @@ import Paragraph from './JSONcomponents/paragraphRender';
 import URL from './JSONcomponents/urlRender';
 import { KeyNode } from './JSONcomponents/keyNode';
 import DeleteNodeButton from './JSONcomponents/deleteNode';
-import AddNewSubtopic from './JSONcomponents/AddNodeUtils/YourOwnNotes/NewSubtopicRender';
+import SearchInput from './JSONcomponents/searchNewTopic';
 
 
 function JsonNode({ data, setData }) {
@@ -24,18 +24,23 @@ function JsonNode({ data, setData }) {
         const isNewSubtitle = key === "newSubtitle";
 
         if (typeof value === "object" && value !== null) {
-            const isParagraph = key === "paragraphs" || key === "searchFor" || key === "newParagraph";
-            const isUrl = key === "url";
-            const isNewSubtopic = key === "newSubtitle";
+            const isParagraph =
+  key.slice(33) === "paragraphs" ||
+  key.slice(33) === "searchFor" ||
+  key.slice(33) === "newParagraph";
+const isUrl = key.slice(33) === "url" || key.slice(33) === "newSearchTopic";
+const isNewSearchTopic = key.slice(33) === "newSearchTopic";
             
             if (isParagraph) {
                 return <Paragraph value={value} />;
             } else if (isUrl) {
                 return <URL value={value} />;
+            } else if (isNewSearchTopic) {
+                return <SearchInput value={value} />;
             } else {
                 return (
                     <li key={key}>
-                        <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} />
+                        <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} setData={setData} data={data} />
                         <PopoverButton nodeKey={key} mydata={data} setData={setData} />
                         {" "}
                         <DeleteNodeButton data={data} nodeKey={key} setData={setData} />
@@ -57,7 +62,7 @@ function JsonNode({ data, setData }) {
         } else {
             return (
                 <li key={key}>
-                    <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} />
+                    <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} setData={setData} data={data} />
                     <PopoverButton nodeKey={key} mydata={data} setData={setData} />
                     {" "}
                     <DeleteNodeButton data={data} nodeKey={key} setData={setData} />

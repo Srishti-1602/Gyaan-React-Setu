@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
-export const KeyNode = ({ nodeKey, isExpanded, handleClick }) => {
+export const KeyNode = ({ nodeKey, isExpanded, handleClick, setData, data }) => {
   const isExp = isExpanded;
 
   const handleNodeClick = (nodeKey) => {
     return handleClick(nodeKey);
   };
 
-  const [editableKey, setEditableKey] = useState(nodeKey); // Add state to store the editable key value
 
   const handleKeyChange = (event) => {
-    setEditableKey(event.target.textContent); // Update the editable key value
+    nodeKey = event.target.textContent; // Update the node key value
   };
 
   const isUnderlined = nodeKey === "newSubtitle"; // Check if editableKey is equal to "newSubtitle"
@@ -36,15 +35,15 @@ export const KeyNode = ({ nodeKey, isExpanded, handleClick }) => {
       <span
         style={{
           cursor: "pointer",
-          color: "aliceblue",
+          color: isUnderlined? "#DCDCDC" : "aliceblue",
           fontSize: "16px",
           textDecoration: isUnderlined ? "underline" : "none",
         }}
         contentEditable
-        onBlur={handleKeyChange} // Handle onBlur event to save the updated key value
+        onBlur={(event) => handleKeyChange(event, nodeKey)}// Handle onBlur event to save the updated key value
         suppressContentEditableWarning={true} // Suppress the contentEditable warning
       >
-        {isUnderlined ? "Add Your Topic Title Here" : nodeKey}
+        {isUnderlined ? "Add Your Topic Title Here" : nodeKey.slice(33)}
       </span>{" "}
     </span>
   );
