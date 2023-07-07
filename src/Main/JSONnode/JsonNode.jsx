@@ -11,25 +11,26 @@ function JsonNode({ data, setData }) {
     const [expanded, setExpanded] = useState([]);
 
     const handleNodeClick = (key) => {
-        if (expanded.includes(key)) {
-        setExpanded(expanded.filter((k) => k !== key));
+        const uniqueId = key.slice(0, 32);
+        if (expanded.includes(uniqueId)) {
+        setExpanded(expanded.filter((k) => k !== uniqueId));
         } else {
-        setExpanded([...expanded, key]);
+        setExpanded([...expanded, uniqueId]);
         }
     };    
     
 
     const renderNode = (key, value) => {
-        const isExpanded = expanded.includes(key);
-        const isNewSubtitle = key === "newSubtitle";
+        const uniqueId = key.slice(0, 32);
+        const isExpanded = expanded.includes(uniqueId);
 
         if (typeof value === "object" && value !== null) {
             const isParagraph =
-  key.slice(33) === "paragraphs" ||
-  key.slice(33) === "searchFor" ||
-  key.slice(33) === "newParagraph";
-const isUrl = key.slice(33) === "url" || key.slice(33) === "newSearchTopic";
-const isNewSearchTopic = key.slice(33) === "newSearchTopic";
+            key.slice(33) === "paragraphs" ||
+            key.slice(33) === "searchFor" ||
+            key === "newParagraph";
+            const isUrl = key.slice(33) === "url" || key.slice(33) === "newSearchTopic";
+            const isNewSearchTopic = key.slice(33) === "newSearchTopic";
             
             if (isParagraph) {
                 return <Paragraph value={value} />;
@@ -39,9 +40,9 @@ const isNewSearchTopic = key.slice(33) === "newSearchTopic";
                 return <SearchInput value={value} />;
             } else {
                 return (
-                    <li key={key}>
-                        <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} setData={setData} data={data} />
-                        <PopoverButton nodeKey={key} mydata={data} setData={setData} />
+                    <li key={uniqueId}>
+                        <KeyNode nodeKey={uniqueId} keyContent={key.slice(33)} isExpanded={isExpanded} handleClick={handleNodeClick} setData={setData} data={data} />
+                        <PopoverButton nodeKey={key} mydata={data} setData={setData} isExpanded={isExpanded} handleNodeClick={handleNodeClick} />
                         {" "}
                         <DeleteNodeButton data={data} nodeKey={key} setData={setData} />
                         {Object.entries(value).length > 0 && (
@@ -61,9 +62,9 @@ const isNewSearchTopic = key.slice(33) === "newSearchTopic";
             }
         } else {
             return (
-                <li key={key}>
-                    <KeyNode nodeKey={key} isExpanded={isExpanded} handleClick={handleNodeClick} setData={setData} data={data} />
-                    <PopoverButton nodeKey={key} mydata={data} setData={setData} />
+                <li key={uniqueId}>
+                    <KeyNode nodeKey={uniqueId} keyContent={key.slice(33)} isExpanded={isExpanded} handleClick={handleNodeClick} setData={setData} data={data} />
+                    <PopoverButton nodeKey={key} mydata={data} setData={setData} isExpanded={isExpanded} handleNodeClick={handleNodeClick} />
                     {" "}
                     <DeleteNodeButton data={data} nodeKey={key} setData={setData} />
                     <br />
@@ -74,7 +75,6 @@ const isNewSearchTopic = key.slice(33) === "newSearchTopic";
                         fontSize: "16px",
                         marginLeft: "1em",
                         }}
-                        contentEditable
                     >
                         {value}
                     </span>

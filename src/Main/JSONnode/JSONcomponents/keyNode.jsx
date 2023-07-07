@@ -1,18 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-export const KeyNode = ({ nodeKey, isExpanded, handleClick, setData, data }) => {
+export const KeyNode = ({ nodeKey, keyContent, isExpanded, handleClick, setData, data }) => {
   const isExp = isExpanded;
 
   const handleNodeClick = (nodeKey) => {
     return handleClick(nodeKey);
   };
 
+  const isUnderlined = keyContent === "Add Your Topic Title Here"; // Check if editableKey is equal to "newSubtitle"
 
-  const handleKeyChange = (event) => {
-    nodeKey = event.target.textContent; // Update the node key value
+
+  /* Edit Node Key Functionality */
+
+  const [editableKey, setEditableKey] = useState(keyContent);
+  const uniqueId = nodeKey;
+
+  const spanRef = useRef(null);
+
+  useEffect(() => {
+    if (spanRef.current) {
+      spanRef.current.textContent = editableKey;
+    }
+  }, [editableKey]);
+
+  const handleKeyChange = () => {
+    const newKeyContent = spanRef.current.textContent.trim();
+  
+    const updateKeysRecursive = (obj) => {
+      if (typeof obj !== 'object' || obj === null) {
+        return obj;
+      }
+  
+      if (Array.isArray(obj)) {
+        return obj.map((item) => updateKeysRecursive(item));
+      }
+  
+      const updatedObj = {};
+      for (let key in obj) {
+        if (key.substring(0, 32) === uniqueId) {
+          const updatedKey = uniqueId + '_' + newKeyContent;
+          updatedObj[updatedKey] = updateKeysRecursive(obj[key]);
+        } else {
+          updatedObj[key] = updateKeysRecursive(obj[key]);
+        }
+      }
+  
+      return updatedObj;
+    };
+  
+    const updatedData = updateKeysRecursive(data);
+    setData(updatedData);
+    setEditableKey(newKeyContent);
   };
-
-  const isUnderlined = nodeKey === "newSubtitle"; // Check if editableKey is equal to "newSubtitle"
+  
+  /* End Edit Node Key Functionality */
+  
+  
 
   return (
     <span>
@@ -33,18 +76,18 @@ export const KeyNode = ({ nodeKey, isExpanded, handleClick, setData, data }) => 
         )}
       </span>
       <span
+        ref={spanRef}
         style={{
           cursor: "pointer",
-          color: isUnderlined? "#DCDCDC" : "aliceblue",
+          color: isUnderlined ? "#DCDCDC" : "aliceblue",
           fontSize: "16px",
           textDecoration: isUnderlined ? "underline" : "none",
         }}
-        contentEditable
-        onBlur={(event) => handleKeyChange(event, nodeKey)}// Handle onBlur event to save the updated key value
-        suppressContentEditableWarning={true} // Suppress the contentEditable warning
-      >
-        {isUnderlined ? "Add Your Topic Title Here" : nodeKey.slice(33)}
-      </span>{" "}
+        contentEditable={true}
+        onBlur={handleKeyChange}
+        dangerouslySetInnerHTML={{ __html: keyContent }}
+      ></span>
+      {" "}
     </span>
   );
 };

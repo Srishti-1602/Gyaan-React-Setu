@@ -60,7 +60,6 @@ const Paragraph = ({ value }) => {
     <span style={{
       color: "white", fontSize: "16px", paddingLeft: "1em"
     }}
-    contentEditable
     >
       {paragraphs.map((paragraph, index) => (
         <React.Fragment key={index}>

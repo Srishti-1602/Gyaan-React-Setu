@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Overlay, Popover } from 'react-bootstrap';
+const { v4: uuidv4 } = require('uuid');
 
-const PopoverButton = ({ nodeKey, mydata, setData }) => {
+const PopoverButton = ({ nodeKey, mydata, setData, isExpanded, handleNodeClick }) => {
   const [showPopover, setShowPopover] = useState(false);
   const [target, setTarget] = useState(null);
   const [clickedButton, setClickedButton] = useState('');
@@ -13,12 +14,18 @@ const PopoverButton = ({ nodeKey, mydata, setData }) => {
     setShowPopover(!showPopover);
     setTarget(event.target);
     setClickedButton(buttonName);
+    if (isExpanded === false) {
+      return handleNodeClick(nodeKey); // Expand the node if it is not already expanded
+    }
   };
 
   const handlePopoverHide = () => {
     setShowPopover(false);
     setClickedButton('');
   };
+  const uuid = uuidv4().replace(/-/g, ''); // Remove dashes from the UUID
+
+  let newKey = `${uuid}_Add Your Topic Title Here`;
 
   let newSubtitle = {
     newParagraph: ['Add Your Topic Content Here']
@@ -35,12 +42,12 @@ const PopoverButton = ({ nodeKey, mydata, setData }) => {
               // If the existing value is an object, update it with the new value
               data[key] = {
                 ...data[key],
-                newSubtitle
+                [newKey]: newSubtitle
               };
             } else {
               // If the existing value is a string, create a new object with the new value
               data[key] = {
-                newSubtitle,
+                [newKey]: newSubtitle,
                 value: data[key],
               };
             }
@@ -67,7 +74,7 @@ const PopoverButton = ({ nodeKey, mydata, setData }) => {
     
       const addNewValue = (data) => {
         Object.keys(data).forEach((key) => {
-          if (key === keyText) {
+          if (key.substring(0, 32) === keyText) {
             if (typeof data[key] === 'object' && !Array.isArray(data[key])) {
               // If the existing value is an object, update it with the new value
               data[key] = {
