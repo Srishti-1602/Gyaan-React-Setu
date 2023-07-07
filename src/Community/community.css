@@ -164,7 +164,6 @@ label {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    overflow-x: scroll;
 }
 
 .card-note {
@@ -244,8 +243,8 @@ label {
 }
 
 .RemixComm {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .NameBy,
@@ -320,6 +319,10 @@ label {
 
     .RemixComm {
         margin-top: -1px;
+    }
+
+    .card-body-data {
+        overflow-x: scroll;
     }
 }
 

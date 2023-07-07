@@ -1,16 +1,12 @@
-/* body{
-background-color: #222D47;
-} */
-
 .card-body {
     background-color: #0F1E31;
     border-radius: 8px;
     padding-bottom: 10px;
 }
 
-.row {
+/* .row {
     margin-top: -15px;
-}
+} */
 
 .shadow-sm {
     margin-left: 5%;
@@ -44,10 +40,6 @@ background-color: #222D47;
     background-color: #353d52;
 }
 
-/* .col-up{
-width: 35%;
-} */
-
 .upcoming-row {
     margin-bottom: 0px !important;
 }
@@ -63,7 +55,6 @@ width: 35%;
 .upcomming-title {
     color: #D9D9D9;
     font-size: 20px;
-    /* font-size: 112%; */
     display: flex;
     align-items: end;
     margin-top: 0px;
@@ -84,9 +75,6 @@ width: 35%;
     border-radius: 5px;
     margin-top: 3%;
     margin-left: 10px;
-    /* margin-right: 2%; */
-    /* display: flex;
-    align-items: end; */
 }
 
 
@@ -97,7 +85,6 @@ width: 35%;
     text-decoration: none;
     display: flex;
     align-items: end;
-    /* margin-left: 2%; */
 }
 
 .mycheck {
@@ -109,58 +96,128 @@ width: 35%;
     margin-left: 5px;
 }
 
-/* .overview-title {
-    color: #D9D9D9;
-    font-size: 110%;
-    margin-top: 20px;
-}
-
-.list-unstyled-overview {
-    color: #D9D9D9;
-    list-style: none;
-    margin-right: 25px;
-}
-
-.card-body-overview {
-    border: 1px solid #D9D9D9;
-    background-color: #0F1E31;
-    border-radius: 8px;
-} */
-
-/* .col-save {
-    margin: 60px 0px;
-    height: 250px;
-    display: flex;
-    align-items: center;
-} */
+/* SaveNotes CSS */
 
 .col-save {
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.card-save {
-    height: 200px;
-    /* margin: 20px 65px 20px 70px; */
-    width: 80%;
-    margin-top: 20px;
+.card-save-dash {
+    width: 100%;
+    height: 100%;
 }
 
 .card-body-save {
-    height: 200px;
+    height: 100%;
     width: 100%;
     background-color: #0F1E31;
     border-radius: 8px;
-    padding-bottom: 10px;
+    border: 1px solid #D9D9D9;
 }
 
-.card-title-save {
-    background-color: black;
-    padding: 5px;
-    margin-top: -10px;
+.card-notes-select {
+    color: #D9D9D9;
+    font-size: 20px;
+}
+
+.notes-select {
+    border-bottom: 1px solid #a8acb1;
+    border-left: 1px solid #626161;
+    cursor: pointer;
+    background-color: #0d1528;
+}
+
+.my-notes {
+    border-top-left-radius: 8px;
+}
+
+.starred-notes {
+    border-top-right-radius: 8px;
+}
+
+.notes-select:hover {
+    background-color: #222D47;
+}
+
+.row-notes-select {
+    margin: 0 !important;
+    width: 100%;
+}
+
+.notes-head {
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+
+/* NOTES DISPLAY */
+
+.card-Notes-display {
+    height: 100%;
+    width: 96%;
+    margin: 20px 0px 0px 20px;
+}
+
+/* MY NOTES */
+
+.row-notes-display {
+    margin: 0;
+    width: 100% !important;
+}
+
+.col-display {
+    background-color: #080c10;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    height: auto;
+    /* height: 150px; */
+    padding: 0px;
+}
+
+.note-rec-head {
+    background-color: #0c1e48;
+    margin-top: 0px;
+    padding: 5px 0px;
+    width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    font-weight: lighter;
-    border-bottom: 1px solid #626161;
+}
+
+.card-title-note {
+    color: #D9D9D9;
+    font-size: 18px;
+    margin: 0px;
+}
+
+.col-display li {
+    color: #D9D9D9;
+    border-left: 0.5px solid #757575;
+    width: 40%;
+    font-size: 15px;
+}
+
+.col-display ul {
+    list-style-type: none;
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0px;
+}
+
+.icon-my-notes {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #0F1E31;
+    border-radius: 8px;
+    /* margin-top: 80px; */
+
+    /* height: 40%; */
+}
+
+.note-rec-body {
+    height: 85px;
+    font-size: 10px;
 }
