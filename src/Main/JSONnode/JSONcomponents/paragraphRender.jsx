@@ -54,18 +54,16 @@ const Paragraph = ({ value }) => {
       })
     : value;
   
-  
-    const isUnderlined = value === ['myParagraph']; // Check if editableKey is equal to "newSubtitle"
+
 
   return (
     <span style={{
-      color: "white", fontSize: "16px", paddingLeft: "1em", textDecoration: isUnderlined ? "underline" : "none"
+      color: "white", fontSize: "16px", paddingLeft: "1em"
     }}
-    contentEditable
     >
       {paragraphs.map((paragraph, index) => (
         <React.Fragment key={index}>
-          {isUnderlined ? "Add Your Topic Content Here" : paragraph}
+          {paragraph}
           <br />
         </React.Fragment>
       ))}
