@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import RemixCom from '../../Community/CommunityComponents/Remix2'
 import Stars from '../../Community/CommunityComponents/Stars'
+import Views from '../../icons/spy-fill.png'
 
 const MyNotes = () => {
   return (
@@ -10,18 +11,24 @@ const MyNotes = () => {
           <h3 className='card-title-note'>Rectangle</h3>
         </div>
         <div className='note-rec-body'>
-          <p>Notes will be shown here</p>
+          <p>Subject: </p>
+          <p>Created On: </p>
+          <p>Comments: </p>
         </div>
         <div className='icon-my-notes'>
           <ul>
             <li>
-              <RemixCom /> Remix
+              <RemixCom />
+              <span className='IconDash'>Remix</span>
             </li>
             <li>
-              <Stars /> Stars
+              <Stars />
+              <span className='IconDash'>Stars</span>
             </li>
             <li>
-              <Stars /> Views
+              <Views />
+              {/* <Stars /> */}
+              <span className='IconDash'>Views</span>
             </li>
           </ul>
         </div>
