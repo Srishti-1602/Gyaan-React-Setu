@@ -3,6 +3,7 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 import '../dashboard.css'
 import './TaskComponents'
 import TaskComponents from './TaskComponents'
+import EditProfile from '../../icons/icons8-edit-50.png'
 
 function UserProfile ({ userId }) {
   const [userInfo, setUserInfo] = useState(null)
@@ -29,9 +30,19 @@ function UserProfile ({ userId }) {
     <div className='col col-md-4 col-lg-3'>
       <div className='card mb-4 rounded-3 shadow-sm'>
         <div className='card-body personal-info'>
+          <div className='d-flex justify-content-start'>
+            <a href=' '>
+              <img
+                src={EditProfile}
+                alt='Edit'
+                className='btn-Edit btn-outline-dark'
+                id='EditProf'
+              />
+            </a>
+          </div>
           <h1 className='card-title pricing-card-title personal-info-title'>
             <img
-              alt='information'
+              alt='info'
               className='infophoto'
               src={userInfo ? getProfilePictureUrl(userInfo.username) : ''}
             />

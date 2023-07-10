@@ -18,6 +18,10 @@
     margin-bottom: 0px !important;
 }
 
+.btn-Edit {
+    width: 35%;
+}
+
 .infophoto {
     border-radius: 50%;
     width: 28%;
@@ -38,6 +42,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: #353d52;
+    color: #babdc2;
 }
 
 .upcoming-row {
@@ -219,5 +224,20 @@
 
 .note-rec-body {
     height: 85px;
-    font-size: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.note-rec-body p {
+    margin: 2px 5px;
+    padding: 0px;
+    color: #D9D9D9;
+    font-size: 14px;
+}
+
+.IconDash {
+    margin-left: 5px;
+    font-size: 15px;
+    margin-right: 5px;
 }

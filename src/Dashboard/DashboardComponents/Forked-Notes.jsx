@@ -3,7 +3,7 @@ import RemixCom from '../../Community/CommunityComponents/Remix2'
 import Stars from '../../Community/CommunityComponents/Stars'
 // import Views from '../../icons/spy-fill.png'
 
-const MyNotes = () => {
+const ForkedNotes = () => {
   return (
     <div className='row row-notes-display'>
       <div className='col-display col-lg-3 col-md-5 col-sm-5 note-rec'>
@@ -12,8 +12,8 @@ const MyNotes = () => {
         </div>
         <div className='note-rec-body'>
           <p>Subject: </p>
-          <p>Created On: </p>
-          {/* <p>Comments: </p> */}
+          {/* <p>Created On: </p>
+          <p>Comments: </p> */}
         </div>
         <div className='icon-my-notes'>
           <ul>
@@ -27,7 +27,7 @@ const MyNotes = () => {
             </li>
             <li>
               {/* <Views /> */}
-              <Stars />
+              {/* <Stars /> */}
               <span className='IconDash'>Views</span>
             </li>
           </ul>
@@ -37,4 +37,4 @@ const MyNotes = () => {
   )
 }
 
-export default MyNotes
+export default ForkedNotes
