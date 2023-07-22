@@ -17,12 +17,12 @@ align-items: center;
 }
 
 #basic-navbar-nav {
-/* background-color: #0F1E31; */
-background: transparent;
-min-height: 70px;
-/* margin-top: -30px; */
-/* border-bottom: 1px solid #90A6C1; */
-position: relative;
+  /* background-color: #0F1E31; */
+  background: transparent;
+  min-height: 70px;
+  /* margin-top: -30px; */
+  /* border-bottom: 1px solid #90A6C1; */
+  position: relative;
 }
 
 .navbar-whole {
@@ -31,23 +31,23 @@ position: relative;
   position: relative;
 }
 
-.navbar-whole .ml-auto{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: -30px;
+.navbar-whole .ml-auto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -30px;
 }
 
-.navabout{
-color: #D9D9D9;
-margin-left: 30px;
-margin-top: 20px;
-margin-bottom: -10px;
-/* margin-right: 30px; */
+.navabout {
+  color: #D9D9D9;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  /* margin-right: 30px; */
 }
 
 .navabout:hover {
-color: #90A6C0;
+  color: #90A6C0;
 }
 
 .navbar-whole .navbar-toggler {
@@ -58,26 +58,26 @@ color: #90A6C0;
 }
 
 
-.Head{
-text-align: center;
-font-size: 5vw;
-color: #fff;
-/* margin-top: -20px; */
+.Head {
+  text-align: center;
+  font-size: 5vw;
+  color: #fff;
+  /* margin-top: -20px; */
 }
 
-.pinkback1{
-width: 40%;
-margin-top: -20px;
+.pinkback1 {
+  width: 40%;
+  margin-top: -20px;
 
-/* margin-left: -10px; */
+  /* margin-left: -10px; */
 }
 
-.pinkback2{
-transform: matrix(-1, 0, 0, 1, 0, 0);
-width: 40%;
-/* transform: rotate(180deg); */
-margin-left: 20%;
-margin-top: -20px;
+.pinkback2 {
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  width: 40%;
+  /* transform: rotate(180deg); */
+  margin-left: 20%;
+  margin-top: -20px;
 }
 
 .Logo {
@@ -87,89 +87,93 @@ margin-top: -20px;
   margin-top: 9%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1; 
+  z-index: 1;
 }
 
-.JoinCom{
-background-color: #0F1E31;
-width: 100%;
-padding-bottom: 30px;
-border-bottom: 1px solid #fff;
-margin-top: 10px;
+.JoinCom {
+  background-color: #0F1E31;
+  width: 100%;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #fff;
+  margin-top: 10px;
 }
 
-.Join{
-color: #D9D9D9;
-text-align: center;
-padding-top: 20px;
-animation: slide-in 1s ease-out forwards;
+.Join {
+  color: #D9D9D9;
+  text-align: center;
+  padding-top: 20px;
+  animation: slide-out 1s ease-out forwards;
 }
 
-.TakeNotes{
-color: #90A6C1;
-text-align: center;
-font-size: 1.3vw;
-margin-top: 20px;
-margin-left: 41%;
+.TakeNotes {
+  color: #90A6C1;
+  text-align: center;
+  font-size: 1.3vw;
+  margin-top: 20px;
+  margin-left: 41%;
 }
 
-.deleting{
-color: #D9D9D9;
-text-align: center;
-font-size: 1.3vw;
-margin-top: 20px;
-
-}
-
-.Them{
-color: #90A6C1;
-text-align: center;
-font-size: 1.3vw;
-margin-top: 20px;
+.deleting {
+  color: #D9D9D9;
+  text-align: center;
+  font-size: 1.3vw;
+  margin-top: 20px;
 
 }
 
-.TryGyaanSetu{
-font-size: 85%;
-text-align: center;
-border-radius: 10px;
-border: 2px solid #3e484a;
-margin-top: 14%;
-width: 20%;
-min-width: 180px;
-height: 40px;
-background-color: #D9D9D9;
-font-weight: 500;
+.Them {
+  color: #90A6C1;
+  text-align: center;
+  font-size: 1.3vw;
+  margin-top: 20px;
+
+}
+
+.TryGyaanSetu {
+  font-size: 85%;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #3e484a;
+  margin-top: 14%;
+  width: 20%;
+  min-width: 180px;
+  height: 40px;
+  background-color: #D9D9D9;
+  font-weight: 500;
 }
 
 
-.TryIt{
-display: flex;
-justify-content: center;
-align-items: center;
+.TryIt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.ArrowUp{
-width: 15px;
-margin-left: 10px;
-margin-bottom: 5px;
+.ArrowUp {
+  width: 15px;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 .JoinContainer {
-background-color: #0F1E31;
- display: flex;
+  background-color: #0F1E31;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 30px ;
-color: #D9D9D9;
+  margin: 30px;
+  color: #D9D9D9;
+  /* animation: slide-in 1s ease-out forwards; */
+}
 
+.animate-slide-in {
+  animation: slide-in 1s ease-out forwards;
 }
 
 .JoinImg {
-width: 35%;
-/* margin-right: 20px; */
-height: 100%;
-object-fit: cover;
+  width: 35%;
+  /* margin-right: 20px; */
+  height: 100%;
+  object-fit: cover;
 }
 
 .JoinInfo {
@@ -178,23 +182,25 @@ object-fit: cover;
 }
 
 .JoinHead {
-color: #D9D9D9;
-padding: 20px;
-padding-bottom: 0%;
+  color: #D9D9D9;
+  padding: 20px;
+  padding-bottom: 0%;
 }
 
 .JoinPara {
-color: #90A6C0;
-padding: 20px;
-padding-top: 0%;
-margin-top: 20px;
+  color: #90A6C0;
+  padding: 20px;
+  padding-top: 0%;
+  margin-top: 20px;
+
 }
 
 .JoinPara1 {
-color: #90A6C0;
-padding: 20px;
-padding-top: 0;
-margin-top: -30px;
+  color: #90A6C0;
+  padding: 20px;
+  padding-top: 0;
+  margin-top: -30px;
+
 }
 
 
@@ -203,6 +209,17 @@ margin-top: -30px;
   from {
     transform: translateX(100%);
   }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(-100%);
+  }
+
   to {
     transform: translateX(0);
   }
@@ -212,37 +229,73 @@ margin-top: -30px;
   .JoinContainer {
     flex-direction: column;
   }
-    .JoinImg {
+
+  .JoinImg {
     width: 100%;
     height: 120px;
-    margin-bottom: 10px;  
-}
+    margin-bottom: 10px;
+  }
 }
 
 .TakeNotesContainer {
-background-color: #0F1E31;
- display: flex;
+  background-color: #0F1E31;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 30px;
-color: #D9D9D9;
+  color: #D9D9D9;
 }
 
 .BackNotes {
-width: 38%;
-height: 100%;
-object-fit: cover;
+  width: 38%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-border {
+  border: 2px solid #00ff00;
+  /* Border color */
+  animation: move-border 5s linear infinite;
+}
+
+
+@keyframes move-border {
+  0% {
+    border-radius: 0;
+    transform: translate(0, 0);
+  }
+
+  25% {
+    border-radius: 50%;
+    transform: translate(100%, 0);
+  }
+
+  50% {
+    border-radius: 0;
+    transform: translate(100%, 100%);
+  }
+
+  75% {
+    border-radius: 50%;
+    transform: translate(0, 100%);
+  }
+
+  100% {
+    border-radius: 0;
+    transform: translate(0, 0);
+  }
 }
 
 @media screen and (max-width: 768px) {
   .TakeNotesContainer {
     flex-direction: column;
   }
+
   .BackNotes {
     width: 100%;
     height: 120px;
-    margin-top: 10px;  
-}
+    margin-top: 10px;
+  }
 }
 
 
@@ -254,43 +307,43 @@ object-fit: cover;
 
 .TakeNotesHead {
   margin-top: 0;
- color: #D9D9D9;
-padding: 20px;
-padding-bottom: 0 ;
+  color: #D9D9D9;
+  padding: 20px;
+  padding-bottom: 0;
 }
 
 .TakeNotesPara {
   margin-bottom: 0;
-color: #90A6C0;
-padding: 20px;
-padding-top: 0%;
+  color: #90A6C0;
+  padding: 20px;
+  padding-top: 0%;
 }
 
-.ContributionSector{
-margin: 20px;
+.ContributionSector {
+  margin: 20px;
 }
 
-.ContributeHead{
-color: #D9D9D9;
+.ContributeHead {
+  color: #D9D9D9;
 }
 
-.ContributePara{
-color: #90A6C0;
+.ContributePara {
+  color: #90A6C0;
 }
 
 
-.About{
-background-color: #0F1E31;
-/* margin-top: 5%; */
-padding-top: 10px;
-padding-bottom: 3px;
-border-top: 1px solid #fff;
+.About {
+  background-color: #0F1E31;
+  /* margin-top: 5%; */
+  padding-top: 10px;
+  padding-bottom: 3px;
+  border-top: 1px solid #fff;
 }
 
-.AboutUs{
-color: #D9D9D9;
-text-align: center;
-font-size: 140%;
+.AboutUs {
+  color: #D9D9D9;
+  text-align: center;
+  font-size: 140%;
 }
 
 
@@ -329,32 +382,32 @@ font-size: 140%;
 
 
 
-.footer{
-background-color: #0F1E31;
-padding: 20px;
-margin-top: 8%;
+.footer {
+  background-color: #0F1E31;
+  padding: 20px;
+  margin-top: 8%;
 }
 
-.foot{
-width: 99%;
-padding-left: 25%;
-padding-right: 10%;
+.foot {
+  width: 99%;
+  padding-left: 25%;
+  padding-right: 10%;
 }
 
-li{
-color: #595C74;
-font-size: 90%;
-text-decoration: none;
+li {
+  color: #595C74;
+  font-size: 90%;
+  text-decoration: none;
 }
 
-h7{
-color: #D9D9D9;
-margin-left: 5%;
+h7 {
+  color: #D9D9D9;
+  margin-left: 5%;
 }
 
-.terms{
-text-decoration: none;
-color: #6F707B;
+.terms {
+  text-decoration: none;
+  color: #6F707B;
 }
 
 
@@ -372,16 +425,16 @@ color: #6F707B;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #0F1E31; 
+  background: #0F1E31;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #546b89; 
+  background: #546b89;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #213b5e; 
+  background: #213b5e;
 }
