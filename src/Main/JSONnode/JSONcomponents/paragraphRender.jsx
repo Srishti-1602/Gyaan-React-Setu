@@ -58,7 +58,7 @@ const Paragraph = ({ value }) => {
 
   return (
     <span style={{
-      color: "white", fontSize: "16px", paddingLeft: "1em"
+      color: "white", fontSize: "16px", paddingLeft: "0em"
     }}
     >
       {paragraphs.map((paragraph, index) => (

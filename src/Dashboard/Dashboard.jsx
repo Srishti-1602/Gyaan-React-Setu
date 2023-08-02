@@ -43,9 +43,7 @@ function Dash () {
         <Navbar1 />
         <div className='row row-cols-1 row-cols-md-4 mb-3 text-center'>
           <UserProfile userId={userId} />
-          {queryIds.map(queryId => (
-            <SavedNotes key={queryId} QueryId={queryId} userId={userId} />
-          ))}
+            <SavedNotes />
         </div>
         {/* <TaskComponents /> */}
       </div>
