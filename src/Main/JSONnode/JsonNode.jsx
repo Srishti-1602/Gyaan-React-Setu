@@ -33,7 +33,7 @@ function JsonNode({ data, setData }) {
             const isNewSearchTopic = key.slice(33) === "newSearchTopic";
             
             if (isParagraph) {
-                return <Paragraph value={value} />;
+                return <Paragraph value={value} nodeKey={key} setData={setData} data={data} />;
             } else if (isUrl) {
                 return <URL value={value} />;
             } else if (isNewSearchTopic) {
