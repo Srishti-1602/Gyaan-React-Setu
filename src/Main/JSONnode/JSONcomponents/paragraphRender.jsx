@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function MathJax(props) {
     useEffect(() => {
@@ -35,9 +35,50 @@ function MathJax(props) {
     return <span dangerouslySetInnerHTML={{ __html: props.children }} />;
 }
   
-const Paragraph = ({ value }) => {
-  const paragraphs = Array.isArray(value)
-    ? value.map((paragraph, index) => {
+const Paragraph = ({ nodeKey, value, mydata, setData }) => {
+  const initialEditableValue = Array.isArray(value) ? value : [value];
+  const [editableValue, setEditableValue] = useState(initialEditableValue);
+  const [temporaryValues, setTemporaryValues] = useState({});
+  
+  useEffect(() => {
+    setEditableValue(initialEditableValue);
+    setTemporaryValues({});
+  }, [initialEditableValue]);
+
+  const handleContentChange = (index, event) => {
+    const updatedValue = event.target.innerText;
+    setTemporaryValues((prevValues) => ({
+      ...prevValues,
+      [index]: updatedValue,
+    }));
+  };
+
+  const handleBlur = (index) => {
+    // Create a new array with the updated content for the specific paragraph index
+    const updatedValue = editableValue.map((paragraph, i) => (i === index ? temporaryValues[index] || paragraph : paragraph));
+  
+    // Update the value in the nested data using setData
+    const newData = { ...mydata };
+    const updateNestedValue = (data, key, updatedValue) => {
+      if (data[key]) {
+        data[key] = updatedValue;
+      }
+      Object.keys(data).forEach((k) => {
+        if (typeof data[k] === "object") {
+          updateNestedValue(data[k], key, updatedValue);
+        }
+      });
+    };
+  
+    updateNestedValue(newData, nodeKey, updatedValue);
+  
+    // Set the updated nested dictionary using setData
+    setData(newData);
+  };
+  
+
+  const paragraphs = Array.isArray(editableValue)
+    ? editableValue.map((paragraph, index) => {
         if (paragraph.startsWith("IMAGE_URL: ")) {
           const imageUrl = paragraph.substring("IMAGE_URL: ".length);
           return <img key={index} src={imageUrl} alt="embedded" style={{ backgroundColor: "white" }} />;
@@ -52,9 +93,7 @@ const Paragraph = ({ value }) => {
           );
         }
       })
-    : value;
-  
-
+    : editableValue;
 
   return (
     <span style={{
@@ -63,8 +102,14 @@ const Paragraph = ({ value }) => {
     >
       {paragraphs.map((paragraph, index) => (
         <React.Fragment key={index}>
-          {paragraph}
-          <br />
+          <div
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={() => handleBlur(index)}
+            onInput={(event) => handleContentChange(index, event)}
+          >
+            {paragraph}
+          </div>
         </React.Fragment>
       ))}
     </span>
