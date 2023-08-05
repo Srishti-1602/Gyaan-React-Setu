@@ -105,11 +105,13 @@
 
 .col-save {
     display: flex;
+    right: 5px;
 }
 
 .card-save-dash {
     width: 100%;
     height: 100%;
+    margin-left: 0px;
 }
 
 .card-body-save {
@@ -168,6 +170,9 @@
 .row-notes-display {
     margin: 0;
     width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .col-display {
@@ -177,6 +182,7 @@
     height: auto;
     /* height: 150px; */
     padding: 0px;
+    flex: 0 0 calc(24.5% - 10px);
 }
 
 .note-rec-head {
