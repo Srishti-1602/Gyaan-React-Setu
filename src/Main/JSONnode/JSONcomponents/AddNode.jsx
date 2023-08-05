@@ -68,23 +68,25 @@ const PopoverButton = ({ nodeKey, mydata, setData, isExpanded, handleNodeClick }
     setShowPopover(false);
   }
 
+  let newSearchUID = `${uuid}_newSearchTopic`
+
   const setSearchInput = (keyText, mydata) => {
     const handleAddYourOwnNotes = (keyText, nestedData) => {
       const updatedData = { ...nestedData };
     
       const addNewValue = (data) => {
         Object.keys(data).forEach((key) => {
-          if (key.substring(0, 32) === keyText) {
+          if (key === keyText) {
             if (typeof data[key] === 'object' && !Array.isArray(data[key])) {
               // If the existing value is an object, update it with the new value
               data[key] = {
                 ...data[key],
-                "url": 'searchInputBox'
+                [newSearchUID]: ['Search Here']
               };
             } else {
               // If the existing value is a string, create a new object with the new value
               data[key] = {
-                "url": 'searchInputBox',
+                [newSearchUID]: ['Search Here 2'],
                 value: data[key],
               };
             }

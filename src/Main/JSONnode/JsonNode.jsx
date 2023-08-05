@@ -29,15 +29,15 @@ function JsonNode({ data, setData }) {
             key.slice(33) === "paragraphs" ||
             key.slice(33) === "searchFor" ||
             key === "newParagraph";
-            const isUrl = key.slice(33) === "url" || key.slice(33) === "newSearchTopic";
+            const isUrl = key.slice(33) === "url" || key.slice(33) === "newSearchTopic1";
             const isNewSearchTopic = key.slice(33) === "newSearchTopic";
             
             if (isParagraph) {
-                return <Paragraph value={value} />;
+                return <Paragraph nodeKey={key} value={value} mydata={data} setData={setData} />;
             } else if (isUrl) {
                 return <URL value={value} />;
             } else if (isNewSearchTopic) {
-                return <SearchInput value={value} />;
+                return <SearchInput nodeKey={key} value={value} mydata={data} setData={setData} />;
             } else {
                 return (
                     <li key={uniqueId}>

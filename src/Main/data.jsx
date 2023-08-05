@@ -1,4 +1,9 @@
 const data = {
+    "7ca6a4c470d64b85a380bfa50f73f123_paragraphs": [
+        "The basic idea now known as the Z-transform was known to Laplace, and it was re-introduced in 1947 by W. Hurewicz[4][5] and others as a way to treat sampled-data control systems used with radar. It gives a tractable way to solve linear, constant-coefficient difference equations. It was later dubbed \"the z-transform\" by Ragazzini and Zadeh in the sampled-data control group at Columbia University in 1952.[6][7]",
+        "The modified or advanced Z-transform was later developed and popularized by E. I. Jury.[8][9]",
+        "The idea contained within the Z-transform is also known in mathematical literature as the method of generating functions which can be traced back as early as 1730 when it was introduced by de Moivre in conjunction with probability theory.[10]From a mathematical view the Z-transform can also be viewed as a Laurent series where one views the sequence of numbers under consideration as the (Laurent) expansion of an analytic function."
+    ],
     "7ca6a4c470d64b85a380bfa50f73f999_Z-transform": {
         "e31a862d3a3a48449a8ccdbec5ac2572_url": [
             "https://www.geeksforgeeks.org/what-is-z-transform/"
