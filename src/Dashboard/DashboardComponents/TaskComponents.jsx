@@ -37,7 +37,11 @@ function TaskComponents () {
           Upcoming Tasks
         </h1>
         <div className='task-but'>
-          <button type='button' className='taskOperate' onClick={handleAddTask}>
+          <button
+            type='button'
+            className='taskOperateadd'
+            onClick={handleAddTask}
+          >
             Add Task
           </button>
           <button

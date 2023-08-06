@@ -33,6 +33,114 @@ const MyNotes = () => {
           </ul>
         </div>
       </div>
+      <div className='col-display col-lg-3 col-md-5 col-sm-5 note-rec'>
+        <div className='note-rec-head'>
+          <h3 className='card-title-note'>Rectangle</h3>
+        </div>
+        <div className='note-rec-body'>
+          <p>Subject: </p>
+          <p>Created On: </p>
+          {/* <p>Comments: </p> */}
+        </div>
+        <div className='icon-my-notes'>
+          <ul>
+            <li>
+              <RemixCom />
+              <span className='IconDash'>Remix</span>
+            </li>
+            <li>
+              <Stars />
+              <span className='IconDash'>Stars</span>
+            </li>
+            <li>
+              {/* <Views /> */}
+              <Stars />
+              <span className='IconDash'>Views</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className='col-display col-lg-3 col-md-5 col-sm-5 note-rec'>
+        <div className='note-rec-head'>
+          <h3 className='card-title-note'>Rectangle</h3>
+        </div>
+        <div className='note-rec-body'>
+          <p>Subject: </p>
+          <p>Created On: </p>
+          {/* <p>Comments: </p> */}
+        </div>
+        <div className='icon-my-notes'>
+          <ul>
+            <li>
+              <RemixCom />
+              <span className='IconDash'>Remix</span>
+            </li>
+            <li>
+              <Stars />
+              <span className='IconDash'>Stars</span>
+            </li>
+            <li>
+              {/* <Views /> */}
+              <Stars />
+              <span className='IconDash'>Views</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className='col-display col-lg-3 col-md-5 col-sm-5 note-rec'>
+        <div className='note-rec-head'>
+          <h3 className='card-title-note'>Rectangle</h3>
+        </div>
+        <div className='note-rec-body'>
+          <p>Subject: </p>
+          <p>Created On: </p>
+          {/* <p>Comments: </p> */}
+        </div>
+        <div className='icon-my-notes'>
+          <ul>
+            <li>
+              <RemixCom />
+              <span className='IconDash'>Remix</span>
+            </li>
+            <li>
+              <Stars />
+              <span className='IconDash'>Stars</span>
+            </li>
+            <li>
+              {/* <Views /> */}
+              <Stars />
+              <span className='IconDash'>Views</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className='col-display col-lg-3 col-md-5 col-sm-5 note-rec'>
+        <div className='note-rec-head'>
+          <h3 className='card-title-note'>Rectangle</h3>
+        </div>
+        <div className='note-rec-body'>
+          <p>Subject: </p>
+          <p>Created On: </p>
+          {/* <p>Comments: </p> */}
+        </div>
+        <div className='icon-my-notes'>
+          <ul>
+            <li>
+              <RemixCom />
+              <span className='IconDash'>Remix</span>
+            </li>
+            <li>
+              <Stars />
+              <span className='IconDash'>Stars</span>
+            </li>
+            <li>
+              {/* <Views /> */}
+              <Stars />
+              <span className='IconDash'>Views</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
