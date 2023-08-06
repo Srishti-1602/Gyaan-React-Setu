@@ -3,7 +3,7 @@ import './dashboard.css'
 import Navbar1 from '../NewNav/NewNav'
 import UserProfile from './DashboardComponents/UserProfile'
 import TaskComponents from './DashboardComponents/TaskComponents'
-import SavedNotes from './DashboardComponents/SavedNotes'
+import NotesDisplayDash from './DashboardComponents/NotesDisplayDash'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { getDatabase, ref, onValue } from 'firebase/database'
 
@@ -43,9 +43,8 @@ function Dash () {
         <Navbar1 />
         <div className='row row-cols-1 row-cols-md-4 mb-3 text-center dash-main'>
           <UserProfile userId={userId} />
-          <SavedNotes />
+          <NotesDisplayDash />
         </div>
-        {/* <TaskComponents /> */}
       </div>
     </>
   )
