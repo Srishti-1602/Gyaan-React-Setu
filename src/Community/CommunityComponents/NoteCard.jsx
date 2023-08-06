@@ -3,7 +3,7 @@ import React from "react";
 import RemixCom from './Remix2'
 import Stars from './Stars'
 
-const NoteCard = ({noteTitle, noteSubject, noteCreator, noteDate}) => {
+const NoteCard = ({noteTitle, noteSubject, noteCreator, noteLastEdited}) => {
     return (
       <div className='card-data mb-4 rounded-3 shadow-sm'>
         <div className='card-body-data'>
@@ -32,8 +32,8 @@ const NoteCard = ({noteTitle, noteSubject, noteCreator, noteDate}) => {
             </div>
             <div className='CommunityCreated'>
               <div className='data-row'>
-                <span className='On'>Date:</span>
-                            <span className='DateOn'>{noteDate}</span>
+                <span className='On'>Last Edited:</span>
+                            <span className='DateOn'>{noteLastEdited}</span>
               </div>
             </div>
             <div className='CommunityDownloadIcon'>
