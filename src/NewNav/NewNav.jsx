@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { getDatabase, ref, onValue } from 'firebase/database'
-import logo from '../Images/Gyaan setu.png'
+import logo from '../Images/Untitled design.png'
 import './newnav.css'
 import { useNavigate } from 'react-router-dom'
 

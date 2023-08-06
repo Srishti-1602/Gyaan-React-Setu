@@ -1,6 +1,8 @@
 .backgroundNav {
     background-color: #0F1E31;
-    top: -33px;
+    /* background-color: black; */
+    top: -30px;
+    height: 50px;
 }
 
 .container-style {
@@ -24,24 +26,21 @@
 }
 
 .navbar-brand {
-    width: 50%;
+    width: 20%;
     display: inline;
 }
 
 .Gyaanlogo {
-
-    /* Ensure the image behaves as a block element */
-    width: 100%;
-    /* Ensure the image fills the container horizontally */
+    width: 11% !important;
     height: auto;
-    /* Let the height adjust automatically */
     object-fit: cover;
-    margin-top: -3%;
+    margin-top: -2%;
 }
 
 .headsetu {
-    font-size: 3vw;
-    margin-top: -2%;
+    /* font-size: 1.5vw; */
+    margin-top: -3% !important;
+    padding-top: 0px;
     /* font-size: 300%; */
     color: #fff;
     font-family: var(--font-family-koho);
@@ -51,6 +50,7 @@
 
 .gyansetu {
     /* width: 48%; */
+    margin-left: 20px;
     margin-top: 20px;
     text-decoration: none;
     width: 40%;
@@ -66,7 +66,7 @@
     border-radius: 50%;
     cursor: pointer;
     margin-left: calc(50% - 19px);
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .profileDiv {
@@ -84,7 +84,7 @@
 
 .navwork {
     color: #ffff;
-    font-size: 20px;
+    /* font-size: 20px; */
     /* text-align: center; */
     cursor: pointer;
     width: 80%;
@@ -111,6 +111,12 @@
 
 @media (max-width: 991.5px) {
 
+    .backgroundNav {
+        background-color: #0F1E31;
+        top: -30px;
+        height: auto;
+    }
+
     .navwork3 {
         margin-left: 50%;
         transform: translate(-50%, -50%);
@@ -136,12 +142,17 @@
         justify-content: center;
         align-items: center;
     }
+
+    .profile-picture {
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 450px) {
 
+
     .toggle {
-        margin-left: auto;
+        /* margin-left: auto; */
         /* margin-top: 10px; */
         margin-bottom: 10px;
         padding: 0;
@@ -153,6 +164,10 @@
 
     .gyansetu {
         margin-bottom: 20px;
+    }
+
+    .profile-picture {
+        margin-bottom: 10px;
     }
 }
 
@@ -166,5 +181,8 @@
         font-size: 20px;
     }
 
+    .profile-picture {
+        margin-bottom: 10px;
+    }
 
 }

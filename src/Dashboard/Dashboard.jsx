@@ -41,9 +41,9 @@ function Dash () {
     <>
       <div>
         <Navbar1 />
-        <div className='row row-cols-1 row-cols-md-4 mb-3 text-center'>
+        <div className='row row-cols-1 row-cols-md-4 mb-3 text-center dash-main'>
           <UserProfile userId={userId} />
-            <SavedNotes />
+          <SavedNotes />
         </div>
         {/* <TaskComponents /> */}
       </div>

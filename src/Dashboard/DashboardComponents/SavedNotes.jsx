@@ -43,7 +43,7 @@ function SavedNotes () {
                 }`}
                 onClick={() => handleOptionClick('forked-notes')}
               >
-                <p className='notes-head'>Forked Notes</p>
+                <p className='notes-head'>Remixed Notes</p>
               </div>
               <div
                 className={`col notes-select starred-notes ${

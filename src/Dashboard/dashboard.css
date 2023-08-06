@@ -7,15 +7,20 @@
 /* .row {
     margin-top: -15px;
 } */
+.dash-main {
+    height: 83vh;
+}
 
 .shadow-sm {
     margin-left: 5%;
     margin-bottom: 15px !important;
+    /* height: 40vh; */
 }
 
 .shadow-sm-task {
     margin-left: 5%;
-    margin-bottom: 0px !important;
+    margin-bottom: 0px;
+    /* height: 30vh; */
 }
 
 .btn-Edit {
@@ -55,6 +60,7 @@
     padding: 10px;
     margin-bottom: 0px !important;
     padding-left: 20px;
+    height: 30vh;
 }
 
 .upcomming-title {
@@ -105,7 +111,10 @@
 
 .col-save {
     display: flex;
-    right: 5px;
+
+    @media (max-width: 768px) {
+        margin-left: 15px;
+    }
 }
 
 .card-save-dash {
