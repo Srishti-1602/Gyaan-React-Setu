@@ -5,7 +5,7 @@ import MyNotes from './My-Notes'
 import ForkedNotes from './Forked-Notes'
 import StarredNotes from './Starred-Notes'
 
-function SavedNotes () {
+function NotesDisplayDash () {
   // const navigate = useNavigate()
   // const [TopicName, setTopicName] = useState(null)
   const [selectedOption, setSelectedOption] = useState('my-notes')
@@ -71,4 +71,4 @@ function SavedNotes () {
   )
 }
 
-export default SavedNotes
+export default NotesDisplayDash
