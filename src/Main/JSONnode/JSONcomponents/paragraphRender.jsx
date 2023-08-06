@@ -34,6 +34,69 @@ function MathJax(props) {
   
     return <span dangerouslySetInnerHTML={{ __html: props.children }} />;
 }
+
+/* const Paragraph = ({ nodeKey, value, mydata, setData }) => {
+  const [editableValue, setEditableValue] = useState([value]); // Initialize as an array
+
+  useEffect(() => {
+    // When the component mounts or when the 'value' prop changes, update the editableValue array.
+    setEditableValue([value]);
+  }, [value]);
+
+  const handleContentChange = (event) => {
+    // Update the editableValue as the user types in the contentEditable element.
+    setEditableValue(event.target.innerText);
+  };
+
+  const saveChanges = () => {
+    // Update the mydata state with the new editableValue.
+    setData((prevData) => ({
+      ...prevData,
+      [nodeKey]: editableValue,
+    }));
+  };
+
+  const paragraphs = Array.isArray(editableValue)
+    ? editableValue.map((paragraph, index) => {
+        if (paragraph.startsWith("IMAGE_URL: ")) {
+          const imageUrl = paragraph.substring("IMAGE_URL: ".length);
+          return <img key={index} src={imageUrl} alt="embedded" style={{ backgroundColor: "white" }} />;
+        } else if (paragraph.startsWith("LIST_TEXT: ")) {
+          const listText = paragraph.substring("LIST_TEXT: ".length);
+          return <li key={index} style={{ color: "white", fontSize: "16px" }}>{listText}</li>;
+        } else {
+          return (
+            <span key={index}>
+              <MathJax>
+                {paragraph}
+              </MathJax>
+              <br />
+            </span>            
+          );
+        }
+      })
+    : editableValue;
+
+  return (
+    <div
+      style={{
+        color: "white",
+        fontSize: "16px",
+        paddingLeft: "0em",
+      }}
+      contentEditable
+      onBlur={saveChanges} // Save changes when the user clicks outside the editable area
+      onInput={handleContentChange} // Handle content changes in real-time
+    >
+      {paragraphs.map((paragraph, index) => (
+        <React.Fragment key={index}>
+          {paragraph}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}; */
+
   
 const Paragraph = ({ nodeKey, value, mydata, setData }) => {
   const initialEditableValue = Array.isArray(value) ? value : [value];
