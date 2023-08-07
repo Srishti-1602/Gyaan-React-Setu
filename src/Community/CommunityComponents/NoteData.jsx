@@ -8,11 +8,36 @@ import NoteCard from './NoteCard'
 const NotesData = () => {
   return (
     <div className='cardUpper'>
-      <NoteCard noteTitle="Title" noteSubject="Subject" noteCreator="Creator" noteLastEdited="Date"/>
-      <NoteCard noteTitle="Title" noteSubject="Subject" noteCreator="Creator" noteDate="Date" />
-      <NoteCard noteTitle="Title" noteSubject="Subject" noteCreator="Creator" noteLastEdited="Date" />
-      <NoteCard noteTitle="Title" noteSubject="Subject" noteCreator="Creator" noteLastEdited="Date" />
-      <NoteCard noteTitle="Title" noteSubject="Subject" noteCreator="Creator" noteLastEdited="Date" />
+      <NoteCard
+        noteTitle='Title'
+        noteSubject='Subject'
+        noteCreator='Creator'
+        noteLastEdited='Date'
+      />
+      <NoteCard
+        noteTitle='Title'
+        noteSubject='Subject'
+        noteCreator='Creator'
+        noteLastEdited='Date'
+      />
+      <NoteCard
+        noteTitle='Title'
+        noteSubject='Subject'
+        noteCreator='Creator'
+        noteLastEdited='Date'
+      />
+      <NoteCard
+        noteTitle='Title'
+        noteSubject='Subject'
+        noteCreator='Creator'
+        noteLastEdited='Date'
+      />
+      <NoteCard
+        noteTitle='Title'
+        noteSubject='Subject'
+        noteCreator='Creator'
+        noteLastEdited='Date'
+      />
     </div>
   )
 }

@@ -118,6 +118,7 @@ label {
 
 }
 
+
 @media screen and (max-width: 1175px) {
     .btn-primary {
         margin-top: 10px;
@@ -145,7 +146,8 @@ label {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 15px;
+    /* gap: 15px; */
+    align-items: center;
 }
 
 .card-data {
@@ -329,7 +331,7 @@ label {
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 970px) {
 
     .cardUpper {
         width: 100%;
@@ -339,6 +341,7 @@ label {
 
     .card-data {
         width: 95%;
+        /* flex: 0 0 calc(50% - 65px); */
     }
 
     .CommunityDownloadIcon {
@@ -346,5 +349,12 @@ label {
         flex-direction: row !important;
         margin-left: 5px;
         padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .card-data {
+        width: 100%;
+        flex: 0 0 calc(50% - 40px);
     }
 }

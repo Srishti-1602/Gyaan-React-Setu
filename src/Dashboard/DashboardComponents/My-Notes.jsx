@@ -22,24 +22,6 @@ const MyNotes = () => {
         starsNum='12'
         viewsNum='123'
       />
-      <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
-        remixNum='1'
-        starsNum='12'
-        viewsNum='123'
-      />
-      <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
-        remixNum='1'
-        starsNum='12'
-        viewsNum='123'
-      />
     </div>
   )
 }
