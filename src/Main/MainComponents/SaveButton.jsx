@@ -69,8 +69,19 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
         console.log('Unique Firestore ID:', uniqueFirestoreId)
         const queryRefToUpdate = ref(database, `${queryRef}/Saved`)
         set(queryRefToUpdate, uniqueFirestoreId)
-        const notesRefToUpdate = ref(database, `notes/${title}`) //UNIMPORTANT
-        set(notesRefToUpdate, uniqueFirestoreId) //UNIMPORTANT
+        const notesRefToUpdate = ref(database, `notes/${uniqueFirestoreId}`)
+        set(notesRefToUpdate, {
+          title: title,
+          subject: subject,
+          created_by: UserID,
+          created_at: Date.now(),
+          forked: false,
+          forked_from: null,
+          owner: UserID,
+          stars: 0,
+          views: 0,
+          remix: 0
+        })
         /* Save data for Community Page */
         const userRef = ref(database, `users/${UserID}`)
 
@@ -80,9 +91,10 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
         const course = userData.course
         const department = userData.department
 
+        /* UNIMPORTANT */
         const communityRefToUpdate = ref(
           database,
-          `community/${school}/${course}/${department}/${uniqueFirestoreId}`
+          `community/${school}/${course}/${department}/${subject}/${uniqueFirestoreId}`
         )
         set(communityRefToUpdate, {
           title: title,
@@ -90,8 +102,13 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
           created_at: Date.now(),
           forked: false,
           forked_from: null,
-          ownner: UserID
+          owner: UserID,
+          stars: 0,
+          views: 0,
+          remix: 0
         })
+        /* END OF UNIMPORTANT */
+
       })
       .catch(error => {
         console.error('Error adding document: ', error)

@@ -14,7 +14,9 @@ import Remix from './MainComponents/Remix';
 import LoadingBar from './Search/loadingAnimation/loadingAnimation';
 import { getQueryId } from './Search/queryIdManager';
 import { useLocation } from 'react-router-dom';
-import data  from './data';
+import data from './data';
+
+//const data = {};
 
 export default function Main(props) {
   /* Getting User ID */
