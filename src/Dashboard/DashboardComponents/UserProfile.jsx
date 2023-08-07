@@ -23,6 +23,7 @@ function UserProfile ({ userId }) {
     const size = '200x200'
     const format = 'png'
     const hash = encodeURIComponent(username)
+    console.log(username)
     return `${baseUrl}${hash}?size=${size}&format=${format}`
   }
 
