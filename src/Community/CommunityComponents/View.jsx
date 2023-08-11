@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import RemixIcon from '../../icons/eye-fill (1).png'
+import RemixIcon from '../../icons/eye-line.png'
 import '../community.css'
 
 const View = () => {

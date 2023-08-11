@@ -100,7 +100,7 @@ function Navbar1 () {
                 <>
                   {/* User not signed in, display sign in/sign up links */}
                   <Nav.Link href='/Login' className='navwork3'>
-                    Sign In / Sign Up
+                    Sign In
                   </Nav.Link>
                 </>
               )}

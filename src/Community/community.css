@@ -203,6 +203,7 @@ label {
 }
 
 .CommunityStar,
+.CommunityView,
 .CommunityRemix {
     /* display: flex; */
     width: 40%;
@@ -237,7 +238,8 @@ label {
     margin-left: 3%;
 }
 
-.CommunityStar {
+.CommunityStar,
+.CommunityView {
     margin-top: 3px;
 }
 
@@ -251,6 +253,13 @@ label {
 .RemixComm {
     width: 18px;
     height: 18px;
+    margin-top: 2px;
+}
+
+.ViewComm {
+    width: 18px;
+    height: 18px;
+    margin-top: -3px;
 }
 
 .NameBy,
@@ -304,6 +313,7 @@ label {
     }
 
     .CommunityStar,
+    .CommunityView,
     .CommunityRemix {
         margin-right: 0 !important;
         padding: 0;
@@ -327,7 +337,7 @@ label {
     }
 
     .RemixComm {
-        margin-top: -1px;
+        margin-top: 4px;
     }
 
     .card-body-data {
@@ -355,11 +365,39 @@ label {
     }
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1450px) {
     .card-data {
-        width: 100%;
-        flex: 0 0 calc(50% - 40px);
+       width: 100%;
+       flex: 0 0 calc(50% - 40px);
+       padding-right: 10px;
+   }
+
+    .CommunityIcon {
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
         padding-right: 10px;
-        /* margin-right: 0px !important; */
+        margin-top: 0;
     }
+
+    .On {
+        margin-left: -15px;
+    }
+
+    .data-row {
+        text-align: start;
+        /* align-items: start; */
+    }
+
+    .CommunityDownloadIcon {
+        margin-left: -5px;
+        width: 50%;
+    }
+
+    /* .CommunityStar,
+    .CommunityView,
+    .CommunityRemix {
+        width: 50%;
+    } */
 }
