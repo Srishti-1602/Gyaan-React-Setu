@@ -5,22 +5,22 @@ const MyNotes = () => {
   return (
     <div className='row row-notes-display'>
       <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
+        noteTitle='SI and CI Engine'
+        noteSubject='Thermal Engineering'
+        noteCreator='Srishti'
+        noteLastEdited='5-8-2023'
         remixNum='1'
-        starsNum='12'
-        viewsNum='123'
+        starsNum='3'
+        viewsNum='5'
       />
       <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
-        remixNum='1'
-        starsNum='12'
-        viewsNum='123'
+        noteTitle='Breaks'
+        noteSubject='Automobile Engineering'
+        noteCreator='Srishti'
+        noteLastEdited='30-7-2023'
+        remixNum='0'
+        starsNum='1'
+        viewsNum='2'
       />
     </div>
   )

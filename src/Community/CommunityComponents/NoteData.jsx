@@ -9,34 +9,22 @@ const NotesData = () => {
   return (
     <div className='cardUpper'>
       <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
+        noteTitle='SI and CI Engine'
+        noteSubject='Thermal Engineering'
+        noteCreator='Sohali'
+        noteLastEdited='1-8-2023'
       />
       <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
+        noteTitle='Clutch'
+        noteSubject='Automobile Engineering'
+        noteCreator='Manish'
+        noteLastEdited='30-7-2023'
       />
       <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
-      />
-      <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
-      />
-      <NoteCard
-        noteTitle='Title'
-        noteSubject='Subject'
-        noteCreator='Creator'
-        noteLastEdited='Date'
+        noteTitle='Classification of IC Engine'
+        noteSubject='TE'
+        noteCreator='Kunal'
+        noteLastEdited='2-8-2023'
       />
     </div>
   )

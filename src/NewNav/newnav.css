@@ -28,20 +28,20 @@
 .navbar-brand {
     width: 20%;
     display: inline;
+    padding-bottom: 0px;
 }
 
 .Gyaanlogo {
-    width: 11% !important;
+    width: 9% !important;
     height: auto;
     object-fit: cover;
-    margin-top: -2%;
+    margin-top: -1%;
 }
 
 .headsetu {
-    /* font-size: 1.5vw; */
-    margin-top: -3% !important;
+    /* font-size: 1.3vw; */
+    /* margin-top: -6% !important; */
     padding-top: 0px;
-    /* font-size: 300%; */
     color: #fff;
     font-family: var(--font-family-koho);
     font-style: normal;
@@ -51,7 +51,7 @@
 .gyansetu {
     /* width: 48%; */
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
     text-decoration: none;
     width: 40%;
     /* max-width: 600px; */
@@ -108,13 +108,16 @@
     margin-right: 15px;
 }
 
-
 @media (max-width: 991.5px) {
 
     .backgroundNav {
         background-color: #0F1E31;
         top: -30px;
         height: auto;
+    }
+
+    .container-style {
+        margin-top: 15px;
     }
 
     .navwork3 {
@@ -146,43 +149,58 @@
     .profile-picture {
         margin-bottom: 10px;
     }
-}
 
-@media (max-width: 450px) {
-
-
-    .toggle {
-        /* margin-left: auto; */
-        /* margin-top: 10px; */
-        margin-bottom: 10px;
-        padding: 0;
-    }
-
-    .headsetu {
-        font-size: 18px;
-    }
-
-    .gyansetu {
-        margin-bottom: 20px;
-    }
-
-    .profile-picture {
-        margin-bottom: 10px;
+    .Gyaanlogo {
+        width: 14% !important;
     }
 }
 
 @media (max-width: 766px) {
+
+    .backgroundNav {
+        height: auto;
+    }
+
     .gyansetu {
         margin-top: 10px;
         width: 70%;
     }
 
-    .headsetu {
-        font-size: 20px;
+    .container-style {
+        margin-top: 15px;
     }
 
     .profile-picture {
         margin-bottom: 10px;
     }
 
+    .Gyaanlogo {
+        width: 11% !important;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .backgroundNav {
+        height: auto;
+    }
+
+    .toggle {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    .container-style {
+        margin-top: 15px;
+    }
+
+
+    .profile-picture {
+        margin-bottom: 10px;
+    }
+
+    .Gyaanlogo {
+        width: 16% !important;
+    }
 }
