@@ -61,6 +61,9 @@ function UserProfile ({ userId }) {
             <li className='username' id='school'>
               {userInfo && userInfo.school}
             </li>
+            <li className='Logout' id='Logout'>
+              Log Out
+            </li>
           </ul>
           {/* <button type="button" class="w-100 btn btn-lg btn-dark">Get started</button> */}
         </div>

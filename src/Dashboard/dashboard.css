@@ -51,6 +51,15 @@
     color: #babdc2;
 }
 
+.Logout {
+    color: #2c2a2a;
+    background-color: #aeb4bc;
+    padding-top: 1vh;
+    padding-bottom: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 .upcoming-row {
     margin-bottom: 0px !important;
 }
