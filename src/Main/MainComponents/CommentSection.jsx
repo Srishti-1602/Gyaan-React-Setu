@@ -1,23 +1,23 @@
-import React, { useState, useRef } from 'react';
-import '../main.css';
+import React, { useState, useRef } from 'react'
+import '../main.css'
 import CommentIcon from '../../icons/discuss-line.png'
 
 const CommentSection = () => {
-  const [comments, setComments] = useState([]);
-  const [commentText, setCommentText] = useState('');
-  const [showCommentSection, setShowCommentSection] = useState(false);
+  const [comments, setComments] = useState([])
+  const [commentText, setCommentText] = useState('')
+  const [showCommentSection, setShowCommentSection] = useState(false)
 
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (commentText.trim() === '') return;
-    setComments([...comments, commentText]);
-    setCommentText('');
-  };
+  const handleCommentSubmit = e => {
+    e.preventDefault()
+    if (commentText.trim() === '') return
+    setComments([...comments, commentText])
+    setCommentText('')
+  }
 
-  const toggleCommentSection = (e) => {
-    e.preventDefault();
-    setShowCommentSection((prevState) => !prevState);
-  };
+  const toggleCommentSection = e => {
+    e.preventDefault()
+    setShowCommentSection(prevState => !prevState)
+  }
 
   return (
     <div>
@@ -50,7 +50,7 @@ const CommentSection = () => {
               id='comment-textarea'
               placeholder='Add a comment'
               value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
+              onChange={e => setCommentText(e.target.value)}
             ></textarea>
             <button type='submit'>Post</button>
           </div>
@@ -58,9 +58,10 @@ const CommentSection = () => {
       </div>
       <a href=' ' onClick={toggleCommentSection}>
         <img src={CommentIcon} alt='Comment' className='commic' />
+        <span className='comment-text'>Comment</span>
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default CommentSection;
+export default CommentSection

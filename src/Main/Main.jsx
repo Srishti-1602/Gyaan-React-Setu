@@ -15,6 +15,8 @@ import LoadingBar from './Search/loadingAnimation/loadingAnimation'
 import { getQueryId } from './Search/queryIdManager'
 import { useLocation } from 'react-router-dom'
 import data from './data'
+// import Option from '../icons/option.png'
+import View from '../Community/CommunityComponents/View.jsx'
 
 //const data = {};
 
@@ -129,14 +131,19 @@ export default function Main (props) {
   const handleUpdateData = updatedData => {
     setJsonData(updatedData)
   }
-  /* End of Add nodes functionality */
 
-  /* RETURN COMPONENT */
+  const [selectedOption, setSelectedOption] = useState(null)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  const handleOptionClick = option => {
+    setSelectedOption(option)
+    setIsDropdownOpen(false)
+  }
+
   return (
     <div className='MainContent'>
       <Navbar1 />
 
-      {/* Notes Area */}
       <div className='your-topics'>
         <Search onSearch={handleSearch} />
       </div>
@@ -152,10 +159,57 @@ export default function Main (props) {
             UserID={userId}
             queryId={queryId}
           />
+
+          <div className='custom-dropdown'>
+            <div
+              className='dropdown-header'
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              Select an option
+              <span className='dropdown-arrow'>&#9662;</span>
+            </div>
+            {isDropdownOpen && (
+              <div className='dropdown-options'>
+                <div
+                  className='option'
+                  onClick={() => handleOptionClick('remix')}
+                >
+                  <Remix />
+                </div>
+                <div
+                  className='option'
+                  onClick={() => handleOptionClick('comment')}
+                >
+                  <div onClick={e => e.stopPropagation()}>
+                    <CommentSection />
+                  </div>
+                  {/* Comment */}
+                </div>
+                <div
+                  className='option'
+                  onClick={() => handleOptionClick('feedback')}
+                >
+                  <div onClick={e => e.stopPropagation()}>
+                    <FeedbackComponent />
+                  </div>
+                  {/* Feedback */}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* <div className='icon'>
+          <SaveButton
+            jsonData={jsonData}
+            queryRef={queryRef}
+            isLoggedIn={isLoggedIn}
+            UserID={userId}
+          />
           <Remix />
           <CommentSection />
           <FeedbackComponent />
-        </div>
+        </div> */}
         <div id='tree-view'>
           {queryStatus === 'processing' ? <LoadingBar /> : null}
           <JsonNode data={jsonData} setData={handleSetData} />
