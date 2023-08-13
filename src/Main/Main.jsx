@@ -15,6 +15,7 @@ import LoadingBar from './Search/loadingAnimation/loadingAnimation'
 import { getQueryId } from './Search/queryIdManager'
 import { useLocation } from 'react-router-dom'
 import data from './data'
+import Dropdown from './MainComponents/Dropdown'
 // import Option from '../icons/option.png'
 import View from '../Community/CommunityComponents/View.jsx'
 
@@ -159,8 +160,8 @@ export default function Main (props) {
             UserID={userId}
             queryId={queryId}
           />
-
-          <div className='custom-dropdown'>
+          <Dropdown/>
+          {/* <div className='custom-dropdown'>
             <div
               className='dropdown-header'
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -183,7 +184,7 @@ export default function Main (props) {
                   <div onClick={e => e.stopPropagation()}>
                     <CommentSection />
                   </div>
-                  {/* Comment */}
+                  //Comment
                 </div>
                 <div
                   className='option'
@@ -192,11 +193,11 @@ export default function Main (props) {
                   <div onClick={e => e.stopPropagation()}>
                     <FeedbackComponent />
                   </div>
-                  {/* Feedback */}
+                  //Feedback
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
 
         {/* <div className='icon'>
