@@ -150,7 +150,8 @@ a {
 @media screen and (max-width: 400px) {
   .icon {
     /* flex-direction: row !important; */
-    margin-left: 84% !important;
+    margin-left: 55% !important;
+    width: 50% !important;
   }
 }
 
@@ -190,9 +191,25 @@ a {
   }
 }
 
+@media screen and (max-width: 950px) {
+  .icon {
+    margin-left: 81%;
+    width: 40%;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .icon {
-    margin-left: 80%;
+    margin-left: 75%;
+    width: 40%;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .icon {
+    margin-left: 67%;
+    width: 40%;
   }
 }
 
