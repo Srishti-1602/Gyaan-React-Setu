@@ -80,8 +80,8 @@ export default function Main (props) {
   const [savedNoteId, setSavedNoteId] = useState(null)
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search)
-    const queryIdParam = searchParams.get('queryId')
+    const searchParams = new URLSearchParams(location.search);
+    const queryIdParam = searchParams.get('queryId');
 
     if (queryIdParam) {
       const database = getDatabase()
@@ -150,6 +150,7 @@ export default function Main (props) {
             queryRef={queryRef}
             isLoggedIn={isLoggedIn}
             UserID={userId}
+            queryId={queryId}
           />
           <Remix />
           <CommentSection />

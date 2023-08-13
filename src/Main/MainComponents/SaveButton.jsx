@@ -4,7 +4,7 @@ import '../main.css'
 import { getDatabase, ref, update, set, onValue } from 'firebase/database'
 import { getFirestore, collection, addDoc } from 'firebase/firestore'
 
-const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
+const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID, queryId }) => {
   const navigate = useNavigate()
   const [showSaveNote, setShowSaveNote] = useState(false)
 
@@ -65,14 +65,15 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
       jsonData: jsonDataString
     })
       .then(docRef => {
-        const uniqueFirestoreId = docRef.id
-        console.log('Unique Firestore ID:', uniqueFirestoreId)
-        const queryRefToUpdate = ref(database, `${queryRef}/Saved`)
-        set(queryRefToUpdate, uniqueFirestoreId)
-        const notesRefToUpdate = ref(database, `notes/${uniqueFirestoreId}`)
-        set(notesRefToUpdate, {
+        const uniqueFirestoreId = docRef.id;
+        console.log('Unique Firestore ID:', uniqueFirestoreId);
+        const queryRefToUpdate = ref(database, `${queryRef}/Saved`);
+        set(queryRefToUpdate, uniqueFirestoreId);
+        
+        const newNoteData = {
           title: title,
           subject: subject,
+          noteContent: uniqueFirestoreId,
           created_by: UserID,
           created_at: Date.now(),
           forked: false,
@@ -80,16 +81,50 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
           owner: UserID,
           stars: 0,
           views: 0,
-          remix: 0
-        })
+          remix: 0,
+          private: true
+        };
+
+        /* Update User Notes Data for Dashboard Page */
+        const userMyNotesRef = ref(database, `users/${UserID}/MyNotes/${queryId}`);
+        set(userMyNotesRef, newNoteData);
+        /* END OF Update User Notes Data for Dashboard Page */
+
+
+        /* Save data for Dashboard Page */
+        //const notesRefToUpdate = ref(database, `notes/${queryId}`);
+        //set(notesRefToUpdate, newNoteData);
+        /* END OF Save data for Dashboard Page */
+
         /* Save data for Community Page */
-        const userRef = ref(database, `users/${UserID}`)
+        const userRef = ref(database, `users/${UserID}`);
 
         console.log('userData:', userData)
 
         const school = userData.school
         const course = userData.course
         const department = userData.department
+
+        const communityNoteData = {
+          title: title,
+          subject: subject,
+          noteContent: uniqueFirestoreId,
+          created_by: UserID,
+          created_at: Date.now(),
+          forked: false,
+          forked_from: null,
+          owner: UserID,
+          stars: 0,
+          views: 0,
+          remix: 0,
+          private: true,
+          school: school,
+          course: course,
+          department: department
+        };
+
+        const communityRef = ref(database, `notes/${queryId}`);
+        set(communityRef, communityNoteData);
 
         /* UNIMPORTANT */
         const communityRefToUpdate = ref(
@@ -108,6 +143,8 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID }) => {
           remix: 0
         })
         /* END OF UNIMPORTANT */
+
+        setShowSaveNote(false)
 
       })
       .catch(error => {
