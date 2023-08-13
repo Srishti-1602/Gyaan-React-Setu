@@ -13,6 +13,7 @@ import { getQueryId } from './Search/queryIdManager'
 import { useLocation } from 'react-router-dom'
 //import data from './data'
 import Dropdown from './MainComponents/Dropdown'
+import PublicNoteData from './MainComponents/publicNoteView'
 
 const data = {}
 
@@ -76,10 +77,12 @@ export default function Main (props) {
   /* Fetch Saved Note Id */
   const location = useLocation()
   const [savedNoteId, setSavedNoteId] = useState(null)
+  const [publicNoteId, setPublicNoteId] = useState(null);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search)
     const noteIdParam = searchParams.get('NId')
+    setPublicNoteId(noteIdParam);
 
     if (noteIdParam) {
       const database = getDatabase()
@@ -139,12 +142,11 @@ export default function Main (props) {
               UserID={userId}
               queryId={queryId}
             />
-            <Dropdown />
+            <Dropdown userId={userId} noteId={publicNoteId} />
           </div>
 
-          <div className='User-Main'>
-            <span className='MainUser'>Username</span>
-          </div>
+          <PublicNoteData userId={userId} noteId={publicNoteId}/>
+          
         </div>
         <div id='tree-view'>
           {queryStatus === 'processing' ? <LoadingBar /> : null}
