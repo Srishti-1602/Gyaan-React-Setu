@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom'
 //import data from './data'
 import Dropdown from './MainComponents/Dropdown'
 
-const data = {};
+const data = {}
 
 export default function Main (props) {
   /* Getting User ID */
@@ -78,15 +78,12 @@ export default function Main (props) {
   const [savedNoteId, setSavedNoteId] = useState(null)
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const noteIdParam = searchParams.get('NId');
+    const searchParams = new URLSearchParams(location.search)
+    const noteIdParam = searchParams.get('NId')
 
     if (noteIdParam) {
       const database = getDatabase()
-      const savedNoteIdRef = ref(
-        database,
-        `notes/${noteIdParam}/noteContent`
-      ) // Replace QUERY_ID and CURRENT_QUERY_ID with actual values
+      const savedNoteIdRef = ref(database, `notes/${noteIdParam}/noteContent`) // Replace QUERY_ID and CURRENT_QUERY_ID with actual values
 
       onValue(savedNoteIdRef, snapshot => {
         const savedNote = snapshot.val() || null
@@ -133,16 +130,21 @@ export default function Main (props) {
 
       <div className='rectnotes'>
         <div className='note-info'></div>
+        <div className='User-Container'>
+          <div className='icon'>
+            <SaveButton
+              jsonData={jsonData}
+              queryRef={queryRef}
+              isLoggedIn={isLoggedIn}
+              UserID={userId}
+              queryId={queryId}
+            />
+            <Dropdown />
+          </div>
 
-        <div className='icon'>
-          <SaveButton
-            jsonData={jsonData}
-            queryRef={queryRef}
-            isLoggedIn={isLoggedIn}
-            UserID={userId}
-            queryId={queryId}
-          />
-          <Dropdown/>
+          <div className='User-Main'>
+            <span className='MainUser'>Username</span>
+          </div>
         </div>
         <div id='tree-view'>
           {queryStatus === 'processing' ? <LoadingBar /> : null}
