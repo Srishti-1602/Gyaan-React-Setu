@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { getDatabase, ref, onValue } from 'firebase/database'
+import { getAuth, signOut } from 'firebase/auth'; // Import the necessary Firebase Auth modules
 import '../dashboard.css'
 import './TaskComponents'
 import TaskComponents from './TaskComponents'
 import EditProfile from '../../icons/icons8-edit-50.png'
 
 function UserProfile ({ userId }) {
-  const [userInfo, setUserInfo] = useState(null)
+  const [userInfo, setUserInfo] = useState(null);
+  const auth = getAuth(); // Get the Firebase Auth instance
 
   useEffect(() => {
     const database = getDatabase()
@@ -16,7 +18,7 @@ function UserProfile ({ userId }) {
       const userData = snapshot.val()
       setUserInfo(userData)
     })
-  }, [userId])
+  }, [userId]);
 
   const getProfilePictureUrl = username => {
     const baseUrl = 'https://robohash.org/'
@@ -25,7 +27,16 @@ function UserProfile ({ userId }) {
     const hash = encodeURIComponent(username)
     console.log(username)
     return `${baseUrl}${hash}?size=${size}&format=${format}`
-  }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      window.location.href = '/'; // Redirect to the index page
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
 
   return (
     <div className='col col-md-4 col-lg-3'>
@@ -61,7 +72,7 @@ function UserProfile ({ userId }) {
             <li className='username' id='school'>
               {userInfo && userInfo.school}
             </li>
-            <li className='Logout' id='Logout'>
+            <li className='Logout' id='Logout' onClick={handleLogout}>
               Log Out
             </li>
           </ul>

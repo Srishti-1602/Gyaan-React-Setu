@@ -8,18 +8,13 @@ import Navbar1 from '../NewNav/NewNav'
 import JsonNode from './JSONnode/JsonNode'
 import Search from './Search/Search'
 import SaveButton from './MainComponents/SaveButton'
-import CommentSection from './MainComponents/CommentSection'
-import FeedbackComponent from './MainComponents/FeedbackSection'
-import Remix from './MainComponents/Remix'
 import LoadingBar from './Search/loadingAnimation/loadingAnimation'
 import { getQueryId } from './Search/queryIdManager'
 import { useLocation } from 'react-router-dom'
-import data from './data'
+//import data from './data'
 import Dropdown from './MainComponents/Dropdown'
-// import Option from '../icons/option.png'
-import View from '../Community/CommunityComponents/View.jsx'
 
-//const data = {};
+const data = {};
 
 export default function Main (props) {
   /* Getting User ID */
@@ -84,13 +79,13 @@ export default function Main (props) {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const queryIdParam = searchParams.get('queryId');
+    const queryIdParam = searchParams.get('NId');
 
     if (queryIdParam) {
       const database = getDatabase()
       const savedNoteIdRef = ref(
         database,
-        `users/${userId}/Queries/${queryIdParam}/Saved`
+        `notes/${queryIdParam}/noteContent`
       ) // Replace QUERY_ID and CURRENT_QUERY_ID with actual values
 
       onValue(savedNoteIdRef, snapshot => {
@@ -105,7 +100,7 @@ export default function Main (props) {
   /* Fetch data from Firestore based on queryId */
   const fetchData = async savedNoteId => {
     const searchParams = new URLSearchParams(location.search)
-    const queryIdParam = searchParams.get('queryId')
+    const queryIdParam = searchParams.get('NId')
 
     if (queryIdParam && savedNoteId) {
       const firestore = getFirestore()
@@ -128,19 +123,6 @@ export default function Main (props) {
   }, [location.search, savedNoteId])
   /* End of Fetch data from Firestore based on queryId */
 
-  /* Add nodes functionality */
-  const handleUpdateData = updatedData => {
-    setJsonData(updatedData)
-  }
-
-  const [selectedOption, setSelectedOption] = useState(null)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
-  const handleOptionClick = option => {
-    setSelectedOption(option)
-    setIsDropdownOpen(false)
-  }
-
   return (
     <div className='MainContent'>
       <Navbar1 />
@@ -161,56 +143,7 @@ export default function Main (props) {
             queryId={queryId}
           />
           <Dropdown/>
-          {/* <div className='custom-dropdown'>
-            <div
-              className='dropdown-header'
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              Select an option
-              <span className='dropdown-arrow'>&#9662;</span>
-            </div>
-            {isDropdownOpen && (
-              <div className='dropdown-options'>
-                <div
-                  className='option'
-                  onClick={() => handleOptionClick('remix')}
-                >
-                  <Remix />
-                </div>
-                <div
-                  className='option'
-                  onClick={() => handleOptionClick('comment')}
-                >
-                  <div onClick={e => e.stopPropagation()}>
-                    <CommentSection />
-                  </div>
-                  //Comment
-                </div>
-                <div
-                  className='option'
-                  onClick={() => handleOptionClick('feedback')}
-                >
-                  <div onClick={e => e.stopPropagation()}>
-                    <FeedbackComponent />
-                  </div>
-                  //Feedback
-                </div>
-              </div>
-            )}
-          </div> */}
         </div>
-
-        {/* <div className='icon'>
-          <SaveButton
-            jsonData={jsonData}
-            queryRef={queryRef}
-            isLoggedIn={isLoggedIn}
-            UserID={userId}
-          />
-          <Remix />
-          <CommentSection />
-          <FeedbackComponent />
-        </div> */}
         <div id='tree-view'>
           {queryStatus === 'processing' ? <LoadingBar /> : null}
           <JsonNode data={jsonData} setData={handleSetData} />
