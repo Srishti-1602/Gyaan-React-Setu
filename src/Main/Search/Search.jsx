@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import apiComm from './backendIntegration';
 import { getDatabase, ref, set, push } from 'firebase/database';
@@ -7,11 +7,14 @@ import { setQueryId } from './queryIdManager';
 
 function Search({ onSearch }) {
   const [searchText, setSearchText] = useState('');
-  const [redirectToLogin, setRedirectToLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [userId, setUserId] = useState(null); // Store the userId here
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const hasNIdParam = queryParams.has('NId');
 
   useEffect(() => {
     const auth = getAuth();
@@ -48,7 +51,6 @@ function Search({ onSearch }) {
       Status: 'processing',
       Subject: '-',
       Queried_At: new Date().toISOString(),
-      
     };
 
     await set(newQueryRef, newQueryData);
@@ -68,7 +70,7 @@ function Search({ onSearch }) {
     event.preventDefault();
 
     if (!isLoggedIn) {
-      setRedirectToLogin(true);
+      navigate('/login');
       return;
     }
 
@@ -77,25 +79,31 @@ function Search({ onSearch }) {
     try {
       await updateQueryStatus(userId); // Use the userId here
       const queryId = await createNewQuery(userId, searchText);
-      const { data } = await apiComm(searchText);
-      console.log(JSON.parse(data));
-      onSearch(JSON.parse(data));
-      await updateQueryDeliveryStatus(userId, queryId);
+      if (hasNIdParam) {
+        const newUrl = location.pathname; // Remove the parameter NId from the URL
+        navigate(newUrl);
+        const dataNull = {};
+        onSearch(dataNull);
+        const { data } = await apiComm(searchText);
+        console.log(JSON.parse(data));
+        onSearch(JSON.parse(data));
+        await updateQueryDeliveryStatus(userId, queryId);
+      } else {
+        const { data } = await apiComm(searchText);
+        console.log(JSON.parse(data));
+        onSearch(JSON.parse(data));
+        await updateQueryDeliveryStatus(userId, queryId);
+      }
     } catch (error) {
       console.error(error);
     } finally {
       setIsProcessing(false);
-
     }
   };
 
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
   };
-
-  if (redirectToLogin) {
-    return <Navigate to="/login" />;
-  }
 
   return (
     <form onSubmit={handleSubmit} id="search-form">

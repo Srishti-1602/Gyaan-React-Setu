@@ -27,7 +27,8 @@ const NotesData = () => {
     <div className='cardUpper'>
       {notes.map(note => (
         <NoteCard
-          key={note.key}
+          key={note.noteId}
+          noteId={note.noteId}
           noteTitle={note.title}
           noteSubject={note.subject}
           noteCreator={note.created_by}
