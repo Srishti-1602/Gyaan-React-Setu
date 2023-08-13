@@ -1,31 +1,43 @@
-import React from 'react'
-import { useState } from 'react'
-import '../community.css'
-import RemixCom from './Remix2'
-import Stars from './Stars'
-import NoteCard from './NoteCard'
+import React, { useState, useEffect } from 'react';
+import '../community.css';
+import NoteCard from './NoteCard';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 const NotesData = () => {
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    const database = getDatabase();
+    const notesRef = ref(database, 'notes');
+
+    onValue(notesRef, snapshot => {
+      const notesData = snapshot.val();
+      if (notesData) {
+        const notesArray = Object.keys(notesData).map(noteId => ({
+          noteId,
+          ...notesData[noteId]
+        }));
+        setNotes(notesArray);
+      }
+    });
+  }, []);
+
+
   return (
     <div className='cardUpper'>
-      <NoteCard
-        noteTitle='SI and CI Engine'
-        noteSubject='Thermal Engineering'
-        noteCreator='Sohali'
-        noteLastEdited='1-8-2023'
-      />
-      <NoteCard
-        noteTitle='Clutch'
-        noteSubject='Automobile Engineering'
-        noteCreator='Manish'
-        noteLastEdited='30-7-2023'
-      />
-      <NoteCard
-        noteTitle='Classification of IC Engine'
-        noteSubject='TE'
-        noteCreator='Kunal'
-        noteLastEdited='2-8-2023'
-      />
+      {notes.map(note => (
+        <NoteCard
+          key={note.key}
+          noteTitle={note.title}
+          noteSubject={note.subject}
+          noteCreator={note.created_by}
+          noteLastEdited={new Date(note.created_at).toLocaleDateString()}
+          noteContent={note.noteContent}
+          starsNum={note.stars}
+          remixNum={note.remix}
+          viewsNum={note.views}
+        />
+      ))}
     </div>
   )
 }
