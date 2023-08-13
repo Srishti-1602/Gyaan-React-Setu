@@ -79,13 +79,13 @@ export default function Main (props) {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const queryIdParam = searchParams.get('NId');
+    const noteIdParam = searchParams.get('NId');
 
-    if (queryIdParam) {
+    if (noteIdParam) {
       const database = getDatabase()
       const savedNoteIdRef = ref(
         database,
-        `notes/${queryIdParam}/noteContent`
+        `notes/${noteIdParam}/noteContent`
       ) // Replace QUERY_ID and CURRENT_QUERY_ID with actual values
 
       onValue(savedNoteIdRef, snapshot => {
@@ -100,9 +100,9 @@ export default function Main (props) {
   /* Fetch data from Firestore based on queryId */
   const fetchData = async savedNoteId => {
     const searchParams = new URLSearchParams(location.search)
-    const queryIdParam = searchParams.get('NId')
+    const noteIdParam = searchParams.get('NId')
 
-    if (queryIdParam && savedNoteId) {
+    if (noteIdParam && savedNoteId) {
       const firestore = getFirestore()
       console.log(savedNoteId)
       const docRef = doc(firestore, 'notes', savedNoteId)
