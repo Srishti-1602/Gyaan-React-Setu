@@ -1,49 +1,70 @@
 import '../main.css';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getDatabase, ref, get } from 'firebase/database'; // Import Firebase modules for Realtime Database
+import { getDatabase, ref, onValue, get } from 'firebase/database';
 
 const PublicNoteData = ({ userId, noteId }) => {
-    console.log(noteId);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const hasNIdParam = queryParams.has('NId');
-  const [showUserMain, setShowUserMain] = useState(false);
+  const [createdBy, setCreatedBy] = useState(null);
+  const [lastEditedDate, setLastEditedDate] = useState(null);
+  const [starsNum, setStarsNum] = useState(0);
+  const [remixNum, setRemixNum] = useState(0);
+  const [viewsNum, setViewsNum] = useState(0);
 
   useEffect(() => {
     if (!hasNIdParam) {
-      return;
+      return; // Do nothing if NId parameter is not present
     }
 
     const database = getDatabase();
     const noteRef = ref(database, `notes/${noteId}`);
+    
+    onValue(noteRef, (snapshot) => {
+      const noteData = snapshot.val();
+      if (noteData) {
+        setCreatedBy(noteData.created_by);
+        setLastEditedDate(new Date(noteData.created_at).toLocaleDateString());
+        setStarsNum(noteData.stars);
+        setRemixNum(noteData.remix);
+        setViewsNum(noteData.views);
+      }
+    });
+  }, [hasNIdParam, noteId]);
 
-    get(noteRef)
-      .then((snapshot) => {
-          const noteData = snapshot.val();
+  const [creatorUsername, setCreatorUsername] = useState('') // State to hold the creator's username
 
-          console.log(noteData);
-          
-          console.log(noteData.created_by);
-          console.log(userId);
+  useEffect(() => {
+    const database = getDatabase()
+    const usersRef = ref(database, `users/${createdBy}`)
 
-        if (noteData && noteData.created_by !== userId) {
-          setShowUserMain(true);
+    // Fetch the username from the users node based on noteCreator
+    get(usersRef)
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          const userData = snapshot.val()
+          console.log('userData:', userData)
+          setCreatorUsername(userData.username || 'Unknown User')
+        } else {
+          setCreatorUsername('Unknown User')
         }
       })
-      .catch((error) => {
-        console.error('Error retrieving note data:', error);
-      });
-  }, [hasNIdParam, userId, noteId]);
+      .catch(error => {
+        console.error('Error fetching username:', error)
+        setCreatorUsername('Unknown User')
+      })
+  }, [createdBy])
 
-  if (!hasNIdParam && showUserMain) {
-    return null; // Return null if NId parameter is not present or showUserMain is false
+  if (!hasNIdParam) {
+    return null; // Return null if NId parameter is not present
   }
 
   return (
     <div className='User-Main'>
-      <span className='MainUser'>Username</span>
-      <span>Last edited date</span>
+      <span className='MainUser'>{createdBy === userId ? 'Your Note' : `Created By: ${creatorUsername}`}</span>
+      <span style={{ color: 'white' }}> {`Last edited date: ${lastEditedDate}  `}</span>
+      <span style={{ color: 'white' }}>{`  Stars: ${starsNum} Remix: ${remixNum} Views: ${viewsNum}`}</span>
     </div>
   );
 };

@@ -145,7 +145,7 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID, queryId }) => {
         /* END OF UNIMPORTANT */
 
         setShowSaveNote(false)
-
+        window.location.href = `/index?NId=${queryId}`;
       })
       .catch(error => {
         console.error('Error adding document: ', error)
