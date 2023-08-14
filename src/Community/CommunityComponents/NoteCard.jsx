@@ -1,36 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import View from './View';
-import RemixCom from './Remix2';
-import Stars from './Stars';
-import { getDatabase, ref, get } from 'firebase/database'; // Import the necessary Firebase functions
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import View from './View'
+import RemixCom from './Remix2'
+import Stars from './Stars'
+import { getDatabase, ref, get } from 'firebase/database' // Import the necessary Firebase functions
 
-const NoteCard = ({ key, noteId, noteTitle, noteSubject, noteCreator, noteLastEdited, noteContent, starsNum, remixNum, viewsNum }) => {
-  const [creatorUsername, setCreatorUsername] = useState(''); // State to hold the creator's username
+const NoteCard = ({
+  key,
+  noteId,
+  noteTitle,
+  noteSubject,
+  noteCreator,
+  noteLastEdited,
+  noteContent,
+  starsNum,
+  remixNum,
+  viewsNum
+}) => {
+  const [creatorUsername, setCreatorUsername] = useState('') // State to hold the creator's username
 
-  console.log(noteId);
+  console.log(noteId)
 
   useEffect(() => {
-    const database = getDatabase();
-    const usersRef = ref(database, `users/${noteCreator}`);
+    const database = getDatabase()
+    const usersRef = ref(database, `users/${noteCreator}`)
 
     // Fetch the username from the users node based on noteCreator
     get(usersRef)
       .then(snapshot => {
         if (snapshot.exists()) {
-          const userData = snapshot.val();
-          console.log('userData:', userData);
-          setCreatorUsername(userData.username || 'Unknown User');
+          const userData = snapshot.val()
+          console.log('userData:', userData)
+          setCreatorUsername(userData.username || 'Unknown User')
         } else {
-          setCreatorUsername('Unknown User');
+          setCreatorUsername('Unknown User')
         }
       })
       .catch(error => {
-        console.error('Error fetching username:', error);
-        setCreatorUsername('Unknown User');
-      });
-  }, [noteCreator]);
-
+        console.error('Error fetching username:', error)
+        setCreatorUsername('Unknown User')
+      })
+  }, [noteCreator])
 
   return (
     <div className='card-data mb-4 rounded-3 shadow-sm'>
@@ -65,21 +75,21 @@ const NoteCard = ({ key, noteId, noteTitle, noteSubject, noteCreator, noteLastEd
                 <span className='DateOn'>{noteLastEdited}</span>
               </div>
             </div>
-            <div className='CommunityDownloadIcon'>
-              <div className='CommunityStar'>
-                <div className='icon-row'>
-                  {starsNum} <Stars />
-                </div>
+          </div>
+          <div className='CommunityDownloadIcon'>
+            <div className='CommunityStar'>
+              <div className='icon-row'>
+                {starsNum} <Stars />
               </div>
-              <div className='CommunityRemix'>
-                <div className='icon-row'>
-                  {remixNum} <RemixCom />
-                </div>
+            </div>
+            <div className='CommunityRemix'>
+              <div className='icon-row'>
+                {remixNum} <RemixCom />
               </div>
-              <div className='CommunityView'>
-                <div className='icon-row'>
-                  {viewsNum} <View />
-                </div>
+            </div>
+            <div className='CommunityView'>
+              <div className='icon-row'>
+                {viewsNum} <View />
               </div>
             </div>
           </div>

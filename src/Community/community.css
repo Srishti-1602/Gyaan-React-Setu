@@ -206,9 +206,13 @@ label {
 .CommunityView,
 .CommunityRemix {
     /* display: flex; */
-    width: 40%;
+    width: 50%;
+    border: 1px solid #6e6e6e;
+    gap: 5px;
+    height: 25px;
     /* justify-content: flex-end; */
 }
+
 
 .CommunityCreated {
     margin-left: 15px;
@@ -231,29 +235,26 @@ label {
 }
 
 .CommunityDownloadIcon {
-    width: 25%;
-    margin-right: 10px;
+    width: 65%;
+    /* margin-right: 10px; */
     display: flex;
-    /* margin-top: 5%; */
-    margin-left: 3%;
+    gap: 10px;
+    /* margin-left: 3%; */
+    margin-bottom: 5px;
 }
 
-.CommunityStar,
-.CommunityView {
-    margin-top: 3px;
-}
 
 .Like,
 .Unlike {
     width: 20px;
     height: 18px;
-    margin-top: -6px;
+    margin-top: -5px;
 }
 
 .RemixComm {
     width: 18px;
     height: 18px;
-    margin-top: 2px;
+    margin-top: -2px;
 }
 
 .ViewComm {
@@ -273,19 +274,20 @@ label {
     color: #c7c7c7;
 }
 
-@media screen and (max-width: 767.5px) {
+.icon-row {
+    color: #9f9f9f;
+    ;
+}
 
-    .cardUpper {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        margin-right: 0px !important;
-        /* overflow-y: scroll; */
-        /* padding-right: 10px; */
-    }
 
+
+
+
+@media screen and (max-width: 1450px) {
     .card-data {
         width: 95%;
+        /* flex: 0 0 calc(50% - 40px);
+        padding-right: 10px; */
     }
 
     .CommunityIcon {
@@ -297,51 +299,36 @@ label {
         margin-top: 0;
     }
 
-    .CommunityData {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding-right: 10px;
-        margin-top: 0;
-        width: max-content;
+    .On {
+        margin-left: -15px;
     }
 
-    .CommunityCreated,
-    .CommunityCreator {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .CommunityStar,
-    .CommunityView,
-    .CommunityRemix {
-        margin-right: 0 !important;
-        padding: 0;
-        width: 10%;
+    .data-row {
+        text-align: start;
+        /* align-items: start; */
     }
 
     .CommunityDownloadIcon {
+        margin-left: -5px;
+        width: 70%;
+        margin-top: -5px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+
+    .cardUpper {
+        width: 110%;
         display: flex;
-        flex-direction: row !important;
-        margin-left: 0;
-        padding-left: 0;
+        /* flex-direction: column; */
+    }
+
+    .card-data {
         width: 100%;
-        margin-top: 8px;
-        margin-bottom: 5px;
     }
 
-    .Like,
-    .Unlike {
-        width: 22px;
-        height: 22px;
-    }
-
-    .RemixComm {
-        margin-top: 4px;
-    }
-
-    .card-body-data {
-        overflow-x: scroll;
+    .CommunityDownloadIcon {
+        width: 80%;
     }
 }
 
@@ -365,12 +352,20 @@ label {
     }
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 767.5px) {
+
+    .cardUpper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 0px !important;
+    }
+
     .card-data {
-       width: 100%;
-       flex: 0 0 calc(50% - 40px);
-       padding-right: 10px;
-   }
+        width: 95%;
+        margin-left: 37px !important;
+        overflow-x: hidden;
+    }
 
     .CommunityIcon {
         flex-direction: column;
@@ -381,23 +376,103 @@ label {
         margin-top: 0;
     }
 
-    .On {
-        margin-left: -15px;
+    .CommunityData {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-right: 10px;
+        margin-top: 0;
+        width: max-content;
     }
 
-    .data-row {
-        text-align: start;
-        /* align-items: start; */
+
+    .CommunityCreator {
+        width: 100%;
+        margin-left: 0;
     }
 
-    .CommunityDownloadIcon {
-        margin-left: -5px;
-        width: 50%;
+    .CommunityCreated {
+        width: 100%;
+        margin-left: 15px;
     }
 
-    /* .CommunityStar,
+    .CommunityStar,
     .CommunityView,
     .CommunityRemix {
-        width: 50%;
-    } */
+        margin-right: 0 !important;
+        width: 20%;
+    }
+
+
+    .CommunityDownloadIcon {
+        width: 90%;
+    }
+
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .cardUpper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 0px !important;
+    }
+
+    .card-data {
+        width: 95%;
+        margin-left: 30px !important;
+        overflow-x: hidden;
+    }
+
+    .CommunityIcon {
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-right: 10px;
+        margin-top: 0;
+    }
+
+    .CommunityData {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-right: 10px;
+        margin-top: 0;
+        width: max-content;
+    }
+
+
+    .CommunityCreator {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .CommunityCreated {
+        width: 100%;
+        margin-left: 15px;
+    }
+
+    .CommunityStar,
+    .CommunityView,
+    .CommunityRemix {
+        margin-right: 0 !important;
+        margin-left: 0px !important;
+        width: 40%;
+    }
+
+
+    .CommunityDownloadIcon {
+        width: 90%;
+    }
+
+    .user-search {
+        margin-top: 2%;
+        margin-bottom: 35px;
+        margin-left: 30px;
+    }
+
+
 }
