@@ -146,8 +146,8 @@ a {
 @media screen and (max-width: 400px) {
   .icon {
     /* flex-direction: row !important; */
-    margin-left: 55% !important;
-    width: 50% !important;
+    margin-left: 67% !important;
+    /* width: 50% !important; */
   }
 }
 
@@ -506,6 +506,11 @@ a {
   margin-top: -5px;
 }
 
+/* .dropdown-header {
+  display: flex;
+  justify-content: flex-end;
+} */
+
 .dropdown-options,
 .dropdown-header {
   background-color: #0F1E31;
@@ -537,10 +542,53 @@ a {
   margin-left: 5px;
 }
 
-.MainUser {
+.User-Main {
+  padding: 2px 5px;
+  margin-left: -0.8%;
+}
+
+.TitleUser {
+  background-color: #3b5779;
+  padding: 3px 9px;
+  border-radius: 8px;
   color: #D9D9D9;
-  margin-left: 5%;
+  margin-right: 1%;
+}
+
+.MainUser,
+.LastDateUser {
+  color: #D9D9D9;
+  margin-right: 1%;
   background-color: #263546;
   border-radius: 8px;
-  padding: 3px 13px;
+  padding: 3px 7px;
+}
+
+.IconUser {
+  color: #D9D9D9;
+  background-color: #263546;
+  border-radius: 8px;
+  padding: 3px 7px;
+}
+
+@media screen and (max-width: 900px) {
+  .User-Main {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+
+  .MainUser,
+  .LastDateUser,
+  .TitleUser {
+    margin-bottom: 1%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .User-Main {
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+  }
 }

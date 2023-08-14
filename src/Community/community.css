@@ -104,6 +104,11 @@ label {
     margin-top: 40px;
     padding: 0px 20px;
     margin-bottom: 20px;
+    gap: 10px;
+    /* display: flex;
+align-items: center; */
+
+    /* space-between: 25px; */
 }
 
 .btn-secondary {
@@ -207,7 +212,7 @@ label {
 .CommunityRemix {
     /* display: flex; */
     width: 50%;
-    border: 1px solid #6e6e6e;
+    /* border: 1px solid #6e6e6e; */
     gap: 5px;
     height: 25px;
     /* justify-content: flex-end; */

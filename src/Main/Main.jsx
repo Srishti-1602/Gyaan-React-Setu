@@ -77,12 +77,12 @@ export default function Main (props) {
   /* Fetch Saved Note Id */
   const location = useLocation()
   const [savedNoteId, setSavedNoteId] = useState(null)
-  const [publicNoteId, setPublicNoteId] = useState(null);
+  const [publicNoteId, setPublicNoteId] = useState(null)
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search)
     const noteIdParam = searchParams.get('NId')
-    setPublicNoteId(noteIdParam);
+    setPublicNoteId(noteIdParam)
 
     if (noteIdParam) {
       const database = getDatabase()
@@ -145,8 +145,7 @@ export default function Main (props) {
             <Dropdown userId={userId} noteId={publicNoteId} />
           </div>
 
-          <PublicNoteData userId={userId} noteId={publicNoteId}/>
-          
+          <PublicNoteData userId={userId} noteId={publicNoteId} />
         </div>
         <div id='tree-view'>
           {queryStatus === 'processing' ? <LoadingBar /> : null}

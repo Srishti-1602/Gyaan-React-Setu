@@ -18,7 +18,7 @@ const Dropdown = () => {
           className='dropdown-header'
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          Select an option
+          Select
           <span className='dropdown-arrow'>&#9662;</span>
         </div>
         {isDropdownOpen && (

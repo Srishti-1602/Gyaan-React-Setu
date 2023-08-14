@@ -14,9 +14,9 @@ function Stars () {
   return (
     <a href=' ' onClick={handleLikeClick}>
       {liked ? (
-        <img src={StarUnIcon} alt='Unlike' className='Unlike' id='unlike' />
-      ) : (
         <img src={StarIcon} alt='Like' className='Like' id='like' />
+      ) : (
+        <img src={StarUnIcon} alt='Unlike' className='Unlike' id='Unlike' />
       )}
     </a>
   )

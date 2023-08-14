@@ -1,37 +1,42 @@
-import '../main.css';
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { getDatabase, ref, onValue, get } from 'firebase/database';
+import '../main.css'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { getDatabase, ref, onValue, get } from 'firebase/database'
+import RemixCom from '../../Community/CommunityComponents/Remix2.jsx'
+import View from '../../Community/CommunityComponents/View.jsx'
+import Star from '../../Community/CommunityComponents/Star.jsx'
 
 const PublicNoteData = ({ userId, noteId }) => {
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const hasNIdParam = queryParams.has('NId');
-  const [createdBy, setCreatedBy] = useState(null);
-  const [lastEditedDate, setLastEditedDate] = useState(null);
-  const [starsNum, setStarsNum] = useState(0);
-  const [remixNum, setRemixNum] = useState(0);
-  const [viewsNum, setViewsNum] = useState(0);
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const hasNIdParam = queryParams.has('NId')
+  const [createdBy, setCreatedBy] = useState(null)
+  const [lastEditedDate, setLastEditedDate] = useState(null)
+  const [starsNum, setStarsNum] = useState(0)
+  const [remixNum, setRemixNum] = useState(0)
+  const [viewsNum, setViewsNum] = useState(0)
+  // const [isDropdown, setIsDropdown] = useState(false)
 
   useEffect(() => {
     if (!hasNIdParam) {
-      return; // Do nothing if NId parameter is not present
+      return // Do nothing if NId parameter is not present
     }
 
-    const database = getDatabase();
-    const noteRef = ref(database, `notes/${noteId}`);
-    
-    onValue(noteRef, (snapshot) => {
-      const noteData = snapshot.val();
+    const database = getDatabase()
+    const noteRef = ref(database, `notes/${noteId}`)
+
+    onValue(noteRef, snapshot => {
+      const noteData = snapshot.val()
       if (noteData) {
-        setCreatedBy(noteData.created_by);
-        setLastEditedDate(new Date(noteData.created_at).toLocaleDateString());
-        setStarsNum(noteData.stars);
-        setRemixNum(noteData.remix);
-        setViewsNum(noteData.views);
+        setCreatedBy(noteData.created_by)
+        setLastEditedDate(new Date(noteData.created_at).toLocaleDateString())
+        setStarsNum(noteData.stars)
+        setRemixNum(noteData.remix)
+        setViewsNum(noteData.views)
       }
-    });
-  }, [hasNIdParam, noteId]);
+    })
+    // setIsDropdown(window.innerWidth <= 900)
+  }, [hasNIdParam, noteId])
 
   const [creatorUsername, setCreatorUsername] = useState('') // State to hold the creator's username
 
@@ -57,16 +62,44 @@ const PublicNoteData = ({ userId, noteId }) => {
   }, [createdBy])
 
   if (!hasNIdParam) {
-    return null; // Return null if NId parameter is not present
+    return null // Return null if NId parameter is not present
   }
 
   return (
     <div className='User-Main'>
-      <span className='MainUser'>{createdBy === userId ? 'Your Note' : `Created By: ${creatorUsername}`}</span>
-      <span style={{ color: 'white' }}> {`Last edited date: ${lastEditedDate}  `}</span>
-      <span style={{ color: 'white' }}>{`  Stars: ${starsNum} Remix: ${remixNum} Views: ${viewsNum}`}</span>
+      {/* {isDropdown ? (
+        <select>
+          <option>
+            {createdBy === userId ? 'Your Note' : `Title: ${creatorUsername}`}
+          </option>
+          <option>
+            {createdBy === userId
+              ? 'Your Note'
+              : `Created By: ${creatorUsername}`}
+          </option>
+          <option>{`Last edit: ${lastEditedDate}`}</option>
+          <option>
+            <Star />: {starsNum} <RemixCom />: {remixNum} <View />: {viewsNum}
+          </option>
+        </select>
+      ) : (
+        <> */}
+      <span className='TitleUser'>
+        {createdBy === userId ? 'Your Note' : `Title: ${creatorUsername}`}
+      </span>
+      <span className='MainUser'>
+        {createdBy === userId ? 'Your Note' : `Created By: ${creatorUsername}`}
+      </span>
+      <span className='LastDateUser' style={{ color: 'white' }}>
+        {`Last edit: ${lastEditedDate}`}
+      </span>
+      <span className='IconUser' style={{ color: 'white' }}>
+        <Star />: {starsNum} <RemixCom />: {remixNum} <View />: {viewsNum}
+      </span>
+      {/* </>
+      )} */}
     </div>
-  );
-};
+  )
+}
 
-export default PublicNoteData;
+export default PublicNoteData
