@@ -9,11 +9,13 @@ const MyNotes = ({ userId }) => {
 		const database = getDatabase();
 		const userNotesRef = ref(database, `users/${userId}/MyNotes`);
 
-		// Fetch the notes data
 		onValue(userNotesRef, (snapshot) => {
 			const notesData = snapshot.val();
 			if (notesData) {
-				const notesArray = Object.values(notesData); // Convert object values to an array
+				const notesArray = Object.keys(notesData).map((noteId) => ({
+					noteId,
+					...notesData[noteId],
+				}));
 				setNotes(notesArray);
 			}
 		});
@@ -22,19 +24,7 @@ const MyNotes = ({ userId }) => {
 	return (
 		<div className="row row-notes-display">
 			{notes.map((note) => (
-				<NoteCard
-					key={note.noteId}
-					noteId={note.noteId}
-					noteTitle={note.title}
-					noteSubject={note.subject}
-					noteCreator={note.created_by}
-					noteLastEdited={new Date(note.created_at).toLocaleDateString()}
-					noteContent={note.noteContent}
-					starsNum={note.stars}
-					remixNum={note.remix}
-					viewsNum={note.views}
-					userId={userId}
-				/>
+				<NoteCard key={note.noteId} noteId={note.noteId} userId={userId} />
 			))}
 		</div>
 	);

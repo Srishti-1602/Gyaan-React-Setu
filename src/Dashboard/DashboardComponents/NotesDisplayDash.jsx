@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import MyNotes from "./My-Notes";
-import ForkedNotes from "./Forked-Notes";
+import RemixedNotes from "./Remixed-Notes";
 import StarredNotes from "./Starred-Notes";
 
 function NotesDisplayDash({ userId }) {
@@ -53,8 +53,12 @@ function NotesDisplayDash({ userId }) {
 						</div>
 						<div className="card-Notes-display">
 							{selectedOption === "my-notes" && <MyNotes userId={userId} />}
-							{selectedOption === "forked-notes" && <ForkedNotes />}
-							{selectedOption === "starred-notes" && <StarredNotes />}
+							{selectedOption === "forked-notes" && (
+								<RemixedNotes userId={userId} />
+							)}
+							{selectedOption === "starred-notes" && (
+								<StarredNotes userId={userId} />
+							)}
 						</div>
 
 						{/* <h3 className='card-title-save pricing-card-title personal-info-title'>
