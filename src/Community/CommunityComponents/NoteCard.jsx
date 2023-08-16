@@ -16,6 +16,7 @@ const NoteCard = ({
 	starsNum,
 	remixNum,
 	viewsNum,
+	userId,
 }) => {
 	const [creatorUsername, setCreatorUsername] = useState(""); // State to hold the creator's username
 
@@ -80,7 +81,7 @@ const NoteCard = ({
 				<div className="CommunityDownloadIcon">
 					<div className="CommunityStar">
 						<div className="icon-row">
-							<Star noteId={noteId} />
+							<Star userId={userId} noteId={noteId} />
 						</div>
 					</div>
 					<div className="CommunityRemix">

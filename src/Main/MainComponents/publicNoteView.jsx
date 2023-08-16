@@ -75,7 +75,7 @@ const PublicNoteData = ({ userId, noteId }) => {
 				{`Last edit: ${lastEditedDate}`}
 			</span>
 			<span className="IconUser" style={{ color: "white" }}>
-				<Star noteId={noteId} />
+				<Star userId={userId} noteId={noteId} />
 				{" | "}
 				<Remix remixNum={remixNum} /> {" | "}
 				<Views viewsNum={viewsNum} />
