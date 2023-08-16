@@ -43,7 +43,7 @@ const FeedbackButton = ({ onClick }) => {
   return (
     <button className='feedback-button-but' onClick={onClick}>
       <img src={FeedbackIcon} alt='Feedback' className='feedback-button' />
-      Feedback
+      {/* Feedback */}
     </button>
   )
 }

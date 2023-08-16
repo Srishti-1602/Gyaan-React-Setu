@@ -1,34 +1,34 @@
-import React, { useRef, useState } from "react";
-import StarIcon from "../icons/star.png";
-import UnstarIcon from "../icons/star-shape.png";
+import React, { useRef, useState } from 'react'
+import StarIcon from '../icons/star.png'
+import UnstarIcon from '../icons/star-shape.png'
 
 const Star = ({ noteId }) => {
-	const [isStarred, setIsStarred] = useState(false); // State to track the starred/unstarred status
-	const rectNotesRef = useRef(null);
+  const [isStarred, setIsStarred] = useState(false) // State to track the starred/unstarred status
+  const rectNotesRef = useRef(null)
 
-	const toggleStar = () => {
-		setIsStarred(!isStarred); // Toggle the state on each click
-	};
+  const toggleStar = () => {
+    setIsStarred(!isStarred) // Toggle the state on each click
+  }
 
-	const iconSrc = isStarred ? UnstarIcon : StarIcon;
-	const iconAlt = isStarred ? "Unstar" : "Star";
+  const iconSrc = isStarred ? StarIcon : UnstarIcon
+  const iconAlt = isStarred ? 'Unstar' : 'Star'
 
-	return (
-		<a onClick={toggleStar}>
-			<img
-				src={iconSrc}
-				alt={iconAlt}
-				className="Like"
-				id="like"
-				style={{ cursor: "pointer" }} // Apply the pointer cursor style
-			/>
-			{"  "}
-			{"2"}
-		</a>
-	);
-};
+  return (
+    <a onClick={toggleStar}>
+      <img
+        src={iconSrc}
+        alt={iconAlt}
+        className='Like'
+        id='like'
+        style={{ cursor: 'pointer' }} // Apply the pointer cursor style
+      />
+      {'  '}
+      {'2'}
+    </a>
+  )
+}
 
-export default Star;
+export default Star
 
 /* import React, { useRef, useState, useEffect } from "react";
 import { getDatabase, ref, update, onValue } from "firebase/database";

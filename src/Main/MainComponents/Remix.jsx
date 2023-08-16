@@ -20,7 +20,7 @@ const Remix = () => {
         id='scrollid'
         ref={rectNotesRef}
       />
-      <span className='remix-text'>Remix</span>
+      {/* <span className='remix-text'>Remix</span> */}
     </a>
   )
 }
