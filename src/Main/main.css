@@ -157,6 +157,7 @@ a {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: black;
+  border: 2px solid #485573;
   /* z-index: 1; */
 }
 
@@ -186,27 +187,28 @@ a {
 }
 
 .save-head {
-  /* margin-top: 25px; */
-  /* padding-bottom: 30px; */
   color: wheat;
 }
 
 .save-title-Note {
-  margin-right: 6%;
-  margin-left: 6%;
   margin-top: 10px;
   width: 88%;
 }
 
 .save-title-Sub {
-  margin-right: 6%;
-  margin-left: 6%;
   margin-top: 25px;
   width: 88%;
 }
 
+form {
+  align-items: center;
+  text-align: center !important;
+  justify-content: center !important;
+}
+
 .sign-up {
   margin-top: 40px;
+  margin-left: 0px;
 }
 
 .close {
