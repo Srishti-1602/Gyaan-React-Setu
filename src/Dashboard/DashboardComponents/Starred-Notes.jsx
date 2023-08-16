@@ -1,14 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import NoteCard from './NoteCard'
-// import Views from '../../icons/spy-fill.png'
+import React, { useEffect, useState } from "react";
+import NoteCard from "./NoteCard";
+import { getDatabase, ref, onValue } from "firebase/database";
 
-const StarredNotes = () => {
-  return (
-    <div className='row row-notes-display'>
-      <NoteCard noteTitle="Title" noteSubject="Subject" noteCreator="Creator" noteLastEdited="Date" remixNum="1" starsNum="12" viewsNum="123" />
-      <NoteCard noteTitle="Title" noteSubject="Subject" noteCreator="Creator" noteLastEdited="Date" remixNum="1" starsNum="12" viewsNum="123" />
-    </div>
-  )
-}
+const MyNotes = ({ userId }) => {
+	const [notes, setNotes] = useState([]); // State to hold the fetched notes
 
-export default StarredNotes
+	useEffect(() => {
+		const database = getDatabase();
+		const userNotesRef = ref(database, `users/${userId}/StarredNotes`);
+
+		onValue(userNotesRef, (snapshot) => {
+			const notesData = snapshot.val();
+			if (notesData) {
+				const notesArray = Object.keys(notesData).map((noteId) => ({
+					noteId,
+					...notesData[noteId],
+				}));
+				setNotes(notesArray);
+			}
+		});
+	}, [userId]);
+
+	return (
+		<div className="row row-notes-display">
+			{notes.map((note) => (
+				<NoteCard key={note.noteId} noteId={note.noteId} userId={userId} />
+			))}
+		</div>
+	);
+};
+
+export default MyNotes;

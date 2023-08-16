@@ -2,67 +2,83 @@ import React, { useState, useEffect } from "react";
 import Views from "../../IconUtils/Views";
 import Remix from "../../IconUtils/Remix";
 import Star from "../../IconUtils/Star";
-import { getDatabase, ref, get, set } from "firebase/database";
+import { getDatabase, ref, onValue, get } from "firebase/database";
 
-const NoteCard = ({
-	key,
-	noteId,
-	noteTitle,
-	noteSubject,
-	noteCreator,
-	noteLastEdited,
-	noteContent,
-	starsNum,
-	remixNum,
-	viewsNum,
-	userId,
-}) => {
-	const [creatorUsername, setCreatorUsername] = useState(""); // State to hold the creator's username
+const NoteCard = ({ key, noteId, userId }) => {
+	const [noteData, setNoteData] = useState({
+		title: "Loading...",
+		subject: "Loading...",
+		noteCreator: "Loading...",
+		noteLastEdited: "Loading...",
+		remixNum: "Loading...",
+		viewsNum: "Loading...",
+		starsNum: "Loading...",
+	});
 
-	console.log("noteId:", noteId);
+	const database = getDatabase();
 
 	useEffect(() => {
-		const database = getDatabase();
-		const usersRef = ref(database, `users/${noteCreator}`);
+		const noteRef = ref(database, `notes/${noteId}`);
 
-		// Fetch the username from the users node based on noteCreator
-		get(usersRef)
-			.then((snapshot) => {
-				if (snapshot.exists()) {
-					const userData = snapshot.val();
-					console.log("userData:", userData);
-					setCreatorUsername(userData.username || "Unknown User");
-				} else {
+		onValue(noteRef, (snapshot) => {
+			const note = snapshot.val();
+			if (note) {
+				setNoteData({
+					title: note.title || "No Title",
+					subject: note.subject || "No Subject",
+					noteCreator: note.created_by || "Unknown User",
+					noteLastEdited:
+						new Date(note.created_at).toLocaleDateString() || "Unknown Date",
+					remixNum: note.remixes || 0,
+					viewsNum: note.views || 0,
+					starsNum: note.stars || 0,
+				});
+			}
+		});
+	}, [noteId]);
+
+	const [creatorUsername, setCreatorUsername] = useState(""); // State to hold the creator's username
+
+	useEffect(() => {
+		if (noteData.noteCreator !== "Loading...") {
+			const userNameRef = ref(
+				database,
+				`users/${noteData.noteCreator}/username`
+			);
+
+			get(userNameRef)
+				.then((snapshot) => {
+					const username = snapshot.val();
+					setCreatorUsername(username || "Unknown User");
+				})
+				.catch((error) => {
+					console.error("Error fetching username:", error);
 					setCreatorUsername("Unknown User");
-				}
-			})
-			.catch((error) => {
-				console.error("Error fetching username:", error);
-				setCreatorUsername("Unknown User");
-			});
-	}, [noteCreator]);
+				});
+		}
+	}, [noteData.noteCreator]);
 
 	return (
 		<div className="col-display col-lg-3 col-md-5 col-sm-5 note-rec">
 			<div className="note-rec-head">
-				<h3 className="card-title-note">{noteTitle}</h3>
+				<h3 className="card-title-note">{noteData.title}</h3>
 			</div>
 			<div className="note-rec-body">
-				<p>Subject: {noteSubject}</p>
+				<p>Subject: {noteData.subject}</p>
 				<p>Creator: {creatorUsername}</p>
-				<p>Last Edited: {noteLastEdited}</p>
+				<p>Last Edited: {noteData.noteLastEdited}</p>
 				{/* <p>Comments: </p> */}
 			</div>
 			<div className="icon-my-notes">
 				<ul>
 					<li>
-						<Remix remixNum={remixNum} />
+						<Remix remixNum={noteData.remixNum} />
 					</li>
 					<li>
-						<Star userId={userId} noteId={"-Nbhzu5nn--2osZw_-wD"} />
+						<Star userId={userId} noteId={noteId} />
 					</li>
 					<li>
-						<Views viewsNum={viewsNum} />
+						<Views viewsNum={noteData.viewsNum} />
 					</li>
 				</ul>
 			</div>
