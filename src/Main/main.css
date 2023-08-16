@@ -33,20 +33,6 @@ form input {
   opacity: 1;
 }
 
-@media (min-width: 500px) {
-  .searchbar {
-    height: 37px;
-    width: 55vw;
-  }
-}
-
-/* Change height of search bar on screens larger than 900px */
-@media (min-width: 900px) {
-  .searchbar {
-    height: 40px;
-  }
-}
-
 .rectnotes {
   /* height: 474px; */
   height: 70.4%;
@@ -69,20 +55,6 @@ form input {
   left: 7.5%;
 }
 
-
-
-@media (max-width: 400px) {
-  .rectnotes {
-    height: 71.2%;
-  }
-
-  .searchbar {
-    height: 34px;
-    width: 65vw;
-  }
-
-}
-
 .savebutt {
   border-radius: 20px;
   height: 38px;
@@ -96,16 +68,29 @@ form input {
 }
 
 .icon {
-  width: 25%;
-  margin-left: 90%;
+  /* width: 25%; */
+  /* margin-left: 75%; */
   display: flex;
 }
 
 .icons-container {
   display: flex;
   flex-direction: row;
+  margin-left: 80%;
 }
 
+.User-Container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* text-align: left; */
+}
+
+.User-Main {
+  padding: 2px 5px;
+  margin-left: -0.8%;
+  width: 85%;
+}
 
 .remixic {
   background-color: #0F1E31;
@@ -146,82 +131,6 @@ a {
   position: relative;
   margin-right: 10px;
   margin-top: -5px;
-}
-
-@media screen and (max-width: 400px) {
-  .icon {
-    margin-left: 85% !important;
-  }
-
-  .icons-container {
-    flex-direction: row;
-  }
-}
-
-@media screen and (max-width: 1430px) {
-  .icon {
-    margin-left: 93%;
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 1300px) {
-  .icon {
-    margin-left: 91%;
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .icon {
-    margin-left: 90%;
-    width: 40%;
-  }
-}
-
-
-@media screen and (max-width: 1020px) {
-  .icon {
-    margin-left: 88%;
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 950px) {
-  .icon {
-    margin-left: 87%;
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .icon {
-    margin-left: 93%;
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .icon {
-    margin-left: 93%;
-    width: 40%;
-  }
-
-  .icons-container {
-    flex-direction: row;
-  }
-}
-
-
-@media screen and (max-width: 600px) {
-  .icon {
-    margin-left: 90%;
-    width: 40%;
-  }
-
-  .icons-container {
-    flex-direction: row;
-  }
 }
 
 #tree-view {
@@ -501,66 +410,6 @@ a {
 
 
 
-/* .horizontal-icons {
-  margin: 10px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.dropdown-container {
-  position: absolute;
-}
-
-.custom-dropdown {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  z-index: 1;
-  margin-top: -5px;
-}
-
-*/
-/* .dropdown-header {
-  display: flex;
-  justify-content: flex-end;
-} */
-
-/* .dropdown-options,
-.dropdown-header {
-  background-color: #0F1E31;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: #ffffff;
-  padding: 5px;
-}
-
-.custom-dropdown-button {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.option {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  gap: 10px;
-}
-
-.dropdown-arrow {
-  margin-left: 5px;
-} */
-
-.User-Main {
-  padding: 2px 5px;
-  margin-left: -0.8%;
-}
 
 .TitleUser {
   background-color: #3b5779;
@@ -574,42 +423,17 @@ a {
 .LastDateUser {
   color: #D9D9D9;
   margin-right: 1%;
-  background-color: #263546;
+  background-color: #2b4461;
   border-radius: 8px;
   padding: 3px 7px;
 }
 
 .IconUser {
   color: #D9D9D9;
-  background-color: #263546;
+  background-color: #2b4461;
   border-radius: 8px;
   padding: 3px 7px;
 }
-
-@media screen and (max-width: 900px) {
-  .User-Main {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-  }
-
-  .MainUser,
-  .LastDateUser,
-  .TitleUser {
-    margin-bottom: 1%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .User-Main {
-    display: flex;
-    flex-direction: column;
-    width: 67%;
-  }
-}
-
-
-
 
 
 /* Add your other CSS styles here */
@@ -621,7 +445,8 @@ a {
 }
 
 /* Default styles for dropdown */
-.custom-dropdown {
+.custom-dropdown,
+.custom-dropdownUser {
   position: relative;
 }
 
@@ -637,8 +462,15 @@ a {
   position: absolute;
   top: 100%;
   left: 0;
-  /* background-color: #1b2f47; */
-  /* border: 1px solid #ccc; */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-options-User {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
@@ -656,22 +488,117 @@ a {
   margin-left: 3px;
 }
 
+.option-User {
+  cursor: pointer;
+  width: 140%;
+  text-align: left;
+}
+
+.option-feed {
+  cursor: pointer;
+  width: 140%;
+  text-align: center;
+  margin-left: 3px;
+}
+
 /* .dropdown-container.dropdown-open .dropdown-options {
   display: block;
 } */
 
-.custom-dropdown.open .dropdown-options {
+.custom-dropdown.open .dropdown-options,
+.custom-dropdownUser.open .dropdown-options-User {
   display: block;
 }
 
 
-/* Media query for screens wider than 900px */
-@media (min-width: 900px) {
-  .dropdown-container {
+@media screen and (max-width: 1300px) {
+
+  .icons-container {
+    flex-direction: row;
+    text-align: end;
+    margin-left: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .dropdown-container,
+  .User-Main {
     justify-content: space-between;
   }
 
-  .dropdown-container.dropdown-open .dropdown-options {
+  .dropdown-container.dropdown-open .dropdown-options,
+  .User-Main.dropdown-open .dropdown-options-User {
     display: flex;
+  }
+
+  .dropdown-options-User {
+    background-color: #2b4461;
+    border-radius: 8px;
+  }
+
+  .MainUser,
+  .LastDateUser,
+  .IconUser {
+    color: #D9D9D9;
+    margin-right: 1%;
+    padding: 0px 7px;
+    border-radius: 0px;
+    margin-bottom: 1%;
+  }
+
+  .TitleUser {
+    margin-bottom: 1%;
+  }
+
+  .icon {
+    flex-direction: row;
+    text-align: end;
+    margin-left: 37%;
+  }
+
+  .User-Main {
+    width: 80%;
+    display: flex;
+  }
+
+  .searchbar {
+    height: 40px;
+  }
+
+}
+
+@media screen and (max-width: 680px) {
+  .icon {
+    flex-direction: row;
+    margin-left: 15%;
+  }
+
+  .User-Main {
+    width: 90% !important;
+    display: flex;
+  }
+}
+
+@media (min-width: 500px) {
+  .searchbar {
+    height: 37px;
+    width: 55vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .icon {
+    flex-direction: row;
+    margin-left: 18% !important;
+  }
+
+  .rectnotes {
+    height: 71.2%;
+  }
+
+  .searchbar {
+    height: 34px;
+    width: 65vw;
   }
 }
