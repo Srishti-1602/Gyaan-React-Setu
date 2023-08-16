@@ -58,7 +58,7 @@ const CommentSection = () => {
       </div>
       <a href=' ' onClick={toggleCommentSection}>
         <img src={CommentIcon} alt='Comment' className='commic' />
-        <span className='comment-text'>Comment</span>
+        {/* <span className='comment-text'>Comment</span> */}
       </a>
     </div>
   )
