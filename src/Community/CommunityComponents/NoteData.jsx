@@ -3,7 +3,7 @@ import "../community.css";
 import NoteCard from "./NoteCard";
 import { getDatabase, ref, onValue } from "firebase/database";
 
-const NotesData = () => {
+const NotesData = ({ userId }) => {
 	const [notes, setNotes] = useState([]);
 
 	useEffect(() => {
@@ -36,6 +36,7 @@ const NotesData = () => {
 					starsNum={note.stars}
 					remixNum={note.remix}
 					viewsNum={note.views}
+					userId={userId}
 				/>
 			))}
 		</div>

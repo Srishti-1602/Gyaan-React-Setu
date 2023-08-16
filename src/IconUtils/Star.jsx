@@ -1,60 +1,61 @@
-import React, { useRef, useState } from 'react'
-import StarIcon from '../icons/star.png'
-import UnstarIcon from '../icons/star-shape.png'
-
-const Star = ({ noteId }) => {
-  const [isStarred, setIsStarred] = useState(false) // State to track the starred/unstarred status
-  const rectNotesRef = useRef(null)
-
-  const toggleStar = () => {
-    setIsStarred(!isStarred) // Toggle the state on each click
-  }
-
-  const iconSrc = isStarred ? StarIcon : UnstarIcon
-  const iconAlt = isStarred ? 'Unstar' : 'Star'
-
-  return (
-    <a onClick={toggleStar}>
-      <img
-        src={iconSrc}
-        alt={iconAlt}
-        className='Like'
-        id='like'
-        style={{ cursor: 'pointer' }} // Apply the pointer cursor style
-      />
-      {'  '}
-      {'2'}
-    </a>
-  )
-}
-
-export default Star
-
-/* import React, { useRef, useState, useEffect } from "react";
-import { getDatabase, ref, update, onValue } from "firebase/database";
+import React, { useRef, useState } from "react";
 import StarIcon from "../icons/star.png";
 import UnstarIcon from "../icons/star-shape.png";
 
 const Star = ({ noteId }) => {
+	const [isStarred, setIsStarred] = useState(false); // State to track the starred/unstarred status
+	const rectNotesRef = useRef(null);
+
+	const toggleStar = () => {
+		setIsStarred(!isStarred); // Toggle the state on each click
+	};
+
+	const iconSrc = isStarred ? UnstarIcon : StarIcon;
+	const iconAlt = isStarred ? "Unstar" : "Star";
+
+	return (
+		<a onClick={toggleStar}>
+			<img
+				src={iconSrc}
+				alt={iconAlt}
+				className="Like"
+				id="like"
+				style={{ cursor: "pointer" }} // Apply the pointer cursor style
+			/>
+			{"  "}
+			{"2"}
+		</a>
+	);
+};
+
+export default Star;
+
+/* import React, { useRef, useState, useEffect } from "react";
+import { getDatabase, ref, update, onValue } from "firebase/database";
+
+const Star = ({ userId, noteId }) => {
 	const [isStarred, setIsStarred] = useState(false);
 	const [starsNum, setStarsNum] = useState(0);
-	const rectNotesRef = useRef(null);
 	const database = getDatabase();
 	const noteStarsRef = ref(database, `notes/${noteId}/stars`);
+	const isStarredRef = ref(database, `users/${userId}/StarredNotes`);
+
+	// Check if the noteId is present in the user's StarredNotes
+	useEffect(() => {
+		onValue(isStarredRef, (snapshot) => {
+			const starredNotes = snapshot.val();
+			if (starredNotes && starredNotes[noteId]) {
+				setIsStarred(true);
+			}
+		});
+	}, [userId, noteId]);
 
 	useEffect(() => {
-		const starsListener = onValue(noteStarsRef, (snapshot) => {
+		onValue(noteStarsRef, (snapshot) => {
 			const starsValue = snapshot.val();
 			setStarsNum(starsValue);
 		});
-
-		return () => {
-			// Unsubscribe the listener when the component unmounts
-			if (starsListener) {
-				starsListener();
-			}
-		};
-	}, [noteId, noteStarsRef]);
+	}, [noteId]);
 
 	const toggleStar = () => {
 		const updatedStarsNum = isStarred ? starsNum - 1 : starsNum + 1;
@@ -62,14 +63,24 @@ const Star = ({ noteId }) => {
 		// Construct the update object
 		const updateData = { [`notes/${noteId}/stars`]: updatedStarsNum };
 
-		// Perform the update operation
-		update(ref(database), updateData)
+		// Update the user's starred notes list if needed
+		const starredNotesUpdate = isStarred
+			? { [`users/${userId}/StarredNotes/${noteId}`]: null }
+			: { [`users/${userId}/StarredNotes/${noteId}`]: true };
+
+		// Perform the update operations
+		const updates = {
+			...updateData,
+			...starredNotesUpdate,
+		};
+
+		update(ref(database), updates)
 			.then(() => {
 				setIsStarred(!isStarred);
 				setStarsNum(updatedStarsNum);
 			})
 			.catch((error) => {
-				console.error("Error updating stars:", error);
+				console.error("Error updating data:", error);
 			});
 	};
 
@@ -77,7 +88,7 @@ const Star = ({ noteId }) => {
 	const iconAlt = isStarred ? "Unstar" : "Star";
 
 	return (
-		<span onClick={toggleStar}>
+		<a onClick={toggleStar}>
 			<img
 				src={iconSrc}
 				alt={iconAlt}
@@ -87,9 +98,8 @@ const Star = ({ noteId }) => {
 			/>
 			{"  "}
 			{starsNum}
-		</span>
+		</a>
 	);
 };
 
 export default Star;
- */
