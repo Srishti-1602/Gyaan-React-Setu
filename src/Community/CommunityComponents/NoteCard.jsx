@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Views from "../../IconUtils/Views";
 import Remix from "../../IconUtils/Remix";
 import Star from "../../IconUtils/Star";
-import { getDatabase, ref, get } from "firebase/database"; // Import the necessary Firebase functions
+import { getDatabase, ref, get, set } from "firebase/database"; // Import the necessary Firebase functions
 
 const NoteCard = ({
 	key,
@@ -19,8 +19,6 @@ const NoteCard = ({
 	userId,
 }) => {
 	const [creatorUsername, setCreatorUsername] = useState(""); // State to hold the creator's username
-
-	console.log(noteId);
 
 	useEffect(() => {
 		const database = getDatabase();
@@ -43,6 +41,29 @@ const NoteCard = ({
 			});
 	}, [noteCreator]);
 
+	const handleNoteTitleClick = () => {
+		const database = getDatabase();
+		const noteViewsRef = ref(database, `notes/${noteId}/views`);
+
+		get(noteViewsRef)
+			.then((snapshot) => {
+				const currentViews = snapshot.val() || 0;
+				const updatedViews = currentViews + 1;
+
+				set(noteViewsRef, updatedViews)
+					.then(() => {
+						// Views count updated successfully
+						console.log("Views count updated.");
+					})
+					.catch((error) => {
+						console.error("Error updating views count:", error);
+					});
+			})
+			.catch((error) => {
+				console.error("Error fetching views count:", error);
+			});
+	};
+
 	return (
 		<div className="card-data mb-4 rounded-3 shadow-sm">
 			<div className="card-body-data">
@@ -51,7 +72,7 @@ const NoteCard = ({
 					<div id="Community-data" className="CommunityDataNote">
 						<div className="data-row">
 							{/* <h5>Note Title:</h5> */}
-							<Link to={`/index?NId=${noteId}`}>
+							<Link onClick={handleNoteTitleClick} to={`/index?NId=${noteId}`}>
 								<span className="Title">{noteTitle}</span>
 							</Link>
 						</div>
