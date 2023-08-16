@@ -7,10 +7,31 @@ import { useState, useEffect } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import FilterBy from "./CommunityComponents/FilterBy";
 import NoteData from "./CommunityComponents/NoteData";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const jsonData = {};
 
 function Community() {
+	const [userId, setUserId] = useState(null); // Store the userId here
+	const [isLoggedIn, setIsLoggedIn] = useState(false); // Store the isLoggedIn state here
+
+	useEffect(() => {
+		const auth = getAuth();
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setIsLoggedIn(true);
+				setUserId(user.uid); // Set the userId if the user is logged in
+			} else {
+				setIsLoggedIn(false);
+				setUserId(null); // Reset the userId if the user is not logged in
+			}
+		});
+
+		return () => {
+			unsubscribe();
+		};
+	}, []);
+
 	/* Handling Fetch Community data from Firebase and Giving JSON output for rendering */
 	const [communityData, setCommunityData] = useState(jsonData);
 
@@ -50,7 +71,7 @@ function Community() {
 							/>
 						</form>
 					</div>
-					<NoteData />
+					<NoteData userId={userId} />
 				</div>
 			</div>
 		</div>
