@@ -105,13 +105,13 @@ const PublicNoteData = ({ userId, noteId }) => {
   const [remixNum, setRemixNum] = useState(0)
   const [viewsNum, setViewsNum] = useState(0)
   const [noteTitle, setNoteTitle] = useState(null)
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 900)
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1150)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 900)
+      setIsSmallScreen(window.innerWidth < 1150)
     }
 
     // Add event listener for window resize
