@@ -73,7 +73,7 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID, queryId }) => {
 				/* Update User Notes Data for Dashboard Page */
 				const userMyNotesRef = ref(
 					database,
-					`users/${UserID}/MyNotes/${queryId}`
+					`users/${UserID}/MyNotes/${uniqueFirestoreId}`
 				);
 				set(userMyNotesRef, true);
 				/* END OF Update User Notes Data for Dashboard Page */
@@ -110,7 +110,7 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID, queryId }) => {
 					department: department,
 				};
 
-				const communityRef = ref(database, `notes/${queryId}`);
+				const communityRef = ref(database, `notes/${uniqueFirestoreId}`);
 				set(communityRef, communityNoteData);
 
 				/* UNIMPORTANT */

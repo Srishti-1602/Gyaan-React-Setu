@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import MyNotes from "./My-Notes";
 import RemixedNotes from "./Remixed-Notes";
 import StarredNotes from "./Starred-Notes";
