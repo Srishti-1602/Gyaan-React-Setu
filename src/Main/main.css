@@ -67,10 +67,13 @@ form input {
   position: fixed;
 }
 
-.icon {
-  /* width: 25%; */
-  /* margin-left: 75%; */
+/* .icon {
   display: flex;
+} */
+
+.icon {
+  display: flex;
+  margin-left: 83%;
 }
 
 .icons-container {
@@ -137,6 +140,9 @@ a {
   margin-top: 10px;
 }
 
+
+/* **** Save Note **** */
+
 .upward {
   position: fixed;
   bottom: 12px;
@@ -158,7 +164,6 @@ a {
   transform: translate(-50%, -50%);
   background-color: black;
   border: 2px solid #485573;
-  /* z-index: 1; */
 }
 
 .card-save {
@@ -176,7 +181,6 @@ a {
 .containInfo {
   width: 100%;
   padding-bottom: 20px;
-  /* margin-top: 20px; */
 }
 
 .save-inforec {
@@ -217,6 +221,8 @@ form {
   margin-bottom: 20px;
 }
 
+/* **** Comment Section **** */
+
 #comment-section {
   position: fixed;
   top: 0;
@@ -240,12 +246,10 @@ form {
   }
 }
 
-
 #comment-button {
   position: absolute;
   top: 10px;
   right: -50px;
-  /* button starts off screen */
   width: 50px;
   height: 50px;
   background-color: blue;
@@ -259,7 +263,6 @@ form {
 
 #comment-button.show {
   right: 0;
-  /* slide in from the right */
 }
 
 #comment-list {
@@ -294,8 +297,6 @@ form {
   resize: none;
   border: 1px solid gray;
   flex-grow: 1;
-  /* margin-right: 10px; */
-
 }
 
 #comment-form button {
@@ -331,6 +332,9 @@ form {
 .comment span {
   font-weight: bold;
 }
+
+
+/* **** FEEDBACK SECTION **** */
 
 .feedback-section {
   position: fixed;
@@ -398,20 +402,19 @@ form {
 
 }
 
-/* .feedback-section input[type="text"],
-.feedback-section input[type="email"] {
-  margin-top: -5px;
-} */
+.feedback-submit {
+  margin-left: 0px;
+}
 
 .feedText {
   margin-top: 30px;
-  margin-left: 15.5%;
+  /* margin-left: 15.5%; */
   width: 70%;
   resize: vertical;
 }
 
 
-
+/* **** User Information **** */
 
 .TitleUser {
   background-color: #3b5779;
@@ -437,16 +440,14 @@ form {
   padding: 3px 7px;
 }
 
-
-/* Add your other CSS styles here */
-
 .dropdown-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-/* Default styles for dropdown */
+/* **** dropdown ***** */
+
 .custom-dropdown,
 .custom-dropdownUser {
   position: relative;
@@ -503,14 +504,13 @@ form {
   margin-left: 3px;
 }
 
-/* .dropdown-container.dropdown-open .dropdown-options {
-  display: block;
-} */
-
 .custom-dropdown.open .dropdown-options,
 .custom-dropdownUser.open .dropdown-options-User {
   display: block;
 }
+
+
+/* **** Responsive CSS **** */
 
 @media screen and (max-width: 1300px) {
 
@@ -581,7 +581,8 @@ form {
   .icon {
     flex-direction: row;
     text-align: end;
-    margin-left: 37%;
+    /* margin-left: 37%; */
+    margin-left: 90%;
   }
 
   .User-Main {
@@ -611,7 +612,8 @@ form {
 @media screen and (max-width: 680px) {
   .icon {
     flex-direction: row;
-    margin-left: 15%;
+    /* margin-left: 15%; */
+    margin-left: 88%;
   }
 
   .User-Main {
@@ -620,7 +622,7 @@ form {
   }
 }
 
-@media (min-width: 500px) {
+@media screen and (min-width: 500px) {
   .searchbar {
     height: 37px;
     width: 55vw;
@@ -630,7 +632,8 @@ form {
 @media screen and (max-width: 400px) {
   .icon {
     flex-direction: row;
-    margin-left: 18% !important;
+    /* margin-left: 18% !important; */
+    margin-left: 80%;
   }
 
   .rectnotes {

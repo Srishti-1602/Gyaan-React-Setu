@@ -33,7 +33,7 @@ const FeedbackSection = ({ isVisible, onClose }) => {
           placeholder='Enter your feedback'
           className='feedText'
         ></textarea>
-        <button type='submit'>Submit</button>
+        <button type='submit' className='feedback-submit'>Submit</button>
       </form>
     </div>
   )
