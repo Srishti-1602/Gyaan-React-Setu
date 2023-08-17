@@ -91,9 +91,9 @@ const NoteCard = ({ key, noteId, userId }) => {
         </div>
       </Link>
       <div className='note-rec-body'>
-        <p>Subject: {noteData.subject}</p>
-        <p>Creator: {creatorUsername}</p>
-        <p>Last Edited: {noteData.noteLastEdited}</p>
+        <p className='Subject-note'>Subject: {noteData.subject}</p>
+        <p className='Subject-note'>Creator: {creatorUsername}</p>
+        <p className='Subject-note'>Last Edited: {noteData.noteLastEdited}</p>
       </div>
       <div className='icon-my-notes'>
         <ul>
