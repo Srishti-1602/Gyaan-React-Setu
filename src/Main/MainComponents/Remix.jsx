@@ -3,7 +3,13 @@ import RemixIcon from "../../icons/share-forward-box-line.png";
 import "../main.css";
 import { useNavigate } from "react-router-dom";
 import { getDatabase, ref, update, set, onValue, get } from "firebase/database";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import {
+	getFirestore,
+	collection,
+	addDoc,
+	doc,
+	getDoc,
+} from "firebase/firestore";
 
 const RemixButton = ({ userId, noteId, isLoggedIn }) => {
 	const navigate = useNavigate();
@@ -43,10 +49,10 @@ const RemixButton = ({ userId, noteId, isLoggedIn }) => {
 			});
 		}
 
-		const newNoteId = newDocRef.id; // Get the ID of the newly created document
+		//const newNoteId = newDocRef.id; // Get the ID of the newly created document
 
 		// Update the Realtime Database with the remixed note information
-		const remixedNotesRef = ref(
+		/* const remixedNotesRef = ref(
 			database,
 			`users/${userId}/RemixedNotes/${newNoteId}`
 		);
@@ -56,7 +62,7 @@ const RemixButton = ({ userId, noteId, isLoggedIn }) => {
 			title: title,
 			subject: subject,
 			created_at: Date.now(),
-		});
+		}); */
 
 		// Close the remix form after successful remixing
 		setShowRemixNote(false);
