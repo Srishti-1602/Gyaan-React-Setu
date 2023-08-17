@@ -191,11 +191,13 @@ label {
 
 /* NOTES DISPLAY */
 
+
 .card-Notes-display {
     height: 100%;
     width: 96%;
     margin: 20px 0px 0px 20px;
     padding-right: 15px;
+    position: relative;
 }
 
 /* MY NOTES */
@@ -206,43 +208,58 @@ label {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    height: auto;
+    /* height: 150px; */
 }
 
 .col-display {
     background-color: #080c10;
     border: 1px solid #D9D9D9;
     border-radius: 8px;
-    height: auto;
-    /* height: 150px; */
+    /* height: auto; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 0px;
+    /* margin-bottom: 20px; */
+    flex: 1;
+    min-height: 0;
     flex: 0 0 calc(24.5% - 10px);
 
-    @media (max-width: 1060px) {
-        flex: 0 0 calc(32% - 10px);
-    }
+@media (max-width: 1060px) {
+    flex: 0 0 calc(32% - 10px);
+}
 
-    @media (max-width: 950px) {
-        flex: 0 0 calc(50% - 10px);
-    }
+@media (max-width: 950px) {
+    flex: 0 0 calc(50% - 10px);
+}
 
     /* @media (max-width: 770px) {
         flex: 0 0 calc(50% - 10px);
     } */
 }
 
+
 .note-rec-head {
-    background-color: #0c1e48;
+    background-color: #132551;
     margin-top: 0px;
-    padding: 5px 0px;
+    padding: 7px 0px;
     width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid #30333b;
 }
 
 .card-title-note {
     color: #D9D9D9;
     font-size: 18px;
     margin: 0px;
+    width: 88%;
+    padding-right: 5px;
 }
 
 .col-display li {
@@ -268,6 +285,9 @@ label {
     justify-content: flex-start;
     background-color: #0F1E31;
     border-radius: 8px;
+    /* position: absolute;
+    bottom: 0;
+    right: 0; */
     /* margin-top: 80px; */
 
     /* height: 40%; */
@@ -275,9 +295,12 @@ label {
 
 .note-rec-body {
     height: 85px;
+    /* height: auto; */
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    flex: 1;
+    margin-bottom: 5px;
 }
 
 .note-rec-body p {
@@ -285,10 +308,18 @@ label {
     padding: 0px;
     color: #D9D9D9;
     font-size: 14px;
+
 }
 
 .IconDash {
     margin-left: 5px;
     font-size: 15px;
     margin-right: 5px;
+}
+
+.Lock {
+    width: 18px;
+    display: flex;
+    align-items: flex-start;
+    /* margin-left: 5px; */
 }
