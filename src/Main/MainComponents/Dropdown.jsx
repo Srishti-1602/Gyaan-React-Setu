@@ -84,6 +84,9 @@ const Dropdown = ({ userId, noteId, isLoggedIn }) => {
 		setIsDropdownOpen(false);
 	};
 
+	console.log("userId:", userId);
+	console.log("noteId:", noteId);
+
 	return (
 		<div className="dropdown-container">
 			{isSmallScreen && (
@@ -110,9 +113,7 @@ const Dropdown = ({ userId, noteId, isLoggedIn }) => {
 							<div
 								className="option"
 								onClick={() => handleOptionClick("comment")}>
-								<div onClick={(e) => e.stopPropagation()}>
-									<CommentSection />
-								</div>
+								<CommentSection userId={userId} noteId={noteId} />
 							</div>
 							<div
 								className="option-feed"
@@ -136,7 +137,7 @@ const Dropdown = ({ userId, noteId, isLoggedIn }) => {
 					</div>
 					<div className="icons" onClick={() => handleOptionClick("comment")}>
 						<div onClick={(e) => e.stopPropagation()}>
-							<CommentSection />
+							<CommentSection userId={userId} noteId={noteId} />
 						</div>
 					</div>
 					<div className="icons" onClick={() => handleOptionClick("feedback")}>

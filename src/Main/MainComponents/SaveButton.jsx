@@ -114,7 +114,7 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID, queryId }) => {
 				set(communityRef, communityNoteData);
 
 				/* UNIMPORTANT */
-				const communityRefToUpdate = ref(
+				/* const communityRefToUpdate = ref(
 					database,
 					`community/${school}/${course}/${department}/${subject}/${uniqueFirestoreId}`
 				);
@@ -128,11 +128,11 @@ const SaveButton = ({ jsonData, queryRef, isLoggedIn, UserID, queryId }) => {
 					stars: 0,
 					views: 0,
 					remix: 0,
-				});
+				}); */
 				/* END OF UNIMPORTANT */
 
 				setShowSaveNote(false);
-				window.location.href = `/index?NId=${queryId}`;
+				window.location.href = `/index?NId=${uniqueFirestoreId}`;
 			})
 			.catch((error) => {
 				console.error("Error adding document: ", error);

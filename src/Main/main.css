@@ -67,14 +67,14 @@ form input {
   position: fixed;
 }
 
-/* .icon {
-  display: flex;
-} */
-
 .icon {
   display: flex;
-  margin-left: 83%;
 }
+
+/* .icon {
+  display: flex;
+  margin-left: 83%;
+} */
 
 .icons-container {
   display: flex;
