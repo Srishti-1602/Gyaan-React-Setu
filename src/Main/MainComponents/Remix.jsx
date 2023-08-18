@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RemixIcon from "../../icons/share-forward-box-line.png";
 import "../main.css";
 import { useNavigate } from "react-router-dom";
@@ -25,14 +25,28 @@ const RemixButton = ({ userId, noteId, isLoggedIn }) => {
 	};
 
 	const database = getDatabase();
+
+	/* Get User Data */
+	const [noteData, setNoteData] = useState(null);
+	useEffect(() => {
+		const userRef = ref(database, `notes/${noteId}`);
+
+		onValue(userRef, (snapshot) => {
+			const noteDataValue = snapshot.val();
+			setNoteData(noteDataValue);
+			console.log("Note Data:", noteData);
+		});
+	}, [noteId]);
+	/* End of Get User Data */
+
 	const noteContentRef = ref(database, `notes/${noteId}/noteContent`);
 	const firestore = getFirestore();
 
 	const handleRemixSubmit = async (event) => {
 		event.preventDefault();
 
-		const title = document.getElementById("save-title").value;
-		const subject = document.getElementById("save-subject").value;
+		const remixTitle = document.getElementById("remix-title").value;
+		const remixSubject = document.getElementById("remix-subject").value;
 
 		// Read the content of the original note from Firestore
 		const snapshot = await get(noteContentRef);
@@ -44,9 +58,59 @@ const RemixButton = ({ userId, noteId, isLoggedIn }) => {
 			// Create a new document in Firestore's 'notes' collection for the remixed note
 			const collectionRef = collection(firestore, "notes"); // Initialize collectionRef
 
-			const newDocRef = await addDoc(collectionRef, {
+			addDoc(collectionRef, {
 				jsonData: docSnap.data().jsonData, // Assuming the originalNoteContent is in JSON format
-			});
+			})
+				.then((docRef) => {
+					console.log("Document written with ID: ", docRef.id);
+					const uniqueFirestoreId = docRef.id;
+
+					/* Update User Notes Data for Dashboard Page */
+					const userMyNotesRef = ref(
+						database,
+						`users/${userId}/RemixedNotes/${uniqueFirestoreId}`
+					);
+					set(userMyNotesRef, true);
+					/* END OF Update User Notes Data for Dashboard Page */
+
+					/* Save data for Dashboard Page */
+					//const notesRefToUpdate = ref(database, `notes/${queryId}`);
+					//set(notesRefToUpdate, newNoteData);
+					/* END OF Save data for Dashboard Page */
+
+					/* Save data for Community Page */
+					const school = noteData.school;
+					const course = noteData.course;
+					const department = noteData.department;
+					const owner = noteData.owner;
+
+					const communityNoteData = {
+						title: remixTitle,
+						subject: remixSubject,
+						noteContent: uniqueFirestoreId,
+						created_by: userId,
+						created_at: Date.now(),
+						forked: true,
+						forked_from: noteId,
+						owner: owner,
+						stars: 0,
+						views: 0,
+						remix: 0,
+						private: true,
+						school: school,
+						course: course,
+						department: department,
+					};
+
+					const communityRef = ref(database, `notes/${uniqueFirestoreId}`);
+					set(communityRef, communityNoteData);
+					// Close the remix form after successful remixing
+					setShowRemixNote(false);
+					window.location.href = `/index?NId=${uniqueFirestoreId}`;
+				})
+				.catch((error) => {
+					console.error("Error adding document: ", error);
+				});
 		}
 
 		//const newNoteId = newDocRef.id; // Get the ID of the newly created document
@@ -63,9 +127,6 @@ const RemixButton = ({ userId, noteId, isLoggedIn }) => {
 			subject: subject,
 			created_at: Date.now(),
 		}); */
-
-		// Close the remix form after successful remixing
-		setShowRemixNote(false);
 
 		// You can redirect the user to the newly remixed note page or perform other actions here
 	};
@@ -91,18 +152,18 @@ const RemixButton = ({ userId, noteId, isLoggedIn }) => {
 						<div className="save-inforec">
 							<div className="save-info">
 								{/* Form for saving notes */}
-								<form id="savenote-form" onSubmit={handleRemixSubmit}>
+								<form id="remixnote-form" onSubmit={handleRemixSubmit}>
 									<input
 										type="text"
 										className="save-title-Note"
-										id="save-title"
+										id="remix-title"
 										placeholder="Note Title"
 										required
 									/>
 									<input
 										type="text"
 										className="save-title-Sub"
-										id="save-subject"
+										id="remix-subject"
 										placeholder="Subject"
 										required
 									/>
