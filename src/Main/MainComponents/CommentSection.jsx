@@ -90,7 +90,9 @@ const CommentSection = ({ userId, noteId }) => {
 							<p>
 								Commented by: {usernames[comment.commentor] || "Loading..."}
 							</p>
-							<p>{comment.comment}</p>
+							<p>
+								<b>{comment.comment}</b>
+							</p>
 							<p>Date: {new Date(comment.commentDate).toLocaleString()}</p>
 						</div>
 					))}
