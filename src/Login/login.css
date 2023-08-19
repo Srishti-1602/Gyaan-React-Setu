@@ -1,27 +1,35 @@
-.back{
-background: linear-gradient(to bottom,rgb(34, 34, 115),#390985);
-position: absolute;
+.back {
+  background: linear-gradient(to bottom, rgb(34, 34, 115), #390985);
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
 
-.App{
-background-color: #0F1E31;
- display: flex;
+.App {
+  background-color: #0F1E31;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-width: 100%;
-color: #D9D9D9;
+  color: #D9D9D9;
+  width: 80%;
+  margin: auto;
+  height: 100%;
+  overflow: hidden;
 
 }
+
 .Info {
   flex: 1;
   padding: 20px;
   margin-top: -150px;
+  justify-content: center;
 }
 
+#firebaseui-auth-container {
+  min-width: 250px !important;
+}
 
 
 @media screen and (max-width: 768px) {
@@ -32,21 +40,38 @@ color: #D9D9D9;
   .Info {
     margin-top: 13%;
   }
+
+  .welcome {
+    margin-top: 0px !important;
+  }
 }
 
-.gyaan{
-color: #ccc ;
-/* font-size: 2vw; */
-margin-bottom: 100px;
-margin-top: 15px;
+
+@media screen and (max-width: 550px) {
+  #firebaseui-auth-container {
+    margin-left: -20px !important;
+  }
 }
 
-.welcome{
-color: #ccc;
-margin-top: -40px;
-font-weight: lighter;
+@media screen and (max-width: 400px) {
+  #firebaseui-auth-container {
+    margin-left: -53px !important;
+  }
 }
 
-.Para{
-margin: 20px;
+.gyaan {
+  color: #ccc;
+  /* font-size: 2vw; */
+  margin-bottom: 100px;
+  margin-top: 15px;
+}
+
+.welcome {
+  color: #ccc;
+  margin-top: -40px;
+  font-weight: lighter;
+}
+
+.Para {
+  margin: 20px;
 }
