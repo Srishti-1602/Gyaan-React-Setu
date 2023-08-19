@@ -1,15 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CommentIcon from "../../icons/discuss-line.png";
 import { getDatabase, ref, push, set, onValue } from "firebase/database";
-import { useNavigate } from "react-router-dom";
 
 const CommentSection = ({ userId, noteId }) => {
 	const [comments, setComments] = useState([]);
 	const [commentText, setCommentText] = useState("");
 	const [showCommentSection, setShowCommentSection] = useState(false);
+	const [usernames, setUsernames] = useState({}); // State to store usernames
 
 	const database = getDatabase();
 	const commentsRef = ref(database, `notes/${noteId}/Comments`);
+
+	// Function to parse comment data and add it to the state
+	const parseCommentData = (snapshot) => {
+		const commentsData = snapshot.val();
+		if (commentsData) {
+			const parsedComments = Object.values(commentsData);
+			setComments(parsedComments);
+		} else {
+			setComments([]);
+		}
+	};
+
+	useEffect(() => {
+		// Listen for changes to the commentsRef
+		onValue(commentsRef, parseCommentData);
+	}, [commentsRef]);
+
+	// Function to fetch usernames
+	const fetchUsername = (userId) => {
+		const usernameRef = ref(database, `users/${userId}/username`);
+		onValue(usernameRef, (snapshot) => {
+			const username = snapshot.val() || "Unknown User";
+			setUsernames((prevUsernames) => ({
+				...prevUsernames,
+				[userId]: username,
+			}));
+		});
+	};
+
+	// Fetch usernames for commentors
+	useEffect(() => {
+		comments.forEach((comment) => {
+			const commentorId = comment.commentor;
+			if (!usernames[commentorId]) {
+				fetchUsername(commentorId);
+			}
+		});
+	}, [comments, usernames]);
 
 	const handleCommentSubmit = async (e) => {
 		e.preventDefault();
@@ -49,7 +87,11 @@ const CommentSection = ({ userId, noteId }) => {
 					</span>
 					{comments.map((comment, index) => (
 						<div className="comment" key={index}>
-							{comment.comment}
+							<p>
+								Commented by: {usernames[comment.commentor] || "Loading..."}
+							</p>
+							<p>{comment.comment}</p>
+							<p>Date: {new Date(comment.commentDate).toLocaleString()}</p>
 						</div>
 					))}
 				</div>
