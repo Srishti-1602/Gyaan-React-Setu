@@ -13,6 +13,8 @@ import Github from '../icons/github-fill.png'
 import Insta from '../icons/instagram-line.png'
 import Twitter from '../icons/twitter-fill.png'
 import Discord from '../icons/discord-fill.png'
+import Srishti from '../Images/Srishti_Agrawal.jpeg'
+import Sukritee from '../Images/WhatsApp Image 2023-08-20 at 2.00.15 AM.jpeg'
 
 function Start () {
   //   const handleButtonClick = () => {
@@ -133,14 +135,14 @@ In publishing and graphic design, Lorem ipsum is a placeholder text commonly use
 
       <div className='container'>
         <div className='profile'>
-          <img src='https://via.placeholder.com/150' alt='profile' />
+          <img src={Sukritee} alt='profile' />
           <div className='profile-info'>
             <h3>Sukritee Sharma</h3>
             <p>Founder</p>
           </div>
         </div>
         <div className='profile'>
-          <img src='https://via.placeholder.com/150' alt='profile' />
+          <img src={Srishti} alt='profile' />
           <div className='profile-info'>
             <h3>Srishti Agrawal</h3>
             <p>Founder</p>

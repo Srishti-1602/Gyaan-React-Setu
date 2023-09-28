@@ -51,10 +51,12 @@ align-items: center;
 }
 
 .navbar-whole .navbar-toggler {
-  background-color: #2f4460;
+  background-color: #1b293b;
   border: none;
   margin-left: 10px;
   z-index: 1;
+  /* width: 10%;
+  height: 10%; */
 }
 
 
@@ -128,6 +130,50 @@ align-items: center;
   margin-top: 20px;
 
 }
+
+@media screen and (max-width: 400px) {
+
+  .Head {
+    font-size: 10vw;
+  }
+
+  .pinkback2,
+  .pinkback1 {
+    margin-top: 6px;
+  }
+
+  .Logo {
+    width: 22%;
+    margin-top: 11%;
+    left: 50%;
+  }
+
+  .TakeNotes,
+  .deleting,
+  .Them {
+    font-size: 4.5vw;
+  }
+
+  .TakeNotes {
+    margin-left: 21%;
+  }
+
+  .JoinCom {
+    margin-top: 20px;
+    height: 85px;
+  }
+
+  .Join {
+    padding-top: 10px;
+    font-size: 5.5vw;
+  }
+
+  .navabout {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+}
+
 
 .TryGyaanSetu {
   font-size: 85%;
@@ -232,10 +278,27 @@ align-items: center;
 
   .JoinImg {
     width: 100%;
-    height: 120px;
+    height: 120px !important;
     margin-bottom: 10px;
   }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .TakeNotesContainer {
+    flex-direction: column;
+  }
+
+  .BackNotes {
+    width: 100% !important;
+    height: 120px !important;
+    margin-top: 10px !important;
+  }
 }
+
+
+
 
 .TakeNotesContainer {
   background-color: #0F1E31;
@@ -286,17 +349,6 @@ align-items: center;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .TakeNotesContainer {
-    flex-direction: column;
-  }
-
-  .BackNotes {
-    width: 100%;
-    height: 120px;
-    margin-top: 10px;
-  }
-}
 
 
 .TakeNotesInfo {
@@ -376,11 +428,7 @@ align-items: center;
   color: #D9D9D9;
 }
 
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-}
+
 
 
 
